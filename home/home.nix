@@ -82,7 +82,9 @@
     # krita
     # dwarf-fortress
 
+    # 3d printing
     cura
+    super-slicer-latest
   ];
 
   home.sessionVariables = {
