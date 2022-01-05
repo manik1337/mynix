@@ -75,6 +75,7 @@
     # utils
     dmenu
     ncpamixer
+    btop
 
     libreoffice
     zathura
