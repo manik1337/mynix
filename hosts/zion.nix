@@ -2,7 +2,8 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   fileSystems."/" =
@@ -64,6 +65,7 @@
   };
 
   hardware = {
+    cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     video.hidpi.enable = lib.mkDefault true;
     nvidia = {
       powerManagement = {

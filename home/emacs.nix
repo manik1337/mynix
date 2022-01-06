@@ -1,50 +1,24 @@
-{ pkgs ? import <nixpkgs> { } }:
+{ config, pkgs, inputs, ... }:
+{
+  imports = [
+    inputs.nix-doom-emacs.hmModule
+  ];
 
-let
-  myEmacs = pkgs.emacs;
-  emacsWithPackages = (pkgs.emacsPackagesFor myEmacs).emacsWithPackages;
-in emacsWithPackages (epkgs:
-  (with epkgs.melpaPackages; [
-    use-package
+  home.sessionVariables.EDITOR = "emacs";
+  programs.doom-emacs = {
+    enable = true;
+    emacsPackagesOverlay = self: super: {
+      lsp-mode = super.lsp-mode.overrideAttrs (esuper: {
+        buildInputs = esuper.buildInputs ++ [ pkgs.erlang-ls ];
+      });
+    };
+  };
 
-    magit
-    vterm
-
-    color-theme-sanityinc-tomorrow
-    cyberpunk-theme
-    doom-themes
-    zenburn-theme
-    jetbrains-darcula-theme
-    base16-theme
-    solarized-theme
-    nord-theme
-
-    projectile
-    helm
-    ag
-
-    treemacs
-    treemacs-evil
-    treemacs-icons-dired
-    treemacs-magit
-    
-    lsp-mode
-    lsp-ui
-    lsp-origami
-    helm-lsp
-    flycheck
-    company
-    yasnippet
-    evil
-
-    erlang
-    haskell-mode
-    solidity-mode
-    go-mode
-    python-mode
-    elixir-mode
-    
-    rustic
-
-    nix-mode
-  ]))
+  home.packages = with pkgs; [
+    git
+    ripgrep
+    fd
+    coreutils
+    # clang
+  ];
+}

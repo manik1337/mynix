@@ -7,6 +7,7 @@
     ./i3.nix
     ./polybar.nix
     ./redshift.nix
+    ./emacs2.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -43,14 +44,7 @@
     # editors
     vim
     
-    emacs    # Emacs 27.2
-    ripgrep
-    # optional dependencies
-    coreutils # basic GNU utilities
-    fd
-    emacs-all-the-icons-fonts
-    # clang
-    
+
     # (import ./emacs.nix { inherit pkgs; })
     vscode
     # sublime3
@@ -137,6 +131,13 @@
     };
   };
   
-  xsession.enable = true;
+  xsession = {
+    enable = true;
+    pointerCursor = {
+      package = pkgs.vanilla-dmz;
+      name = "Vanilla-DMZ";
+      size = 48;
+    };
+  };
   programs.home-manager.enable = true;
 }
