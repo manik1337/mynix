@@ -7,12 +7,12 @@
     ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/7b76eed5-0786-4304-901b-f8a34d9bfb96";
+    { device = "/dev/disk/by-uuid/afe999a3-229e-4923-bc74-843572991548";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/6576-E665";
+    { device = "/dev/disk/by-uuid/8F93-3EE5";
       fsType = "vfat";
     };
 
@@ -26,13 +26,7 @@
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
-      grub = {
-        enable = true;
-        devices = [ "nodev" ];
-        efiSupport = true;
-        useOSProber = true;
-      };
-    };
+   };
   };
 
   swapDevices = [ ];
@@ -110,5 +104,5 @@
     };
   };
 
-  system.stateVersion = "20.09";
+  system.stateVersion = "21.11";
 }

@@ -136,7 +136,7 @@
     pointerCursor = {
       package = pkgs.vanilla-dmz;
       name = "Vanilla-DMZ";
-      size = 48;
+      size = 32;
     };
   };
   programs.home-manager.enable = true;
