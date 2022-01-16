@@ -5,9 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-21.11";
     home-manager.url = "github:nix-community/home-manager";
 
-    nix-doom-emacs.url = "github:vlaci/nix-doom-emacs"                           ;
     emacs-overlay.url = "github:nix-community/emacs-overlay";
-    nix-doom-emacs.inputs.emacs-overlay.follows = "emacs-overlay";
   };
 
   outputs = inputs@{ self, home-manager, nixpkgs, ... }:
@@ -16,6 +14,7 @@
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
+      overlays = [ (import ./overlays/dwm.nix) ];
     };
     mkComputer = configurationNix: extraModules: nixpkgs.lib.nixosSystem {
       inherit system pkgs;

@@ -1,5 +1,12 @@
 { pkgs, lib, ... }: {
   xsession = {
+    enable = true;
+    pointerCursor = {
+      package = pkgs.vanilla-dmz;
+      name = "Vanilla-DMZ";
+      size = 32;
+    };
+
     windowManager.i3 = {
       enable = true;
       package = pkgs.i3-gaps;

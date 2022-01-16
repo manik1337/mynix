@@ -44,18 +44,9 @@
       enable = true;
       libinput.enable = true;
       videoDrivers = [ "nvidia" ];
-      displayManager = {
-        lightdm.enable = true;
-        defaultSession = "none+fake";
-        session = let
-          fakeSession = {
-            manage = "window";
-            name = "fake";
-            start = "";
-          };
-        in [ fakeSession ];
-      };
-    };
+      displayManager.lightdm.enable = true;
+      windowManager.dwm.enable = true;
+   };
   };
 
   hardware = {
@@ -73,7 +64,6 @@
 
   sound.enable = true;
 
-  # Docker
   virtualisation.docker.enable = true;
 
   users.users.dmanik = {
@@ -92,15 +82,6 @@
     wireshark = {
       enable = true;
       package = pkgs.wireshark;
-    };
-    zsh = {
-      enable = true;
-      enableCompletion = true;
-      ohMyZsh = {
-        theme = "lambda";
-        enable = true;
-        plugins = [ "git" "sudo" ];
-      };
     };
   };
 
