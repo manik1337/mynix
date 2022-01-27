@@ -11,14 +11,13 @@
     ./browser.nix
     ./nvim.nix
     ./dwm.nix
+    ./zsh.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
     alacritty
-    tdesktop
-    kotatogram-desktop
 
     # erlang
     erlangR24
@@ -33,9 +32,12 @@
     rust-analyzer
     rustfmt
 
+    # nix
+    nixfmt
+    rnix-lsp
+
     # etc
     cudatoolkit
-    nixfmt
     gcc
     gnumake
     ghc
@@ -43,6 +45,8 @@
     oh-my-zsh
     git
     ag
+    neomutt
+    calcurse
 
     # editors
     vim
@@ -52,7 +56,9 @@
     nerdfonts
     emacs-all-the-icons-fonts
 
-    # messangers
+    # messengers
+    tdesktop
+    kotatogram-desktop
     discord
     slack
 
@@ -67,6 +73,9 @@
     dmenu
     ncpamixer
     btop
+    bat
+    fzf
+    exa
 
     libreoffice
     zathura
@@ -86,15 +95,6 @@
     gh = {
       enable = true;
       settings.git_protocol = "ssh";
-    };
-    zsh = {
-      enable = true;
-      enableCompletion = true;
-      oh-my-zsh = {
-        enable = true;
-        theme = "lambda";
-        plugins = [ "git" "sudo" ];
-      };
     };
   };
 

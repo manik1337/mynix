@@ -4,7 +4,10 @@
   programs = {
     firefox = {
       enable = true;
-    #   extensions = with pkgs.firefox-addons; [
+    };
+    #     extensions = with pkgs.firefox-addons; [
+    #       solflare-wallet
+    #       ether-metamask
 
     #     # privacy
     #     ublock-origin
@@ -23,8 +26,8 @@
 
     #     # work
     #     plantuml-visualizer
-    #   ];
-    };
+    #     ];
+    #   };
     chromium = {
       enable = true;
       extensions = [

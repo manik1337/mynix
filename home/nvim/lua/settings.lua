@@ -12,7 +12,11 @@ map('n', '<C-n>', ':Telescope live_grep <CR>', options)
 vim.cmd [[ colorscheme gruvbox ]]
 
 -- Indent line
-g.indent_blankline_char = '▏'
+opt.list = true
+opt.listchars:append("space:⋅")
+opt.listchars:append("eol:↴")
+g.show_end_of_line = true
+g.space_char_blankline = " "
 
 -- Performance
 opt.lazyredraw = true;
@@ -27,8 +31,8 @@ opt.undofile = true
 
 -- Indentation
 opt.smartindent = true
-opt.tabstop = 4
-opt.shiftwidth = 4
+opt.tabstop = 2
+opt.shiftwidth = 2
 opt.shiftround = true
 opt.expandtab = true
 opt.scrolloff = 3

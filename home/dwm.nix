@@ -7,7 +7,7 @@
       text = "
       #!/bin/sh
       status () { 
-          echo -n BAT: \"$(acpi | awk '{print $4}' | sed s/,//) | $(date '+%m/%d %H:%M') \" 
+          echo -n \"$(date '+%m/%d %H:%M') \"
       }
       setxkbmap -layout us,ru -option grp:alt_shift_toggle
       ${pkgs.feh}/bin/feh --no-fehbg --bg-fill ~/wp.jpg
