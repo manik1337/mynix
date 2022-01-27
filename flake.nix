@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-21.11";
     home-manager.url = "github:nix-community/home-manager";
-
+    nur.url = "github:nix-community/NUR";
     emacs-overlay.url = "github:nix-community/emacs-overlay";
   };
 
@@ -14,7 +14,7 @@
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
-      overlays = [ (import ./overlays/dwm.nix) ];
+      overlays = [ (import ./overlays/dwm.nix) inputs.nur.overlay ];
     };
     mkComputer = configurationNix: extraModules: nixpkgs.lib.nixosSystem {
       inherit system pkgs;
