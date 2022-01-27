@@ -47,6 +47,7 @@
     ag
     neomutt
     calcurse
+    xclip
 
     # editors
     vim
