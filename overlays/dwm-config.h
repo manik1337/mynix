@@ -1,6 +1,6 @@
 /* See LICENSE file for copyright and license details. */
 
-//#include "fibonacci.c"
+#include "fibonacci.c"
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
@@ -21,7 +21,8 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7" };
+//static const char *tags[] = { "", "", "", "", "" };
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
@@ -39,9 +40,9 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-//	{ "[@]",      dwindle },    /* first entry is default */
-	{ "><>",      NULL    },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	{ "D"  ,    dwindle },    /* first entry is default */
+	{ "><>",    NULL    },    /* no layout function means floating behavior */
+	{ "M"  ,    monocle },
 };
 
 /* key definitions */
