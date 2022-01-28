@@ -77,6 +77,7 @@
     bat
     fzf
     exa
+    wget
 
     libreoffice
     zathura
