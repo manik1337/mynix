@@ -9,6 +9,7 @@
       push.default = "current";
       pull.ff = "only";
       core.qoutePath = false;
+      merge.confictStyle = "diff3";
     };
   };
 }
