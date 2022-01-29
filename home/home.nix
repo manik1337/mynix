@@ -12,6 +12,7 @@
     ./nvim.nix
     ./dwm.nix
     ./zsh.nix
+    ./newsboat.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
