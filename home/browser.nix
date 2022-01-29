@@ -63,18 +63,10 @@
         tree-style-tab
       ];
     };
-
-    chromium = {
-      enable = true;
-      extensions = [
-        "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
-        "aapbdbdomjkkjkaonfhkkikfgjllcleb" # translate
-        "gcbommkclmclpchllfjekcdonpmejbdp" # https everywhere
-      ];
-    };
   };
 
   home.packages = with pkgs; [
+    chromium
     torbrowser
   ];
 
