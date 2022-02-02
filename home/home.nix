@@ -18,8 +18,6 @@
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
-    alacritty
-
     # erlang
     erlangR24
     erlang-ls
@@ -37,6 +35,8 @@
     nixfmt
     rnix-lsp
 
+    terraform
+
     # etc
     cudatoolkit
     gcc
@@ -46,17 +46,14 @@
     oh-my-zsh
     git
     ag
-    neomutt
-    calcurse
     xclip
 
     # editors
     vim
     vscode
 
-    jetbrains-mono
+    # fonts
     nerdfonts
-    emacs-all-the-icons-fonts
 
     # messengers
     tdesktop
