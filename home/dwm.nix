@@ -7,7 +7,7 @@
       text = "
       #!/bin/sh
       status () { 
-          echo -n \"$(date '+%m/%d %H:%M') \"
+          echo -n \"$(date '+%d/%m %H:%M') \"
       }
       setxkbmap -layout us,ru -option grp:alt_shift_toggle
       xrandr --auto --output DP-0 --primary --rate 144 --output HDMI-0 --right-of DP-0

@@ -9,7 +9,7 @@ map('n', '<C-f>', ':Telescope find_files <CR>', options)
 map('n', '<C-n>', ':Telescope live_grep <CR>', options)
 
 -- Colorscheme
-vim.cmd [[ colorscheme gruvbox ]]
+vim.cmd [[ colorscheme nord ]]
 
 -- Indent line
 opt.list = true

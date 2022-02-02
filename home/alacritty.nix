@@ -11,44 +11,72 @@
         multiplier = 30;
       };
       font = {
-        normal.family = "Hack";
-        size = 12;
+        normal.family = "Hack Nerd Font";
+        size = 10;
       };
       background_opacity = 0.95;
       selection.save_to_clipboard = true;
       cursor.style = "Block";
       cursor.unfocused_hollow = true;
       url.launcher.program = "firefox";
+
       colors = {
         primary = {
-          background = "0x181818";
-          foreground = "0xd8d8d8";
+          background = "#2e3440";
+          foreground = "#d8dee9";
+          dim_foreground = "#a5abb6";
         };
-
         cursor = {
-          text = "0x181818";
-          cursor = "0xd8d8d8";
+          text = "#2e3440";
+          cursor = "#d8dee9";
         };
-
+        vi_mode_cursor = {
+          text = "#2e3440";
+          cursor = "#d8dee9";
+        };
+        selection = {
+          #text =  CellForeground
+          background = "#4c566a";
+        };
+        search = {
+          matches = {
+            #foreground: CellBackground
+            background = "#88c0d0";
+          };
+          bar = {
+            background = "#434c5e";
+            foreground = "#d8dee9";
+          };
+        };
         normal = {
-          black = "0x181818";
-          red = "0xab4642";
-          green = "0xa1b56c";
-          yellow = "0xf7ca88";
-          blue = "0x7cafc2";
-          magenta = "0xba8baf";
-          cyan = "0x86c1b9";
-          white = "0xd8d8d8";
+          black = "#3b4252";
+          red = "#bf616a";
+          green = "#a3be8c";
+          yellow = "#ebcb8b";
+          blue = "#81a1c1";
+          magenta = "#b48ead";
+          cyan = "#88c0d0";
+          white = "#e5e9f0";
         };
-
         bright = {
-          black = "0x585858";
-          red = "0xdc9656";
-          green = "0x282828";
-          yellow = "0x383838";
-          blue = "0xb8b8b8";
-          magenta = "0xe8e8e8";
-          cyan = "0xa16946";
+          black = "#4c566a";
+          red = "#bf616a";
+          green = "#a3be8c";
+          yellow = "#ebcb8b";
+          blue = "#81a1c1";
+          magenta = "#b48ead";
+          cyan = "#8fbcbb";
+          white = "#eceff4";
+        };
+        dim = {
+          black = "#373e4d";
+          red = "#94545d";
+          green = "#809575";
+          yellow = "#b29e75";
+          blue = "#68809a";
+          magenta = "#8c738c";
+          cyan = "#6d96a5";
+          white = "#aeb3bb";
         };
       };
 

@@ -29,9 +29,11 @@
       vim-erlang-runtime
       vim-nix
       rust-tools-nvim
+      vim-terraform
 
       # Eyecandy 
       gruvbox
+      nord-nvim
       nvim-treesitter
 
       # Telescope
