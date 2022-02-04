@@ -60,6 +60,7 @@
         foxyproxy-standard
 
         # ui
+        darkreader
         tree-style-tab
       ];
     };
