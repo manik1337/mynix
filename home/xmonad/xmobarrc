@@ -1,0 +1,22 @@
+ Config
+  { font        = "xft:Hack Nerd Font:pixelsize=12"
+  , borderColor = "#2E3440"
+  , border      = TopB
+  , borderWidth = 3
+  , bgColor     = "#2E3440"
+  , fgColor     = "#D8DEE9"
+  , alpha = 255
+  , position    = Top
+  , lowerOnStart = True
+  , allDesktops = True
+  , hideOnStart = False
+  , commands    =
+      [ Run Cpu ["-t", "cpu: <fc=#4eb4fa><bar> <total>%</fc>"] 10
+      , Run Network "enp3s0" ["-S", "True", "-t", "eth: <fc=#4eb4fa><rx></fc>/<fc=#4eb4fa><tx></fc>"] 10
+      , Run Memory ["-t","mem: <fc=#4eb4fa><usedbar> <usedratio>%</fc>"] 10
+      , Run Date "<fc=#4eb4fa>%a %d %b %Y %H:%M:%S </fc>" "date" 10
+      ]
+  , sepChar     = "%"
+  , alignSep    = "}{"
+  , template    = "  %cpu% | %memory% | %enp3s0%  }{%date%  "
+  }

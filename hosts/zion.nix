@@ -42,10 +42,24 @@
   services = {
     xserver = {
       enable = true;
+      xrandrHeads = [
+        {
+          output = "DP-0";
+          primary = true;
+        }
+        {
+          output = "HDMI-0";
+          monitorConfig = "Option \"RightOf\" \"DP-0\"";
+        }
+      ];
       libinput.enable = true;
       videoDrivers = [ "nvidia" ];
-      displayManager.lightdm.enable = true;
-      windowManager.dwm.enable = true;
+      displayManager = {
+        lightdm.enable = true;
+        defaultSession = "none+xmonad";
+      };
+      windowManager.xmonad.enable = true;
+      # windowManager.dwm.enable = true;
    };
   };
 
