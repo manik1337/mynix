@@ -14,7 +14,7 @@
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
-      overlays = [ (import ./overlays/dwm.nix) inputs.nur.overlay ];
+      overlays = [ inputs.nur.overlay ];
     };
     mkComputer = configurationNix: extraModules: nixpkgs.lib.nixosSystem {
       inherit system pkgs;

@@ -4,15 +4,12 @@
     ./rofi.nix
     ./compton.nix
     ./git.nix
-    ./polybar.nix
     ./redshift.nix
-    ./emacs.nix
     ./dunst.nix
     ./browser.nix
     ./nvim.nix
-    ./dwm.nix
     ./zsh.nix
-    ./newsboat.nix
+    ./xmonad
   ];
 
   nixpkgs.config.allowUnfree = true;

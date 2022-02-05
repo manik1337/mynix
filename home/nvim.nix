@@ -51,4 +51,8 @@
         EOF
       '';
   };
+
+  home.packages = with pkgs; [
+    ripgrep
+  ];
 }
