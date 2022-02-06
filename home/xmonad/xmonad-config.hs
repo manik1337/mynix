@@ -11,6 +11,7 @@ import XMonad
 import Data.Monoid
 import System.Exit
 
+import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run
 
@@ -241,8 +242,16 @@ myEventHook = mempty
 -- Perform an arbitrary action on each internal state change or X event.
 -- See the 'XMonad.Hooks.DynamicLog' extension for examples.
 --
-myLogHook = return ()
-
+myLogHook h0 h1 = dynamicLogWithPP $ def
+  { ppLayout = wrap "(<fc=#e4b63c>" "</fc>)"
+  -- , ppSort = getSortByXineramaRule  -- Sort left/right screens on the left, non-empty workspaces after those
+  , ppTitleSanitize = const ""  -- Also about window's title
+  , ppVisible = wrap "(" ")"  -- Non-focused (but still visible) screen
+  , ppCurrent = wrap "<fc=#b8473d>[</fc><fc=#7cac7a>" "</fc><fc=#b8473d>]</fc>"-- Non-focused (but still visible) screen
+  --, ppOutput = hPutStrLn h
+  , ppOutput = \x -> hPutStrLn h0 x   -- xmobar on monitor 1
+                  >> hPutStrLn h1 x   -- xmobar on monitor 2
+  }
 ------------------------------------------------------------------------
 -- Startup hook
 
@@ -262,9 +271,33 @@ main = do
   _ <- spawnPipe "setxkbmap -layout us,ru -option grp:alt_shift_toggle"
   --_ <- spawnPipe "xrandr --auto --output DP-0 --primary --rate 144 --output HDMI-0 --right-of DP-0"
   _ <- spawnPipe "feh --no-fehbg --bg-fill ~/wp2.png"
-  _ <- spawnPipe "xmobar -x 0"
-  _ <- spawnPipe "xmobar -x 1"
-  xmonad $ docks defaults
+  -- _ <- spawnPipe "xmobar -x 0"
+  -- _ <- spawnPipe "xmobar -x 1"
+  xmobarProc1 <- spawnPipe "xmobar -x 0"
+  xmobarProc2 <- spawnPipe "xmobar -x 1"
+  xmonad $ docks $ def {
+      -- simple stuff
+        terminal           = myTerminal,
+        focusFollowsMouse  = myFocusFollowsMouse,
+        clickJustFocuses   = myClickJustFocuses,
+        borderWidth        = myBorderWidth,
+        modMask            = myModMask,
+        workspaces         = myWorkspaces,
+        normalBorderColor  = myNormalBorderColor,
+        focusedBorderColor = myFocusedBorderColor,
+
+      -- key bindings
+        keys               = myKeys,
+        mouseBindings      = myMouseBindings,
+
+      -- hooks, layouts
+        layoutHook         = myLayout,
+        manageHook         = myManageHook,
+        handleEventHook    = myEventHook,
+        logHook            = myLogHook xmobarProc1 xmobarProc2,
+        startupHook        = myStartupHook
+    }
+    
 
 -- A structure containing your configuration settings, overriding
 -- fields in the default config. Any you don't override, will
@@ -291,7 +324,7 @@ defaults = def {
         layoutHook         = myLayout,
         manageHook         = myManageHook,
         handleEventHook    = myEventHook,
-        logHook            = myLogHook,
+        -- logHook            = myLogHook,
         startupHook        = myStartupHook
     }
 
