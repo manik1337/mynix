@@ -7,7 +7,7 @@
     ./redshift.nix
     ./dunst.nix
     ./browser.nix
-    ./nvim.nix
+    ./nvim
     ./zsh.nix
     ./xmonad
   ];

@@ -45,9 +45,9 @@
     extraConfig =
       ''
         lua << EOF
-        ${lib.strings.fileContents ./nvim/lua/lsp.lua}
-        ${lib.strings.fileContents ./nvim/lua/nvim-tree.lua}
-        ${lib.strings.fileContents ./nvim/lua/settings.lua}
+        ${lib.strings.fileContents ./lua/lsp.lua}
+        ${lib.strings.fileContents ./lua/nvim-tree.lua}
+        ${lib.strings.fileContents ./lua/settings.lua}
         EOF
       '';
   };
