@@ -6,9 +6,10 @@
     home-manager.url = "github:nix-community/home-manager";
     nur.url = "github:nix-community/NUR";
     emacs-overlay.url = "github:nix-community/emacs-overlay";
+    deploy-rs.url = "github:serokell/deploy-rs";
   };
 
-  outputs = inputs@{ self, home-manager, nixpkgs, ... }:
+  outputs = inputs@{ self, home-manager, nixpkgs, deploy-rs, ... }:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
@@ -50,5 +51,16 @@
     nixosConfigurations = {
       zion = mkComputer ./hosts/zion.nix [];
     };
+    deploy = {
+      sshUser = "root";
+      nodes.zion = {
+        hostname = "localhost";
+        profiles.system = {
+          user = "root";
+          path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.zion;
+        };
+      };
+    };
+    checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
   };
 }

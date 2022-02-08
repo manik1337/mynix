@@ -5,3 +5,6 @@ clean:
 
 switch:
 	nixos-rebuild --flake .#zion switch
+
+deploy:
+	nix run github:serokell/deploy-rs .#zion.system

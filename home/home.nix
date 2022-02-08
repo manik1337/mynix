@@ -10,6 +10,7 @@
     ./nvim
     ./zsh.nix
     ./xmonad
+    ./security.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -42,6 +43,8 @@
     jq
     oh-my-zsh
     git
+    git-crypt
+    gnupg
     ag
     xclip
 

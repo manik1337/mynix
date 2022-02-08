@@ -60,7 +60,8 @@
       };
       windowManager.xmonad.enable = true;
       # windowManager.dwm.enable = true;
-   };
+    };
+    openssh.enable = true;
   };
 
   hardware = {
@@ -80,12 +81,15 @@
 
   virtualisation.docker.enable = true;
 
-  users.users.dmanik = {
-    isNormalUser = true;
-    home = "/home/dmanik";
-    shell = pkgs.zsh;
-    extraGroups =
-      [ "wheel" "audio" "docker" "wireshark" "networkmanager" "plugdev" ];
+  users.users = {
+    dmanik = {
+      isNormalUser = true;
+      home = "/home/dmanik";
+      shell = pkgs.zsh;
+      extraGroups =
+        [ "wheel" "audio" "docker" "wireshark" "networkmanager" "plugdev" ];
+    };
+    root.openssh.authorizedKeys.keys = [ (builtins.readFile ../secrets/ssh.rsa.pub) ];
   };
 
   fonts.fonts = with pkgs; [ jetbrains-mono nerdfonts hack-font ];
