@@ -8,6 +8,7 @@
     ./dunst.nix
     ./browser.nix
     ./nvim
+    ./emacs
     ./zsh.nix
     ./xmonad
     ./security.nix

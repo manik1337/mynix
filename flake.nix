@@ -9,13 +9,13 @@
     deploy-rs.url = "github:serokell/deploy-rs";
   };
 
-  outputs = inputs@{ self, home-manager, nixpkgs, deploy-rs, ... }:
+  outputs = inputs@{ self, home-manager, nixpkgs, deploy-rs, emacs-overlay, ... }:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
-      overlays = [ inputs.nur.overlay ];
+      overlays = [ inputs.nur.overlay emacs-overlay.overlay ];
     };
     mkComputer = configurationNix: extraModules: nixpkgs.lib.nixosSystem {
       inherit system pkgs;
