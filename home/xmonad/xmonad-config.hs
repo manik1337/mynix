@@ -269,10 +269,7 @@ myStartupHook = return ()
 --
 main = do
   _ <- spawnPipe "setxkbmap -layout us,ru -option grp:alt_shift_toggle"
-  --_ <- spawnPipe "xrandr --auto --output DP-0 --primary --rate 144 --output HDMI-0 --right-of DP-0"
   _ <- spawnPipe "feh --no-fehbg --bg-fill ~/wp2.png"
-  -- _ <- spawnPipe "xmobar -x 0"
-  -- _ <- spawnPipe "xmobar -x 1"
   xmobarProc1 <- spawnPipe "xmobar -x 0"
   xmobarProc2 <- spawnPipe "xmobar -x 1"
   xmonad $ docks $ def {

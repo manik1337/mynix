@@ -1,11 +1,6 @@
 { pkgs, ... }: {
   xsession = {
     enable = true;
-#     initExtra = ''
-#       "${pkgs.xorg.setxkbmap}/bin/setxkbmap -layout us,ru -option grp:alt_shift_toggle"
-#       "${pkgs.xorg.xrandr}/bin/xrandr --auto --output DP-0 --primary --rate 144 --output HDMI-0 --right-of DP-0"
-#       "${pkgs.feh}/bin/feh --no-fehbg --bg-fill ~/wp2.png"
-#     '';
     windowManager.xmonad = {
       enable = true;
       enableContribAndExtras = true;

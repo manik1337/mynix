@@ -49,7 +49,10 @@
         }
         {
           output = "HDMI-0";
-          monitorConfig = "Option \"RightOf\" \"DP-0\"";
+          monitorConfig = ''
+            Option "Rotate" "right"
+            Option "RightOf" "DP-0"
+          '';
         }
       ];
       libinput.enable = true;
