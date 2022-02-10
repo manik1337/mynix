@@ -12,7 +12,7 @@
       };
       font = {
         normal.family = "Hack Nerd Font";
-        size = 10;
+        size = 12;
       };
       background_opacity = 0.95;
       selection.save_to_clipboard = true;
