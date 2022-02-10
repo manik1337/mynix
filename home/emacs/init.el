@@ -19,23 +19,23 @@
 (setq make-backup-files nil)
 (setq mouse-wheel-progressive-speed nil)
 
-;; projectile
 (use-package projectile
   :commands projectile-mode
   :init
   (projectile-mode +1)
   :bind
   (:map projectile-mode-map
-    ;; ("s-p" . projectile-command-map)
-    ("C-c p" . projectile-command-map)))
+    ("C-f" . projectile-command-map)))
 
-;; magit
 (use-package magit
   :bind (("C-x g" . magit-status)))
 
 (use-package nix-mode
-  :mode "\\.nix\\'"
-)
+  :mode "\\.nix\\'")
+
+(use-package rust-mode)
+
+(use-package erlang)
 
 (use-package evil
   :ensure t
@@ -49,11 +49,9 @@
   :config
   (evil-collection-init))
 
-;; visuals
-(use-package nord-theme
-  :config
-  (load-theme 'nord t)
-)
+(use-package nord-theme)
+(load-theme 'nord t)
+
 (set-face-attribute 'default nil
                     :family "Hack Nerd Font"
                     :height 120
