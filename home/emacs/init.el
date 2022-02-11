@@ -6,51 +6,34 @@
 (setq package-enable-at-startup nil)
 (package-initialize)
 
-(blink-cursor-mode -1)
-(show-paren-mode t)
-(column-number-mode t)
-(global-hl-line-mode t)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
+(tooltip-mode -1)
 (menu-bar-mode -1)
+
+(blink-cursor-mode -1)
+(show-paren-mode t)
+
+(column-number-mode t)
+
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+
+(global-display-line-numbers-mode t)
+(setq display-line-numbers 'relative)
+(dolist (mode '(org-mode-hook
+                term-mode-hook
+                shell-mode-hook
+                eshell-mode-hook))
+  (add-hook mode (lambda () (display-line-numbers-mode 0))))
+
+(global-hl-line-mode t)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
 (setq inhibit-startup-screen t)
 (setq make-backup-files nil)
 (setq mouse-wheel-progressive-speed nil)
 
-(use-package projectile
-  :commands projectile-mode
-  :init
-  (projectile-mode +1)
-  :bind
-  (:map projectile-mode-map
-    ("C-x p" . projectile-command-map)))
-
-(use-package magit
-  :bind (("C-x g" . magit-status)))
-
-(use-package nix-mode
-  :mode "\\.nix\\'")
-
-(use-package rust-mode)
-
-(use-package erlang)
-
-(use-package evil
-  :ensure t
-  :init
-  (setq evil-want-keybinding nil)
-  (evil-mode))
-
-(use-package evil-collection
-  :after evil
-  :ensure t
-  :config
-  (evil-collection-init))
-
 (use-package doom-themes
-  :ensure t
   :config
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
@@ -68,3 +51,110 @@
                     :height 120
                     :weight 'normal
                     :width  'normal)
+
+(use-package evil
+  :init
+  (setq evil-want-keybinding nil)
+  (evil-mode))
+
+(use-package evil-collection
+  :after evil
+  :config
+  (evil-collection-init))
+
+(use-package all-the-icons
+  :if (display-graphic-p))
+
+(use-package command-log-mode)
+
+(use-package ivy
+  :diminish
+  :bind (("C-s" . swiper)
+         :map ivy-minibuffer-map
+         ("TAB" . ivy-alt-done)
+         ("C-j" . ivy-next-line)
+         ("C-k" . ivy-previous-line))
+  :config
+  (setq ivy-re-builders-alist
+        '((swiper . regexp-quote)
+          (t      . ivy--regex-fuzzy)))
+  (ivy-mode 1))
+
+(use-package ivy-rich
+  :init
+  (ivy-rich-mode 1))
+
+(use-package swiper)
+
+(use-package counsel
+  :bind (("M-x" . counsel-M-x)
+         ("C-x b" . counsel-ibuffer)
+         ("C-x C-f" . counsel-find-file)
+         :map minibuffer-local-map
+         ("C-r" . 'counsel-minibuffer-history)))
+
+(use-package helpful
+  :custom
+  (counsel-describe-function-function #'helpful-callable)
+  (counsel-describe-variable-function #'helpful-variable)
+  :bind
+  ([remap describe-function] . helpful-function)
+  ([remap describe-symbol] . helpful-symbol)
+  ([remap describe-variable] . helpful-variable)
+  ([remap describe-command] . helpful-command)
+  ([remap describe-key] . helpful-key))
+
+(use-package doom-modeline
+  :init (doom-modeline-mode 1))
+
+(use-package which-key
+  :init (which-key-mode)
+  :diminish which-key-mode
+  :config
+  (setq which-key-idle-delay 0.3))
+
+(use-package projectile
+  :diminish projectile-mode
+  :config (projectile-mode)
+  :custom ((projectile-completion-system 'ivy))
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
+  :init
+  (setq projectile-switch-project-action #'projectile-dired))
+
+(use-package counsel-projectile
+  :config (counsel-projectile-mode))
+
+(use-package magit
+  :custom
+  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+
+;; Rust
+(use-package rustic
+  :bind (:map rustic-mode-map
+              ("M-j" . lsp-ui-imenu)
+              ;;("M-?" . lsp-find-references)
+              ;;("C-c C-c l" . flycheck-list-errors)
+              ("C-c C-c a" . lsp-execute-code-action)
+              ("C-c C-c r" . lsp-rename)
+              ("C-c C-c q" . lsp-workspace-restart)
+              ("C-c C-c Q" . lsp-workspace-shutdown)
+              ("C-c C-c s" . lsp-rust-analyzer-status)))
+
+(use-package lsp-mode
+  :commands lsp
+  :custom
+  (lsp-rust-analyzer-cargo-watch-command "clippy")
+  (lsp-eldoc-render-all t)
+  (lsp-idle-delay 0.6)
+  (lsp-rust-analyzer-server-display-inlay-hints t)
+  :config
+  (add-hook 'lsp-mode-hook 'lsp-ui-mode))
+
+(use-package lsp-ui
+  :ensure
+  :commands lsp-ui-mode
+  :custom
+  (lsp-ui-peek-always-show t)
+  (lsp-ui-sideline-show-hover t)
+  (lsp-ui-doc-enable nil))

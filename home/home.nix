@@ -29,6 +29,7 @@
     rustc
     rust-analyzer
     rustfmt
+    clippy
 
     # nix
     nixfmt
