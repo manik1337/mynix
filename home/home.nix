@@ -86,6 +86,11 @@
     # 3d printing
     cura
     super-slicer-latest
+
+    lutris
+
+    # keyboard
+    wally-cli
   ];
 
   home.keyboard = {
