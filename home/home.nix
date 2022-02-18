@@ -12,6 +12,7 @@
     ./zsh.nix
     ./xmonad
     ./security.nix
+    ./vscode.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -52,7 +53,6 @@
 
     # editors
     vim
-    vscode
 
     # fonts
     nerdfonts
