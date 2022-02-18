@@ -68,7 +68,7 @@
 
   home.packages = with pkgs; [
     chromium
-    torbrowser
+    # torbrowser
   ];
 
   home.sessionVariables.BROWSER = "firefox";
