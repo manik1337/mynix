@@ -31,13 +31,15 @@
 (setq-default tab-width 2)
 (setq inhibit-startup-screen t)
 (setq make-backup-files nil)
-(setq mouse-wheel-progressive-speed nil)
 
+(setq mouse-wheel-progressive-speed nil)
+(setq custom-safe-themes t)
 (use-package doom-themes
   :config
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
-  (load-theme 'doom-tokyo-night t)
+  (load-theme 'doom-oceanic-next)
+  ;; (load-theme 'doom-tokyo-night t)
 
   (doom-themes-visual-bell-config)
   (doom-themes-neotree-config)
@@ -55,6 +57,7 @@
 (use-package evil
   :init
   (setq evil-want-keybinding nil)
+  (setq evil-symbol-word-search t)
   (evil-mode))
 
 (use-package evil-collection
@@ -120,6 +123,7 @@
   :bind-keymap
   ("C-c p" . projectile-command-map)
   :init
+  (setq projectile-project-search-path '(("~/ws/" . 2)))
   (setq projectile-switch-project-action #'projectile-dired))
 
 (use-package counsel-projectile
@@ -129,11 +133,18 @@
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
 
+;; Erlang
+(use-package erlang)
+
+;; Nix
+(use-package nix-mode
+  :mode "\\.nix\\'")
+
 ;; Rust
 (use-package rustic
   :bind (:map rustic-mode-map
               ("M-j" . lsp-ui-imenu)
-              ;;("M-?" . lsp-find-references)
+              ("M-k" . lsp-find-references)
               ;;("C-c C-c l" . flycheck-list-errors)
               ("C-c C-c a" . lsp-execute-code-action)
               ("C-c C-c r" . lsp-rename)
@@ -142,14 +153,35 @@
               ("C-c C-c s" . lsp-rust-analyzer-status)))
 
 (use-package lsp-mode
+  :hook ((rustic
+          ) . lsp-deferred)
   :commands lsp
-  :custom
-  (lsp-rust-analyzer-cargo-watch-command "clippy")
-  (lsp-eldoc-render-all t)
-  (lsp-idle-delay 0.6)
-  (lsp-rust-analyzer-server-display-inlay-hints t)
   :config
-  (add-hook 'lsp-mode-hook 'lsp-ui-mode))
+  (setq lsp-auto-guess-root t)
+  (setq lsp-log-io nil)
+  (setq lsp-restart 'auto-restart)
+  (setq lsp-enable-symbol-highlighting nil)
+  (setq lsp-enable-on-type-formatting nil)
+  (setq lsp-signature-auto-activate nil)
+  (setq lsp-signature-render-documentation nil)
+  (setq lsp-eldoc-hook nil)
+  (setq lsp-modeline-code-actions-enable nil)
+  (setq lsp-modeline-diagnostics-enable nil)
+  (setq lsp-headerline-breadcrumb-enable nil)
+  (setq lsp-semantic-tokens-enable nil)
+  (setq lsp-enable-folding nil)
+  (setq lsp-enable-imenu nil)
+  (setq lsp-enable-snippet nil)
+  (setq read-process-output-max (* 1024 1024)) ;; 1MB
+  (setq lsp-idle-delay 0.5))
+
+;;  :custom
+;;  (lsp-rust-analyzer-cargo-watch-command "clippy")
+;;  (lsp-eldoc-render-all t)
+;;  (lsp-idle-delay 0.6)
+;;  (lsp-rust-analyzer-server-display-inlay-hints t)
+;;  :config
+;;  (add-hook 'lsp-mode-hook 'lsp-ui-mode))
 
 (use-package lsp-ui
   :ensure
