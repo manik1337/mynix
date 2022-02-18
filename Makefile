@@ -1,4 +1,4 @@
-.PHONY = clean switch
+.PHONY = deploy clean switch
 
 clean:
 	rm -rf result
