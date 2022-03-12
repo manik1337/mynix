@@ -63,10 +63,6 @@
     discord
     slack
 
-    # browsers
-    chromium
-    firefox
-
     spotify
     _1password-gui
 

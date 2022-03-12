@@ -67,8 +67,7 @@
   };
 
   home.packages = with pkgs; [
-    chromium
-    # torbrowser
+    ungoogled-chromium
   ];
 
   home.sessionVariables.BROWSER = "firefox";
