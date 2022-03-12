@@ -50,6 +50,7 @@
     gnupg
     ag
     xclip
+    ledger-live
 
     # editors
     vim

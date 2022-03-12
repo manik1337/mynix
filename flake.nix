@@ -15,7 +15,7 @@
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
-      overlays = [ inputs.nur.overlay emacs-overlay.overlay ];
+      overlays = [ (import ./overlays) inputs.nur.overlay emacs-overlay.overlay  ];
     };
     mkComputer = configurationNix: extraModules: nixpkgs.lib.nixosSystem {
       inherit system pkgs;

@@ -4,6 +4,7 @@
   imports =
     [
       (modulesPath + "/installer/scan/not-detected.nix")
+      ../hardware/ledger.nix
     ];
 
   fileSystems."/" =
@@ -84,15 +85,19 @@
 
   virtualisation.docker.enable = true;
 
-  users.users = {
-    dmanik = {
-      isNormalUser = true;
-      home = "/home/dmanik";
-      shell = pkgs.zsh;
-      extraGroups =
-        [ "wheel" "audio" "docker" "wireshark" "networkmanager" "plugdev" ];
+
+  users = {
+    groups.plugdev = {};
+    users = {
+      dmanik = {
+        isNormalUser = true;
+        home = "/home/dmanik";
+        shell = pkgs.zsh;
+        extraGroups =
+          [ "wheel" "audio" "docker" "wireshark" "networkmanager" "plugdev" ];
+      };
+      root.openssh.authorizedKeys.keys = [ (builtins.readFile ../secrets/ssh.rsa.pub) ];
     };
-    root.openssh.authorizedKeys.keys = [ (builtins.readFile ../secrets/ssh.rsa.pub) ];
   };
 
   fonts.fonts = with pkgs; [ jetbrains-mono nerdfonts hack-font ];
