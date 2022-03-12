@@ -12,7 +12,9 @@ import Data.Monoid
 import System.Exit
 
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
+import XMonad.Layout.SimpleFloat
 import XMonad.Util.Run
 
 import Nord
@@ -190,7 +192,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = avoidStruts (tiled ||| Mirror tiled ||| Full)
+myLayout = avoidStruts (tiled ||| Mirror tiled ||| Full ||| simpleFloat)
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
@@ -272,7 +274,7 @@ main = do
   _ <- spawnPipe "feh --no-fehbg --bg-fill ~/wp2.png"
   xmobarProc1 <- spawnPipe "xmobar -x 0"
   xmobarProc2 <- spawnPipe "xmobar -x 1"
-  xmonad $ docks $ def {
+  xmonad $ ewmh $ docks $ def {
       -- simple stuff
         terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,
