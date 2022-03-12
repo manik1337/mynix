@@ -34,6 +34,7 @@
 
 (setq mouse-wheel-progressive-speed nil)
 (setq custom-safe-themes t)
+
 (use-package doom-themes
   :config
   (setq doom-themes-enable-bold t
@@ -50,9 +51,22 @@
 
 (set-face-attribute 'default nil
                     :family "Hack Nerd Font"
-                    :height 120
+                    :height 100
                     :weight 'normal
                     :width  'normal)
+
+(use-package modus-themes
+  :init
+  ;; Add all your customizations prior to loading the themes
+  (setq modus-themes-italic-constructs t
+        modus-themes-bold-constructs nil
+        modus-themes-region '(bg-only no-extend)))
+
+(use-package beacon
+  :init
+  (beacon-mode 1))
+
+(use-package vterm)
 
 (use-package evil
   :init
@@ -135,6 +149,9 @@
 
 ;; Erlang
 (use-package erlang)
+
+;; Elixir
+(use-package elixir-mode)
 
 ;; Nix
 (use-package nix-mode
