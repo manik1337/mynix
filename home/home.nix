@@ -75,10 +75,12 @@
     fzf
     exa
     wget
+    unzip
 
     libreoffice
     zathura
     flameshot
+    krita
 
     # 3d printing
     cura
