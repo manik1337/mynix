@@ -16,6 +16,8 @@
 
 (column-number-mode t)
 
+(global-auto-revert-mode 1)
+
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 (global-display-line-numbers-mode t)
@@ -147,6 +149,9 @@
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
 
+;; Docker
+(use-package dockerfile-mode)
+
 ;; Erlang
 (use-package erlang)
 
@@ -170,8 +175,7 @@
               ("C-c C-c s" . lsp-rust-analyzer-status)))
 
 (use-package lsp-mode
-  :hook ((rustic
-          ) . lsp-deferred)
+  :hook ((rustic elixir-mode ). lsp-deferred)
   :commands lsp
   :config
   (setq lsp-auto-guess-root t)
@@ -207,3 +211,9 @@
   (lsp-ui-peek-always-show t)
   (lsp-ui-sideline-show-hover t)
   (lsp-ui-doc-enable nil))
+
+(use-package company
+  :bind (:map prog-mode-map
+         ("C-i" . company-indent-or-complete-common)
+         ("C-M-i" . counsel-company))
+  :hook (emacs-lisp-mode . company-mode))
