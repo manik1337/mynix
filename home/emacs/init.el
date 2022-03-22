@@ -42,7 +42,6 @@
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
   (load-theme 'doom-oceanic-next)
-  ;; (load-theme 'doom-tokyo-night t)
 
   (doom-themes-visual-bell-config)
   (doom-themes-neotree-config)
@@ -53,7 +52,7 @@
 
 (set-face-attribute 'default nil
                     :family "Hack Nerd Font"
-                    :height 100
+                    :height 120
                     :weight 'normal
                     :width  'normal)
 
@@ -139,7 +138,7 @@
   :bind-keymap
   ("C-c p" . projectile-command-map)
   :init
-  (setq projectile-project-search-path '(("~/ws/" . 2)))
+  ; (setq projectile-project-search-path '(("~/ws/" . 2)))
   (setq projectile-switch-project-action #'projectile-dired))
 
 (use-package counsel-projectile
