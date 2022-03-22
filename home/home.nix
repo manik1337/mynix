@@ -66,6 +66,7 @@
 
     spotify
     _1password-gui
+    bitwarden-cli
 
     # utils
     dmenu
@@ -81,6 +82,7 @@
     zathura
     flameshot
     krita
+    thunderbird
 
     # 3d printing
     cura
