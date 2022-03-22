@@ -67,7 +67,9 @@
   };
 
   home.packages = with pkgs; [
+    tor-browser-bundle-bin
     ungoogled-chromium
+    palemoon
   ];
 
   home.sessionVariables.BROWSER = "firefox";
