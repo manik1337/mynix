@@ -18,10 +18,13 @@
 
 (global-auto-revert-mode 1)
 
+(setq-default use-dialog-box nil)
+(setq-default use-short-answers t)
+
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 (global-display-line-numbers-mode t)
-(setq display-line-numbers 'relative)
+(setq-default display-line-numbers 'relative)
 (dolist (mode '(org-mode-hook
                 term-mode-hook
                 shell-mode-hook
@@ -33,6 +36,8 @@
 (setq-default tab-width 2)
 (setq inhibit-startup-screen t)
 (setq make-backup-files nil)
+(setq auto-save-default nil)
+(setq create-lockfiles nil)
 
 (setq mouse-wheel-progressive-speed nil)
 (setq custom-safe-themes t)
