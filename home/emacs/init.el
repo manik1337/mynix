@@ -69,6 +69,12 @@
 
 (use-package vterm)
 
+(use-package smartparens
+  :hook (prog-mode . smartparens-mode))
+
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
+
 (use-package evil
   :init
   (setq evil-want-keybinding nil)
@@ -174,7 +180,7 @@
               ("C-c C-c s" . lsp-rust-analyzer-status)))
 
 (use-package lsp-mode
-  :hook ((rustic elixir-mode ). lsp-deferred)
+  :hook ((rustic elixir-mode nix-mode). lsp-deferred)
   :commands lsp
   :config
   (setq lsp-auto-guess-root t)
@@ -193,6 +199,7 @@
   (setq lsp-enable-imenu nil)
   (setq lsp-enable-snippet nil)
   (setq read-process-output-max (* 1024 1024)) ;; 1MB
+  (setq gc-cons-threshold 100000000)
   (setq lsp-idle-delay 0.5))
 
 ;;  :custom
