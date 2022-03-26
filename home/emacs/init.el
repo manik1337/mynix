@@ -148,6 +148,20 @@
   :config
   (setq which-key-idle-delay 0.3))
 
+(use-package treemacs)
+
+(use-package treemacs-evil
+  :after (treemacs evil))
+
+(use-package treemacs-projectile
+  :after (treemacs projectile))
+
+(use-package treemacs-icons-dired
+  :hook (dired-mode . treemacs-icons-dired-enable-once))
+
+(use-package treemacs-magit
+  :after (treemacs magit))
+
 (use-package projectile
   :diminish projectile-mode
   :config (projectile-mode)
