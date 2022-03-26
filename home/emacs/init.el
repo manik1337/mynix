@@ -69,6 +69,17 @@
 
 (use-package vterm)
 
+(use-package vterm-toggle
+  :custom
+  (vterm-toggle-fullscreen-p nil "Open a vterm in another window.")
+  (vterm-toggle-scope 'project)
+  :bind (("C-c t" . #'vterm-toggle)
+         :map vterm-mode-map
+         ("C-\\" . #'popper-cycle)
+         ;("s-t" . #'vterm) ; Open up new tabs quickly
+         ;("s-v" . #'vterm-yank)
+         ))
+
 (use-package smartparens
   :hook (prog-mode . smartparens-mode))
 
