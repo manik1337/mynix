@@ -150,8 +150,11 @@
   ([remap describe-command] . helpful-command)
   ([remap describe-key] . helpful-key))
 
-(use-package doom-modeline
-  :init (doom-modeline-mode 1))
+;; (use-package doom-modeline
+;;   :init (doom-modeline-mode 1))
+
+(use-package mood-line
+  :config (mood-line-mode))
 
 (use-package which-key
   :init (which-key-mode)
