@@ -234,3 +234,9 @@
          ("C-i" . company-indent-or-complete-common)
          ("C-M-i" . counsel-company))
   :hook (emacs-lisp-mode . company-mode))
+
+;; (use-package company-tabnine
+;;   :config
+;;   (add-to-list 'company-backends #'company-tabnine)
+;;   (setq company-idle-delay 0)
+;;   (setq company-show-numbers t))
