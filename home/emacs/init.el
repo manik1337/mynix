@@ -179,20 +179,15 @@
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
 
-;; Docker
 (use-package dockerfile-mode)
 
-;; Erlang
 (use-package erlang)
 
-;; Elixir
 (use-package elixir-mode)
 
-;; Nix
 (use-package nix-mode
   :mode "\\.nix\\'")
 
-;; Rust
 (use-package rustic
   :bind (:map rustic-mode-map
               ("M-j" . lsp-ui-imenu)
