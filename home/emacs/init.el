@@ -68,6 +68,12 @@
         modus-themes-bold-constructs nil
         modus-themes-region '(bg-only no-extend)))
 
+(use-package undo-tree
+  :bind ("C-c _" . undo-tree-visualize)
+  :config
+  (global-undo-tree-mode t)
+  (unbind-key "M-_" undo-tree-map))
+
 (use-package beacon
   :init
   (beacon-mode 1))
