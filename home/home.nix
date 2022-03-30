@@ -36,6 +36,9 @@
     nixfmt
     rnix-lsp
 
+    # js
+    nodejs
+
     terraform
 
     # etc
