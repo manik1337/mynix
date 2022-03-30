@@ -1,5 +1,5 @@
  Config
-  { font        = "xft:Hack Nerd Font:pixelsize=14"
+  { font        = "xft:Hack Nerd Font:pixelsize=16"
   , borderColor = "#2E3440"
   , border      = TopB
   , borderWidth = 3
