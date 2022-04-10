@@ -2,6 +2,13 @@
 
 {
   programs = {
+    chromium = {
+      extensions = [
+        "gcbommkclmclpchllfjekcdonpmejbdp" # httsp everywhere
+        "nkbihfbeogaeaoehlefnkodbefgpgknn" # metamask
+        "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
+      ];
+    };
     firefox = {
       enable = true;
       profiles.dmanik = {
@@ -68,9 +75,7 @@
 
   home.packages = with pkgs; [
     tor-browser-bundle-bin
-    ungoogled-chromium
-    palemoon
   ];
 
-  home.sessionVariables.BROWSER = "firefox";
+  home.sessionVariables.BROWSER = "chromium";
 }

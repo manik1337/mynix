@@ -14,10 +14,12 @@
         normal.family = "Hack Nerd Font";
         size = 12;
       };
-      background_opacity = 0.95;
+      window.opacity = 0.95;
       selection.save_to_clipboard = true;
-      cursor.style = "Block";
-      cursor.unfocused_hollow = true;
+      cursor = {
+        style = "Block";
+        unfocused_hollow = true;
+      };
       url.launcher.program = "firefox";
 
       colors = {

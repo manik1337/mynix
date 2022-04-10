@@ -18,26 +18,19 @@
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
-    # erlang
     erlangR24
     erlang-ls
 
-    # elixir
     elixir
 
-    # rust
     cargo
     rustc
     rust-analyzer
     rustfmt
     clippy
 
-    # nix
     nixfmt
     rnix-lsp
-
-    # js
-    nodejs
 
     terraform
 
@@ -51,7 +44,6 @@
     git
     git-crypt
     gnupg
-    ag
     xclip
     ledger-live
 
