@@ -74,6 +74,7 @@
   };
 
   home.packages = with pkgs; [
+    chromium
     tor-browser-bundle-bin
   ];
 
