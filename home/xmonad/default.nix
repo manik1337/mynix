@@ -1,6 +1,11 @@
 { pkgs, ... }: {
   xsession = {
     enable = true;
+    pointerCursor = {
+      package = pkgs.vanilla-dmz;
+      name = "Vanilla-DMZ";
+      size = 32;
+    };
     windowManager.xmonad = {
       enable = true;
       enableContribAndExtras = true;
