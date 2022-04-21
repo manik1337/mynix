@@ -8,12 +8,14 @@
     ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/afe999a3-229e-4923-bc74-843572991548";
+    {
+      device = "/dev/disk/by-uuid/afe999a3-229e-4923-bc74-843572991548";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/8F93-3EE5";
+    {
+      device = "/dev/disk/by-uuid/8F93-3EE5";
       fsType = "vfat";
     };
 
@@ -27,7 +29,7 @@
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
-   };
+    };
   };
 
   swapDevices = [ ];
@@ -63,7 +65,6 @@
         defaultSession = "none+xmonad";
       };
       windowManager.xmonad.enable = true;
-      # windowManager.dwm.enable = true;
     };
     openssh.enable = true;
   };
@@ -87,7 +88,7 @@
 
 
   users = {
-    groups.plugdev = {};
+    groups.plugdev = { };
     users = {
       dmanik = {
         isNormalUser = true;
