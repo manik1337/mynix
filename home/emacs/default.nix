@@ -13,5 +13,6 @@ in {
   services.emacs = {
     enable = true;
     package = emacsWithPackages;
+    defaultEditor = true;
   };
 }

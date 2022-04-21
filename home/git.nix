@@ -10,6 +10,7 @@
       pull.ff = "only";
       core.qoutePath = false;
       merge.confictStyle = "diff3";
+      core.editor = "emacsclient";
     };
   };
 }

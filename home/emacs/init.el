@@ -1,8 +1,6 @@
 (setq use-package-always-ensure t)
 (setq use-package-ensure-function 'ignore)
-;; optional. makes unpure packages archives unavailable
 (setq package-archives nil)
-
 (setq package-enable-at-startup nil)
 (package-initialize)
 
@@ -10,27 +8,14 @@
 (tool-bar-mode -1)
 (tooltip-mode -1)
 (menu-bar-mode -1)
-
 (blink-cursor-mode -1)
 (show-paren-mode t)
-
 (column-number-mode t)
-
 (global-auto-revert-mode 1)
-
 (setq-default use-dialog-box nil)
 (setq-default use-short-answers t)
-
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
-
 (global-display-line-numbers-mode t)
-(setq-default display-line-numbers 'relative)
-(dolist (mode '(org-mode-hook
-                term-mode-hook
-                shell-mode-hook
-                eshell-mode-hook))
-  (add-hook mode (lambda () (display-line-numbers-mode 0))))
-
+(setq display-line-numbers 'relative)
 (global-hl-line-mode t)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
@@ -38,15 +23,24 @@
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 (setq create-lockfiles nil)
-
 (setq mouse-wheel-progressive-speed nil)
 (setq custom-safe-themes t)
+
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+
+(dolist (mode '(org-mode-hook
+                term-mode-hook
+                shell-mode-hook
+                eshell-mode-hook))
+  (add-hook mode (lambda () (display-line-numbers-mode 0))))
+
+(use-package kaolin-themes)
 
 (use-package doom-themes
   :config
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
-  (load-theme 'doom-oceanic-next)
+  (load-theme 'doom-tomorrow-night)
 
   (doom-themes-visual-bell-config)
   (doom-themes-neotree-config)
@@ -57,7 +51,7 @@
 
 (set-face-attribute 'default nil
                     :family "Hack Nerd Font"
-                    :height 120
+                    :height 110
                     :weight 'normal
                     :width  'normal)
 
@@ -74,9 +68,13 @@
   (global-undo-tree-mode t)
   (unbind-key "M-_" undo-tree-map))
 
-(use-package beacon
-  :init
-  (beacon-mode 1))
+(use-package multiple-cursors
+  :bind (("C-c C-d" . mc/edit-lines)
+         ("C-d" . mc/mark-next-like-this)
+         ;("C-D" . mc/mark-previous-like-this)
+         ("C-D" . mc/mark-all-like-this)))
+         ;("C-\"" . mc/skip-to-next-like-this)
+         ;("C-:" . mc/skip-to-previous-like-this)))
 
 (use-package vterm)
 
@@ -111,48 +109,6 @@
 (use-package all-the-icons
   :if (display-graphic-p))
 
-(use-package command-log-mode)
-
-(use-package ivy
-  :diminish
-  :bind (("C-s" . swiper)
-         :map ivy-minibuffer-map
-         ("TAB" . ivy-alt-done)
-         ("C-j" . ivy-next-line)
-         ("C-k" . ivy-previous-line))
-  :config
-  (setq ivy-re-builders-alist
-        '((swiper . regexp-quote)
-          (t      . ivy--regex-fuzzy)))
-  (ivy-mode 1))
-
-(use-package ivy-rich
-  :init
-  (ivy-rich-mode 1))
-
-(use-package swiper)
-
-(use-package counsel
-  :bind (("M-x" . counsel-M-x)
-         ("C-x b" . counsel-ibuffer)
-         ("C-x C-f" . counsel-find-file)
-         :map minibuffer-local-map
-         ("C-r" . 'counsel-minibuffer-history)))
-
-(use-package helpful
-  :custom
-  (counsel-describe-function-function #'helpful-callable)
-  (counsel-describe-variable-function #'helpful-variable)
-  :bind
-  ([remap describe-function] . helpful-function)
-  ([remap describe-symbol] . helpful-symbol)
-  ([remap describe-variable] . helpful-variable)
-  ([remap describe-command] . helpful-command)
-  ([remap describe-key] . helpful-key))
-
-;; (use-package doom-modeline
-;;   :init (doom-modeline-mode 1))
-
 (use-package mood-line
   :config (mood-line-mode))
 
@@ -167,33 +123,53 @@
 (use-package treemacs-evil
   :after (treemacs evil))
 
-(use-package treemacs-projectile
-  :after (treemacs projectile))
-
 (use-package treemacs-icons-dired
   :hook (dired-mode . treemacs-icons-dired-enable-once))
 
 (use-package treemacs-magit
   :after (treemacs magit))
 
-(use-package projectile
-  :diminish projectile-mode
-  :config (projectile-mode)
-  :custom ((projectile-completion-system 'ivy))
-  :bind-keymap
-  ("C-c p" . projectile-command-map)
+(use-package vertico
+  :custom
+  (vertico-cycle t)
   :init
-  ; (setq projectile-project-search-path '(("~/ws/" . 2)))
-  (setq projectile-switch-project-action #'projectile-dired))
+  (vertico-mode))
 
-(use-package counsel-projectile
-  :config (counsel-projectile-mode))
+(use-package marginalia
+  :config (marginalia-mode))
+
+(use-package orderless
+  :custom (completion-styles '(orderless)))
+
+;; (use-package consult
+;;   :bind (("C-c i"   . #'consult-imenu)
+;;          ("C-c b"   . #'consult-buffer)
+;;          ("C-x b"   . #'consult-buffer)
+;;          ("C-c r"   . #'consult-recent-file)
+;;         ; ("C-c y"   . #'pt/yank-pop)
+;;          ("C-c R"   . #'consult-bookmark)
+;;          ("C-c `"   . #'consult-flymake)
+;;          ("C-c h"   . #'consult-ripgrep)
+;;          ("C-x C-f" . #'find-file)
+;;          ("C-h a"   . #'consult-apropos))
+;;   :custom
+;;   (completion-in-region-function #'consult-completion-in-region)
+;;   (xref-show-xrefs-function #'consult-xref)
+;;   (xref-show-definitions-function #'consult-xref)
+;;   (consult-project-root-function #'deadgrep--project-root))
+
+(use-package ctrlf
+  :config (ctrlf-mode))
+
+(use-package prescient
+  :config (prescient-persist-mode))
 
 (use-package magit
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
 
 (use-package dockerfile-mode)
+(use-package docker-compose-mode)
 
 (use-package erlang)
 
@@ -201,6 +177,21 @@
 
 (use-package nix-mode
   :mode "\\.nix\\'")
+
+(use-package typescript-mode)
+(use-package web-mode
+  :hook ((web-mode . lsp)
+         (typescript-tsx-mode . lsp))
+  :mode (("\\.html\\'" . web-mode)
+         ("\\.html\\.eex\\'" . web-mode)
+         ("\\.html\\.tera\\'" . web-mode)
+         ("\\.tsx\\'" . typescript-tsx-mode))
+  :init
+  (define-derived-mode typescript-tsx-mode typescript-mode "TypeScript-tsx")
+  :config
+  (setq web-mode-markup-indent-offset 2
+        web-mode-css-indent-offset 2
+        web-mode-code-indent-offset 2))
 
 (use-package rustic
   :bind (:map rustic-mode-map

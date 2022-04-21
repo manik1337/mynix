@@ -7,7 +7,7 @@
     ./redshift.nix
     ./dunst.nix
     ./browser.nix
-    ./nvim
+    # ./nvim
     ./emacs
     ./zsh.nix
     ./xmonad
@@ -46,6 +46,7 @@
     gnupg
     xclip
     ledger-live
+    insomnia
 
     # editors
     vim
