@@ -3,8 +3,8 @@
   , borderColor = "#2E3440"
   , border      = TopB
   , borderWidth = 3
-  , bgColor     = "#2E3440"
-  , fgColor     = "#D8DEE9"
+  , bgColor      = "#1d1f21"
+  , fgColor      = "#ffffff"
   , alpha = 255
   , position    = Top
   , lowerOnStart = True

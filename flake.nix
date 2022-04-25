@@ -10,57 +10,57 @@
   };
 
   outputs = inputs@{ self, home-manager, nixpkgs, deploy-rs, emacs-overlay, ... }:
-  let
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
-      overlays = [ (import ./overlays) inputs.nur.overlay emacs-overlay.overlay  ];
-    };
-    mkComputer = configurationNix: extraModules: nixpkgs.lib.nixosSystem {
-      inherit system pkgs;
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+        overlays = [ (import ./overlays) inputs.nur.overlay emacs-overlay.overlay ];
+      };
+      mkComputer = configurationNix: extraModules: nixpkgs.lib.nixosSystem {
+        inherit system pkgs;
 
-      specialArgs = { inherit system inputs; };
-      modules = (
-        [
-          configurationNix
+        specialArgs = { inherit system inputs; };
+        modules = (
+          [
+            configurationNix
 
-          ({ pkgs, ... }: {
-            nix = {
-              package = pkgs.nixFlakes;
-              extraOptions = ''
-                experimental-features = nix-command flakes
-              '';
-            };
-          })
+            ({ pkgs, ... }: {
+              nix = {
+                package = pkgs.nixFlakes;
+                extraOptions = ''
+                  experimental-features = nix-command flakes
+                '';
+              };
+            })
 
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.dmanik = import ./home/home.nix
+            home-manager.nixosModules.home-manager
             {
-              inherit inputs system pkgs;
-            };
-          }
-        ] ++ extraModules
-      );
-    };
-  in
-  {
-    nixosConfigurations = {
-      zion = mkComputer ./hosts/zion.nix [];
-    };
-    deploy = {
-      sshUser = "root";
-      nodes.zion = {
-        hostname = "localhost";
-        profiles.system = {
-          user = "root";
-          path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.zion;
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.dmanik = import ./home/home.nix
+                {
+                  inherit inputs system pkgs;
+                };
+            }
+          ] ++ extraModules
+        );
+      };
+    in
+    {
+      nixosConfigurations = {
+        zion = mkComputer ./hosts/zion.nix [ ];
+      };
+      deploy = {
+        sshUser = "root";
+        nodes.zion = {
+          hostname = "localhost";
+          profiles.system = {
+            user = "root";
+            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.zion;
+          };
         };
       };
+      checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
     };
-    checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
-  };
 }

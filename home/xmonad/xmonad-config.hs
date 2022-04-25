@@ -17,8 +17,6 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Layout.SimpleFloat
 import XMonad.Util.Run
 
-import Nord
-
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
@@ -271,7 +269,7 @@ myStartupHook = return ()
 --
 main = do
   _ <- spawnPipe "setxkbmap -layout us,ru -option grp:alt_shift_toggle"
-  _ <- spawnPipe "feh --no-fehbg --bg-fill ~/wp2.png"
+  _ <- spawnPipe "feh --no-fehbg --bg-fill ~/wp3.jpg"
   xmobarProc1 <- spawnPipe "xmobar -x 0"
   xmobarProc2 <- spawnPipe "xmobar -x 1"
   xmonad $ ewmh $ docks $ def {

@@ -3,7 +3,7 @@ let
   emacsWithPackages = 
     (pkgs.emacsWithPackagesFromUsePackage {
       config = ./init.el;
-      package = pkgs.emacsPgtkGcc;
+      package = pkgs.emacsPgtkNativeComp;
       alwaysEnsure = true;
       extraEmacsPackages = epkgs: with epkgs; [ all-the-icons ];
     });

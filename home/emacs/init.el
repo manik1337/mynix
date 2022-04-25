@@ -14,7 +14,7 @@
 (global-auto-revert-mode 1)
 (setq-default use-dialog-box nil)
 (setq-default use-short-answers t)
-(global-display-line-numbers-mode t)
+(display-line-numbers-mode t)
 (setq display-line-numbers 'relative)
 (global-hl-line-mode t)
 (setq-default indent-tabs-mode nil)
@@ -34,33 +34,27 @@
                 eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
-(use-package kaolin-themes)
+;; (use-package kaolin-themes)
+;; (use-package color-theme-sanityinc-tomorrow)
 
 (use-package doom-themes
   :config
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
-  (load-theme 'doom-tomorrow-night)
+  (load-theme 'doom-tomorrow-night))
 
-  (doom-themes-visual-bell-config)
-  (doom-themes-neotree-config)
-  (setq doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
-  (doom-themes-treemacs-config)
-  ;; Corrects (and improves) org-mode's native fontification.
-  (doom-themes-org-config))
+;;   (doom-themes-visual-bell-config)
+;;   (doom-themes-neotree-config)
+;;   (setq doom-themes-treemacs-theme "doom-tomorrow-night") ; use "doom-colors" for less minimal icon theme
+;;   (doom-themes-treemacs-config)
+;;   ;; Corrects (and improves) org-mode's native fontification.
+;;   (doom-themes-org-config))
 
 (set-face-attribute 'default nil
                     :family "Hack Nerd Font"
                     :height 110
                     :weight 'normal
                     :width  'normal)
-
-(use-package modus-themes
-  :init
-  ;; Add all your customizations prior to loading the themes
-  (setq modus-themes-italic-constructs t
-        modus-themes-bold-constructs nil
-        modus-themes-region '(bg-only no-extend)))
 
 (use-package undo-tree
   :bind ("C-c _" . undo-tree-visualize)

@@ -16,43 +16,51 @@
       };
       window.opacity = 0.95;
       selection.save_to_clipboard = true;
+      custom_cursor_colors = true;
       cursor = {
         style = "Block";
         unfocused_hollow = true;
       };
       url.launcher.program = "chromium";
-
       colors = {
         primary = {
-          background = "0x1a1b26";
-          foreground = "0xa9b1d6";
+          background = "0x1d1f21";
+          foreground = "0xc5c8c6";
         };
 
+        # Colors the cursor will use if `custom_cursor_colors` is true
+        cursor = {
+          text = "0x1d1f21";
+          cursor = "0xc5c8c6";
+        };
+
+        # Normal colors
         normal = {
-          black = "0x32344a";
-          red = "0xf7768e";
-          green = "0x9ece6a";
-          yellow = "0xe0af68";
-          blue = "0x7aa2f7";
-          magenta = "0xad8ee6";
-          cyan = "0x449dab";
-          white = "0x787c99";
+          black = "0x1d1f21";
+          red = "0xcc6666";
+          green = "0xb5bd68";
+          yellow = "0xf0c674";
+          blue = "0x81a2be";
+          magenta = "0xb294bb";
+          cyan = "0x8abeb7";
+          white = "0xc5c8c6";
         };
 
         # Bright colors
         bright = {
-          black = "0x444b6a";
-          red = "0xff7a93";
-          green = "0xb9f27c";
-          yellow = "0xff9e64";
-          blue = "0x7da6ff";
-          magenta = "0xbb9af7";
-          cyan = "0x0db9d7";
-          white = "0xacb0d0";
+          black = "0x969896";
+          red = "0xcc6666";
+          green = "0xb5bd68";
+          yellow = "0xf0c674";
+          blue = "0x81a2be";
+          magenta = "0xb294bb";
+          cyan = "0x8abeb7";
+          white = "0xffffff";
+        };
+        env = {
+          TERM = "xterm-256color";
         };
       };
-
-      env = { TERM = "xterm-256color"; };
     };
   };
 }

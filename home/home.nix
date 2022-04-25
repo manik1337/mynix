@@ -7,7 +7,6 @@
     ./redshift.nix
     ./dunst.nix
     ./browser.nix
-    # ./nvim
     ./emacs
     ./zsh.nix
     ./xmonad
@@ -56,7 +55,7 @@
 
     # messengers
     tdesktop
-    kotatogram-desktop
+    # kotatogram-desktop
     discord
     slack
 
@@ -81,7 +80,7 @@
     thunderbird
 
     # 3d printing
-    cura
+    # cura
     super-slicer-latest
 
     lutris
