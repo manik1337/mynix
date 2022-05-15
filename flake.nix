@@ -2,7 +2,7 @@
   description = "My NixOS";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-21.11";
     home-manager.url = "github:nix-community/home-manager";
     nur.url = "github:nix-community/NUR";
     emacs-overlay.url = "github:nix-community/emacs-overlay";
@@ -49,15 +49,17 @@
     in
     {
       nixosConfigurations = {
-        zion = mkComputer ./hosts/zion.nix [ ];
+        zion2 = mkComputer ./hosts/zion2.nix [ ];
       };
       deploy = {
         sshUser = "root";
-        nodes.zion = {
-          hostname = "localhost";
-          profiles.system = {
-            user = "root";
-            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.zion;
+        nodes = {
+          zion2 = {
+            hostname = "localhost";
+            profiles.system = {
+              user = "root";
+              path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.zion2;
+            };
           };
         };
       };

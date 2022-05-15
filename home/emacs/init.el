@@ -37,6 +37,7 @@
 ;; (use-package kaolin-themes)
 ;; (use-package color-theme-sanityinc-tomorrow)
 
+(use-package pdf-tools)
 (use-package doom-themes
   :config
   (setq doom-themes-enable-bold t

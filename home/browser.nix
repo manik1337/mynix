@@ -11,6 +11,7 @@
     };
     firefox = {
       enable = true;
+      package = pkgs.firefox-wayland;
       profiles.dmanik = {
         id = 0;
         name = "dmanik";
@@ -75,7 +76,6 @@
 
   home.packages = with pkgs; [
     chromium
-    tor-browser-bundle-bin
   ];
 
   home.sessionVariables.BROWSER = "chromium";

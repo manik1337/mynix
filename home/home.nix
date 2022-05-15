@@ -12,6 +12,8 @@
     ./xmonad
     ./security.nix
     ./vscode.nix
+    ./sway.nix
+    ./waybar.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -34,7 +36,6 @@
     terraform
 
     # etc
-    cudatoolkit
     gcc
     gnumake
     ghc
@@ -55,12 +56,12 @@
 
     # messengers
     tdesktop
-    # kotatogram-desktop
     discord
     slack
 
-    spotify
+    # spotify
     _1password-gui
+    bitwarden
     bitwarden-cli
 
     # utils
@@ -79,20 +80,23 @@
     krita
     thunderbird
 
-    # 3d printing
-    # cura
-    super-slicer-latest
-
-    lutris
-
     # keyboard
     wally-cli
-  ];
 
-  home.keyboard = {
-    layout = "us,ru";
-    options = [ "caps:ctrl_modifier,grp:alt_shift_toggle" ];
-  };
+    pavucontrol
+    pulseaudio
+    pipewire
+
+    brightnessctl
+    slurp
+    grim
+    mako
+    swaylock
+    swayidle
+    wl-clipboard
+    kanshi
+    bemenu
+  ];
 
   programs = {
     gh = {
@@ -102,4 +106,5 @@
   };
 
   programs.home-manager.enable = true;
+  home.stateVersion = "21.11";
 }
