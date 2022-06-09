@@ -79,6 +79,7 @@
     flameshot
     krita
     thunderbird
+    vlc
 
     # keyboard
     wally-cli
@@ -96,6 +97,7 @@
     wl-clipboard
     kanshi
     bemenu
+    wf-recorder
   ];
 
   programs = {
