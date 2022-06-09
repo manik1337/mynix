@@ -12,7 +12,7 @@
       };
       font = {
         normal.family = "Hack Nerd Font";
-        size = 11;
+        size = 14;
       };
       window.opacity = 0.95;
       selection.save_to_clipboard = true;
@@ -21,7 +21,7 @@
         style = "Block";
         unfocused_hollow = true;
       };
-      url.launcher.program = "chromium";
+      url.launcher.program = "firefox";
       colors = {
         primary = {
           background = "0x1d1f21";
