@@ -14,11 +14,11 @@
 (global-auto-revert-mode 1)
 (setq-default use-dialog-box nil)
 (setq-default use-short-answers t)
-(display-line-numbers-mode t)
-(setq display-line-numbers 'relative)
 (global-hl-line-mode t)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
+(setq display-line-numbers-mode t)
+(setq display-line-numbers 'relative)
 (setq inhibit-startup-screen t)
 (setq make-backup-files nil)
 (setq auto-save-default nil)
@@ -34,26 +34,14 @@
                 eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
-;; (use-package kaolin-themes)
-;; (use-package color-theme-sanityinc-tomorrow)
+(use-package color-theme-sanityinc-tomorrow)
+(color-theme-sanityinc-tomorrow-night)
 
 (use-package pdf-tools)
-(use-package doom-themes
-  :config
-  (setq doom-themes-enable-bold t
-        doom-themes-enable-italic t)
-  (load-theme 'doom-tomorrow-night))
-
-;;   (doom-themes-visual-bell-config)
-;;   (doom-themes-neotree-config)
-;;   (setq doom-themes-treemacs-theme "doom-tomorrow-night") ; use "doom-colors" for less minimal icon theme
-;;   (doom-themes-treemacs-config)
-;;   ;; Corrects (and improves) org-mode's native fontification.
-;;   (doom-themes-org-config))
 
 (set-face-attribute 'default nil
                     :family "Hack Nerd Font"
-                    :height 110
+                    :height 140
                     :weight 'normal
                     :width  'normal)
 
@@ -169,6 +157,7 @@
 (use-package erlang)
 
 (use-package elixir-mode)
+(setq lsp-elixir-mix-env "dev")
 
 (use-package nix-mode
   :mode "\\.nix\\'")
