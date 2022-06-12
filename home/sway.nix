@@ -45,7 +45,6 @@ in
               before-sleep ${lockCmd}
             '';
         }
-        # { command = "${pkgs.swaylock}/bin/swaylock"; }
       ];
       input = {
         "type:keyboard" = {

@@ -2,14 +2,12 @@
   imports = [
     ./alacritty.nix
     ./rofi.nix
-    ./compton.nix
     ./git.nix
     ./redshift.nix
     ./dunst.nix
     ./browser.nix
     ./emacs
     ./zsh.nix
-    ./xmonad
     ./security.nix
     ./vscode.nix
     ./sway.nix
