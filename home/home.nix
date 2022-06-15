@@ -17,17 +17,22 @@
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
+    # elixir
     erlangR24
     erlang-ls
-
     elixir
 
+    # rust
     cargo
     rustc
     rust-analyzer
     rustfmt
     clippy
 
+    # haskell
+    haskell-language-server
+
+    # nix
     nixfmt
     rnix-lsp
 
@@ -96,6 +101,9 @@
     kanshi
     bemenu
     wf-recorder
+
+    mpd
+    ncmpcpp
   ];
 
   programs = {

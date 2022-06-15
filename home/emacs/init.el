@@ -204,8 +204,12 @@ modus-themes-fringes '(intense)
               ("C-c C-c Q" . lsp-workspace-shutdown)
               ("C-c C-c s" . lsp-rust-analyzer-status)))
 
+(use-package haskell-mode)
+(use-package lsp-haskell)
+;; (setq lsp-haskell-server-path "/etc/profiles/per-user/dmanik/bin/haskell-language-server")
+
 (use-package lsp-mode
-  :hook ((rustic elixir-mode nix-mode). lsp-deferred)
+  :hook ((rustic elixir-mode nix-mode haskell-mode). lsp-deferred)
   :commands lsp
   :config
   (setq lsp-auto-guess-root t)
