@@ -35,7 +35,23 @@
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 (use-package color-theme-sanityinc-tomorrow)
-(color-theme-sanityinc-tomorrow-night)
+;; (color-theme-sanityinc-tomorrow-night)
+
+(use-package emacs
+  :init
+  ;; Add all your customizations prior to loading the themes
+  (setq modus-themes-italic-constructs t
+        modus-themes-bold-constructs t
+        modus-themes-region '(bg-only)
+        modus-themes-syntax '(faint alt-syntax green-strings)
+        ;; modus-themes-tabs-accented t
+modus-themes-fringes '(intense)
+        modus-themes-mode-line '(borderless accented))
+  :config
+  ;; Load the theme of your choice:
+  (load-theme 'modus-vivendi) ;; OR (load-theme 'modus-vivendi)
+  )
+
 
 (use-package pdf-tools)
 
