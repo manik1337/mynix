@@ -69,7 +69,7 @@
 
         # ui
         darkreader
-        tree-style-tab
+        sidebery
       ];
     };
   };
