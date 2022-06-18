@@ -258,3 +258,8 @@ modus-themes-fringes '(intense)
 ;;   (add-to-list 'company-backends #'company-tabnine)
 ;;   (setq company-idle-delay 0)
 ;;   (setq company-show-numbers t))
+
+(use-package direnv
+  :ensure t
+  :config
+  (direnv-mode))

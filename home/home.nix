@@ -12,6 +12,7 @@
     ./vscode.nix
     ./sway.nix
     ./waybar.nix
+    ./direnv.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
