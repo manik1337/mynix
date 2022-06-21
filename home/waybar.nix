@@ -7,16 +7,20 @@
         position = "top";
         modules-left = [ "sway/workspaces" "sway/mode" "wlr/taksbar" ];
         modules-center = [ "sway/window" ];
-        modules-right = [ "temperature" "sway/language" "tray" "cpu" "memory" "battery" "clock" ];
+        modules-right = [
+          "temperature"
+          "sway/language"
+          "tray"
+          "cpu"
+          "memory"
+          "battery"
+          "clock"
+        ];
 
         modules = {
-          "cpu" = {
-            format = "{usage}% ";
-          };
+          "cpu" = { format = "{usage}% "; };
 
-          "memory" = {
-            format = "{}% ";
-          };
+          "memory" = { format = "{}% "; };
 
           "battery" = {
             states = {

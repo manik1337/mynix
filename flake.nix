@@ -9,20 +9,22 @@
     deploy-rs.url = "github:serokell/deploy-rs";
   };
 
-  outputs = inputs@{ self, home-manager, nixpkgs, deploy-rs, emacs-overlay, ... }:
+  outputs =
+    inputs@{ self, home-manager, nixpkgs, deploy-rs, emacs-overlay, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
-        overlays = [ (import ./overlays) inputs.nur.overlay emacs-overlay.overlay ];
+        overlays =
+          [ (import ./overlays) inputs.nur.overlay emacs-overlay.overlay ];
       };
-      mkComputer = configurationNix: extraModules: nixpkgs.lib.nixosSystem {
-        inherit system pkgs;
+      mkComputer = configurationNix: extraModules:
+        nixpkgs.lib.nixosSystem {
+          inherit system pkgs;
 
-        specialArgs = { inherit system inputs; };
-        modules = (
-          [
+          specialArgs = { inherit system inputs; };
+          modules = ([
             configurationNix
 
             ({ pkgs, ... }: {
@@ -38,19 +40,13 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.dmanik = import ./home/home.nix
-                {
-                  inherit inputs system pkgs;
-                };
+              home-manager.users.dmanik =
+                import ./home/home.nix { inherit inputs system pkgs; };
             }
-          ] ++ extraModules
-        );
-      };
-    in
-    {
-      nixosConfigurations = {
-        zion2 = mkComputer ./hosts/zion2.nix [ ];
-      };
+          ] ++ extraModules);
+        };
+    in {
+      nixosConfigurations = { zion2 = mkComputer ./hosts/zion2.nix [ ]; };
       deploy = {
         sshUser = "root";
         nodes = {
@@ -58,11 +54,13 @@
             hostname = "localhost";
             profiles.system = {
               user = "root";
-              path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.zion2;
+              path = deploy-rs.lib.x86_64-linux.activate.nixos
+                self.nixosConfigurations.zion2;
             };
           };
         };
       };
-      checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
+      checks = builtins.mapAttrs
+        (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
     };
 }

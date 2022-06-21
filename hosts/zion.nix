@@ -1,26 +1,24 @@
 { config, lib, pkgs, modulesPath, inputs, ... }:
 
 {
-  imports =
-    [
-      (modulesPath + "/installer/scan/not-detected.nix")
-      ../hardware/ledger.nix
-    ];
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+    ../hardware/ledger.nix
+  ];
 
-  fileSystems."/" =
-    {
-      device = "/dev/disk/by-uuid/afe999a3-229e-4923-bc74-843572991548";
-      fsType = "ext4";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/afe999a3-229e-4923-bc74-843572991548";
+    fsType = "ext4";
+  };
 
-  fileSystems."/boot" =
-    {
-      device = "/dev/disk/by-uuid/8F93-3EE5";
-      fsType = "vfat";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/8F93-3EE5";
+    fsType = "vfat";
+  };
 
   boot = {
-    initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
+    initrd.availableKernelModules =
+      [ "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
     initrd.kernelModules = [ ];
     kernelModules = [ "kvm-amd" ];
     kernelPackages = pkgs.linuxPackages_latest;
@@ -70,7 +68,8 @@
   };
 
   hardware = {
-    cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+    cpu.amd.updateMicrocode =
+      lib.mkDefault config.hardware.enableRedistributableFirmware;
     video.hidpi.enable = lib.mkDefault true;
     nvidia = {
       powerManagement = {
@@ -86,7 +85,6 @@
 
   virtualisation.docker.enable = true;
 
-
   users = {
     groups.plugdev = { };
     users = {
@@ -97,7 +95,8 @@
         extraGroups =
           [ "wheel" "audio" "docker" "wireshark" "networkmanager" "plugdev" ];
       };
-      root.openssh.authorizedKeys.keys = [ (builtins.readFile ../secrets/ssh.rsa.pub) ];
+      root.openssh.authorizedKeys.keys =
+        [ (builtins.readFile ../secrets/ssh.rsa.pub) ];
     };
   };
 

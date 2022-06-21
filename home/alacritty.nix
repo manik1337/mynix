@@ -57,9 +57,7 @@
           cyan = "0x8abeb7";
           white = "0xffffff";
         };
-        env = {
-          TERM = "xterm-256color";
-        };
+        env = { TERM = "xterm-256color"; };
       };
     };
   };

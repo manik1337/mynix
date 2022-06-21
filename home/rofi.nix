@@ -1,7 +1,6 @@
 { pkgs, config, ... }:
 
-let
-  inherit (config.lib.formats.rasi) mkLiteral;
+let inherit (config.lib.formats.rasi) mkLiteral;
 in {
   programs.rofi = {
     enable = true;
@@ -29,19 +28,19 @@ in {
         transparency = "real";
         background-color = mkLiteral "@background";
         text-color = mkLiteral "@foreground";
-	      border = mkLiteral "0px";
-	      border-color = mkLiteral "@border";
+        border = mkLiteral "0px";
+        border-color = mkLiteral "@border";
         border-radius = mkLiteral "0px";
-	      width = mkLiteral "100%";
-	      height = mkLiteral "100%";
+        width = mkLiteral "100%";
+        height = mkLiteral "100%";
       };
 
       "prompt" = {
         enabled = mkLiteral "true";
-	      padding = mkLiteral "0.30% 1% 0% -0.5%";
-	      background-color = mkLiteral "@background-alt";
-	      text-color = mkLiteral "@foreground";
-	      font = "FantasqueSansMono Nerd Font 12";
+        padding = mkLiteral "0.30% 1% 0% -0.5%";
+        background-color = mkLiteral "@background-alt";
+        text-color = mkLiteral "@foreground";
+        font = "FantasqueSansMono Nerd Font 12";
       };
 
       "entry" = {
@@ -56,14 +55,14 @@ in {
       };
 
       "inputbar" = {
-	      children = map mkLiteral [ "prompt" "entry" ];
+        children = map mkLiteral [ "prompt" "entry" ];
         background-color = mkLiteral "@background-bar";
         text-color = mkLiteral "@foreground";
         expand = mkLiteral "false";
-	      border = mkLiteral "0.1%";
+        border = mkLiteral "0.1%";
         border-radius = mkLiteral "6px";
-	      border-color = mkLiteral "@accent";
-        margin =  mkLiteral "0% 30% 0% 30%";
+        border-color = mkLiteral "@accent";
+        margin = mkLiteral "0% 30% 0% 30%";
         padding = mkLiteral "1%";
       };
 
@@ -79,9 +78,9 @@ in {
 
       "mainbox" = {
         background-color = mkLiteral "@background-alt";
-	      border = mkLiteral "0% 0% 0% 0%";
+        border = mkLiteral "0% 0% 0% 0%";
         border-radius = mkLiteral "0% 0% 0% 0%";
-	      border-color = mkLiteral "@accent";
+        border-color = mkLiteral "@accent";
         children = map mkLiteral [ "inputbar" "listview" ];
         spacing = mkLiteral "8%";
         padding = mkLiteral "10% 8.5% 10% 8.5%";
@@ -116,7 +115,7 @@ in {
       "element selected" = {
         background-color = mkLiteral "@background-bar";
         text-color = mkLiteral "@foreground";
-	      border = mkLiteral "0% 0% 0% 0%";
+        border = mkLiteral "0% 0% 0% 0%";
         border-radius = mkLiteral "12px";
         border-color = mkLiteral "@accent";
       };

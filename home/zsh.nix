@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -12,7 +11,8 @@
       mv = "mv -iv";
       cp = "cp -riv";
       cat = "bat --paging=never --style=plain";
-      fzf = "fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'";
+      fzf =
+        "fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'";
       ls = "exa --icons";
       tree = "exa --tree --icons";
     };

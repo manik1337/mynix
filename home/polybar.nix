@@ -65,7 +65,7 @@ in {
 
         font-0 = "FuraCode Nerd Font:size=12;3";
         font-1 = "FuraCode Nerd Font:style=Bold:size=12;3";
-        
+
         modules-left = "distro-icon dulS ddrT i3 dulT";
         modules-center = "title";
         modules-right = "durT audio ddlT date";
@@ -99,7 +99,7 @@ in {
 
         font-0 = "FuraCode Nerd Font:size=12;3";
         font-1 = "FuraCode Nerd Font:style=Bold:size=12;3";
-        
+
         modules-left = "powermenu ddlS";
 
         modules-right = "ddrS cpu dulS ddrT memory dulT ddrP battery";
@@ -125,7 +125,6 @@ in {
 
       #--------------------MODULES--------------------"
 
-
       "module/distro-icon" = {
         type = "custom/script";
         exec =
@@ -139,7 +138,7 @@ in {
         label = "%output%";
         label-font = 2;
       };
-      
+
       "module/audio" = {
         type = "internal/alsa";
 

@@ -74,9 +74,7 @@
     };
   };
 
-  home.packages = with pkgs; [
-    chromium
-  ];
+  home.packages = with pkgs; [ chromium ];
 
   home.sessionVariables.BROWSER = "chromium";
 }

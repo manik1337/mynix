@@ -1,9 +1,9 @@
 { config, lib, ... }: {
   services.gpg-agent = {
-    enable           = true;
+    enable = true;
     enableSshSupport = true;
-    defaultCacheTtl  = 60;
-    maxCacheTtl      = 120;
-    pinentryFlavor   = lib.mkDefault "curses";
+    defaultCacheTtl = 60;
+    maxCacheTtl = 120;
+    pinentryFlavor = lib.mkDefault "curses";
   };
 }
