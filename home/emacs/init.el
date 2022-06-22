@@ -251,6 +251,9 @@ modus-themes-fringes '(intense)
   :bind (:map prog-mode-map
          ("C-i" . company-indent-or-complete-common)
          ("C-M-i" . counsel-company))
+  :config
+  (setq company-minimum-prefix-length 1)
+  (setq company-idle-delay 0.0)
   :hook (emacs-lisp-mode . company-mode))
 
 ;; (use-package company-tabnine
