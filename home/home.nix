@@ -103,6 +103,8 @@
     kanshi
     bemenu
     wf-recorder
+    xdg-desktop-portal-wlr
+    obs-studio
 
     mpd
     ncmpcpp
@@ -116,5 +118,9 @@
   };
 
   programs.home-manager.enable = true;
+  home.sessionVariables = {
+    MOZ_ENABLE_WAYLAND = 1;
+    XDG_CURRENT_DESKTOP = "sway";
+  };
   home.stateVersion = "21.11";
 }
