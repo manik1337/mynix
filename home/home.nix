@@ -13,6 +13,7 @@
     ./sway.nix
     ./waybar.nix
     ./direnv.nix
+    ./nvim
   ];
 
   nixpkgs.config.allowUnfree = true;

@@ -5,6 +5,10 @@
       bbenoist.nix
       matklad.rust-analyzer 
       vscodevim.vim
+      justusadam.language-haskell
+      haskell.haskell
+      jakebecker.elixir-ls
+
     ];
     userSettings = {
       editor.fontFamily = "Hack Nerd Font";

@@ -55,7 +55,7 @@ end
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-local servers = { 'erlangls', 'rnix', 'rust_analyzer' }
+local servers = { 'elixirls', 'erlangls', 'rnix', 'rust_analyzer' }
 for _, server in pairs(servers) do
   require('lspconfig')[server].setup {
     on_attach = on_attach,
@@ -63,6 +63,10 @@ for _, server in pairs(servers) do
     capabilities = capabilities
   }
 end
+
+require('lspconfig').elixirls.setup {
+  cmd = { "elixir-ls" },
+}
 
 --require('rust-tools').setup({})
 

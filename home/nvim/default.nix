@@ -29,11 +29,9 @@
       vim-erlang-runtime
       vim-nix
       rust-tools-nvim
-      vim-terraform
 
       # Eyecandy 
-      gruvbox
-      nord-nvim
+      base16-vim
       nvim-treesitter
 
       # Telescope
@@ -48,6 +46,7 @@
         ${lib.strings.fileContents ./lua/lsp.lua}
         ${lib.strings.fileContents ./lua/nvim-tree.lua}
         ${lib.strings.fileContents ./lua/settings.lua}
+        ${lib.strings.fileContents ./lua/treesitter.lua}
         EOF
       '';
   };

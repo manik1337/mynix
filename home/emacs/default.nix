@@ -3,9 +3,9 @@ let
   emacsWithPackages = 
     (pkgs.emacsWithPackagesFromUsePackage {
       config = ./init.el;
-      package = pkgs.emacsPgtkNativeComp;
+      # package = pkgs.emacsPgtkNativeComp;
       alwaysEnsure = true;
-      extraEmacsPackages = epkgs: with epkgs; [ all-the-icons ];
+      extraEmacsPackages = epkgs: with epkgs; [ all-the-icons vterm ];
     });
 in {
   home.packages = [ emacsWithPackages ];
