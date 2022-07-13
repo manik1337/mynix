@@ -1,12 +1,12 @@
 { config, pkgs, ... }:
 let
-  ws1 = "1:web";
-  ws2 = "2:term";
-  ws3 = "3:code";
-  ws4 = "4:chat";
-  ws5 = "5:mail";
-  ws6 = "6:game";
-  ws7 = "7:other";
+  ws1 = "1";
+  ws2 = "2";
+  ws3 = "3";
+  ws4 = "4";
+  ws5 = "5";
+  ws6 = "6";
+  ws7 = "7";
 in {
   wayland.windowManager.sway = {
     enable = true;
@@ -130,7 +130,7 @@ in {
         "${mod}+Shift+p" =
           "exec ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g- ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png";
 
-        "${mod}+Shift+l" = "exec ${pkgs.swaylock}/bin/swaylock -f -i ~/wp.jpg";
+        "${mod}+Shift+l" = "exec ${pkgs.swaylock}/bin/swaylock -f -i ~/wp3.png";
         # "${mod}+k" = "exec ${pkgs.mako}/bin/makoctl invoke";
         "${mod}+Shift+k" = "exec ${pkgs.mako}/bin/makoctl dismiss -a";
 
