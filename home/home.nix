@@ -23,6 +23,7 @@
     erlangR24
     erlang-ls
     elixir
+    elixir-ls
 
     # rust
     cargo
