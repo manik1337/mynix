@@ -34,7 +34,7 @@ in {
         { command = "systemctl --user restart waybar.service"; }
         {
           command =
-            let lockCmd = "'${pkgs.swaylock}/bin/swaylock -f -i ~/wp.jpg'";
+            let lockCmd = "'${pkgs.swaylock}/bin/swaylock -f -i ~/wp3.png'";
             in ''
               ${pkgs.swayidle}/bin/swayidle -w \
               timeout 600 ${lockCmd} \
@@ -49,7 +49,10 @@ in {
           xkb_layout = "us,ru";
           xkb_options = "grp:alt_shift_toggle,ctrl:nocaps";
         };
-        "type:touchpad" = { tap = "enabled"; };
+        "type:touchpad" = {
+          tap = "enabled";
+          scroll_factor = "0.5";
+        };
         "type:pointer" = {
           accel_profile = "flat";
           pointer_accel = "0";
@@ -58,7 +61,7 @@ in {
         };
       };
       output = {
-        "*" = { bg = "~/wp.jpg fill"; };
+        "*" = { bg = "~/wp3.png fill"; };
         "DP-1" = {
           resolution = "2560x1440@144hz";
           position = "0,0";
@@ -114,6 +117,7 @@ in {
         "${mod}+slash" = "layout toggle split";
         "${mod}+a" = "focus parent";
         "${mod}+s" = "focus child";
+        "${mod}+Shift+s" = "sticky toggle";
 
         "${mod}+Shift+c" = "reload";
         "${mod}+Shift+r" = "restart";
