@@ -53,44 +53,27 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
 end
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-local servers = { 'elixirls', 'erlangls', 'rnix', 'rust_analyzer' }
+local lspconfig = require("lspconfig")
+local servers = { 'elixirls', 'rnix', 'rust_analyzer' }
+
 for _, server in pairs(servers) do
-  require('lspconfig')[server].setup {
+  lspconfig[server].setup {
     on_attach = on_attach,
     flags = { debounce_text_changes = 150, },
     capabilities = capabilities
   }
 end
 
-require('lspconfig').elixirls.setup {
+lspconfig.elixirls.setup {
   cmd = { "elixir-ls" },
+  settings = {
+    elixirLS = {
+      dialyzerEnabled = false,
+      fetchDeps = false
+    }
+  }
 }
 
---require('rust-tools').setup({})
-
--- -- Erlang
--- lsp.erlangls.setup{
---   on_attach = on_attach,
---   capabilities = capabilities
--- }
--- 
--- -- Nix
--- lsp.rnix.setup{
---   on_attach = on_attach
--- }
--- 
--- -- Rust
--- require('rust-tools').setup({})
--- 
--- lsp.rust_analyzer.setup{
---   on_attach = on_attach,
---   settings = {
---     rust = {
---       unstable_features = true,
---       build_on_save = false,
---       all_features = true
---     }
---   }
--- }

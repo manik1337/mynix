@@ -27,8 +27,8 @@ require'nvim-tree'.setup {
         ignore_list = {}
     },
     system_open = {
-    cmd  = nil,
-    args = {}
+        cmd  = nil,
+        args = {}
     },
     view = {
         width = 25,
