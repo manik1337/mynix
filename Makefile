@@ -1,7 +1,10 @@
-.PHONY = deploy clean switch
+.PHONY = clean update switch deploy
 
 clean:
 	rm -rf result
+
+update:
+	nix flake update
 
 switch:
 	nixos-rebuild --flake .#zion2 switch
