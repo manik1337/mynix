@@ -78,6 +78,7 @@
     exa
     wget
     unzip
+    openssl
 
     libreoffice
     zathura
