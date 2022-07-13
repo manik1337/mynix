@@ -14,6 +14,7 @@
     ./waybar.nix
     ./direnv.nix
     ./nvim
+    ./tmux.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
