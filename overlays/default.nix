@@ -9,4 +9,5 @@ self: super: rec {
   });
 
   ledger-live = super.callPackage ./ledger-live.nix { };
+  tmux-sessionizer = super.callPackage ../packages/tmux-sessionizer.nix { };
 }
