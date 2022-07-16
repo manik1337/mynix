@@ -36,6 +36,7 @@
 
       # Telescope
       telescope-nvim
+      telescope-fzf-native-nvim
 
       # Indent lines
       indent-blankline-nvim
@@ -47,6 +48,7 @@
         ${lib.strings.fileContents ./lua/nvim-tree.lua}
         ${lib.strings.fileContents ./lua/settings.lua}
         ${lib.strings.fileContents ./lua/treesitter.lua}
+        ${lib.strings.fileContents ./lua/telescope.lua}
         EOF
       '';
   };
