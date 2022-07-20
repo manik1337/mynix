@@ -4,9 +4,9 @@
     systemd.enable = true;
     settings = {
       mainBar = {
-        position = "top";
+        position = "left";
         modules-left = [ "sway/workspaces" "sway/mode" "wlr/taksbar" ];
-        modules-center = [ "sway/window" ];
+        modules-center = [];
         modules-right = [
           "sway/language"
           "tray"
@@ -26,32 +26,34 @@
             tooltip = false;
           };
 
-          "cpu" = { format = "{usage}% "; };
+          "cpu" = { format = "\n{usage}%"; };
 
-          "memory" = { format = "{}% "; };
+          "memory" = { format = "\n{}%"; };
 
           "battery" = {
             states = {
               warning = 20;
               critical = 10;
             };
-            format = "  {icon}  {capacity}%";
-            format-discharging = "{icon}  {capacity}%";
+            format = "{capacity}%";
+            format-discharging = "{capacity}%";
             tooltip = true;
           };
 
           "tray" = {
             icon-size = 20;
-            spacing = 8;
+            spacing = 2;
           };
+
           "clock#time" = {
             interval = 1;
-            format = "{:%H:%M:%S}";
+            format = "{:%H\n%M}";
             tooltip = false;
           };
 
           "clock#date" = {
-            format = " {:%e %b %Y}";
+            # format = " {:%e\n%b}";
+            format = "{:%e\n%b}";
             tooltip-format = ''
               <big>{:%Y %B}</big>
               <tt><small>{calendar}</small></tt>'';
