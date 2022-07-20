@@ -28,7 +28,7 @@ in {
         mouseWarping = false;
       };
       bars = [ ];
-      menu = "${pkgs.bemenu}/bin/bemenu-run";
+      menu = "${pkgs.rofi}/bin/rofi modi drun -show drun";
       startup = [
         { command = "${pkgs.mako}/bin/mako"; }
         { command = "systemctl --user restart waybar.service"; }

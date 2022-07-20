@@ -4,6 +4,7 @@ let inherit (config.lib.formats.rasi) mkLiteral;
 in {
   programs.rofi = {
     enable = true;
+    package = pkgs.rofi-wayland;
     terminal = "alacritty";
     extraConfig = {
       font = "Noto Sans Bold 10";
@@ -13,8 +14,8 @@ in {
       drun-display-format = "{name}";
       disable-history = mkLiteral "false";
       sidebar-mode = mkLiteral "false";
+      modi = "drun,ssh";
     };
-    extraConfig.matching = "fuzzy";
     theme = {
       "*" = {
         background = mkLiteral "#00000060";
