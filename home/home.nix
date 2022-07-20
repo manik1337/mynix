@@ -111,6 +111,8 @@
 
     mpd
     ncmpcpp
+
+    lutris
   ];
 
   programs = {
