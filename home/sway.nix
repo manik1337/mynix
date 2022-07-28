@@ -67,9 +67,7 @@ in {
           position = "0,0";
         };
         "HDMI-A-1" = {
-          resolution = "1920x1080@60hz";
-          transform = "90";
-          position = "2560,-500";
+          resolution = "3440x1440@60hz";
         };
       };
       keybindings = let

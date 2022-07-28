@@ -4,7 +4,7 @@
     systemd.enable = true;
     settings = {
       mainBar = {
-        position = "left";
+        position = "top";
         modules-left = [ "sway/workspaces" "sway/mode" "wlr/taksbar" ];
         modules-center = [];
         modules-right = [
