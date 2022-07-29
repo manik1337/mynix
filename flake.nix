@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.05";
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:rycee/home-manager/release-22.05";
     nur.url = "github:nix-community/NUR";
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     deploy-rs.url = "github:serokell/deploy-rs";
