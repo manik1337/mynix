@@ -114,6 +114,7 @@
     ncmpcpp
 
     lutris
+    gitkraken
   ];
 
   programs = {
