@@ -35,6 +35,10 @@
 
           "widget.non-native-theme.enabled" = false;
 
+          "font.name.monospace.x-western" = "IBM Plex Mono";
+          "font.name.sans-serif.x-western" = "IBM Plex Sans";
+          "font.name.serif.x-western" = "IBM Plex Serif";
+
           "browser.newtabpage.enabled" = false;
           "browser.startup.homepage" = "about:blank";
 

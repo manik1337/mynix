@@ -11,7 +11,8 @@
         multiplier = 30;
       };
       font = {
-        normal.family = "Hack Nerd Font";
+        # normal.family = "Hack Nerd Font";
+        normal.family = "IBM Plex Mono";
         size = 14;
       };
       window.opacity = 0.95;

@@ -60,6 +60,7 @@
 
     # fonts
     nerdfonts
+    ibm-plex
 
     # messengers
     tdesktop
