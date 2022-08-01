@@ -157,6 +157,24 @@ in {
           { class = "^Thunderbird$"; }
         ];
       };
+      window.commands = [
+        {
+          criteria = { title = "Firefox — Sharing Indicator"; };
+          command = "floating enable";
+        }
+        {
+          criteria = { title = "Firefox — Sharing Indicator"; };
+          command = "no_focus";
+        }
+        {
+          criteria = { title = "Firefox — Sharing Indicator"; };
+          command = "resize set 0 0";
+        }
+        {
+          criteria = { title = "Firefox — Sharing Indicator"; };
+          command = "move absolute position 10 10";
+        }
+      ];
     };
   };
 }
