@@ -107,8 +107,9 @@
     bemenu
     wf-recorder
     xdg-desktop-portal-wlr
-    obs-studio
+    swaykbdd
 
+    obs-studio
     mpd
     ncmpcpp
 
