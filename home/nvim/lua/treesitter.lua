@@ -1,5 +1,5 @@
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "elixir", "rust" },
+  ensure_installed = { "elixir", "rust", "go" },
   sync_install = false,
 
   highlight = {

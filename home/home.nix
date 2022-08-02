@@ -36,6 +36,9 @@
     # haskell
     haskell-language-server
 
+    # go
+    go
+
     # nix
     nixfmt
     rnix-lsp
