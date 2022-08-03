@@ -56,7 +56,7 @@ modus-themes-fringes '(intense)
 (use-package pdf-tools)
 
 (set-face-attribute 'default nil
-                    :family "Hack Nerd Font"
+                    :family "IBM Plex Mono"
                     :height 140
                     :weight 'normal
                     :width  'normal)
