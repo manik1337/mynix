@@ -20,6 +20,7 @@
       vim-fugitive
       vim-flog
       git-blame-nvim
+      neogit
 
       # File tree
       nvim-web-devicons 
@@ -49,6 +50,7 @@
         ${lib.strings.fileContents ./lua/settings.lua}
         ${lib.strings.fileContents ./lua/treesitter.lua}
         ${lib.strings.fileContents ./lua/telescope.lua}
+        ${lib.strings.fileContents ./lua/neogit.lua}
         EOF
       '';
   };
