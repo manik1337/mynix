@@ -90,7 +90,7 @@
     zathura
     flameshot
     krita
-    thunderbird
+    thunderbird-wayland
     vlc
 
     # keyboard
