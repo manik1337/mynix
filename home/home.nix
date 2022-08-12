@@ -39,6 +39,9 @@
     # go
     go
 
+    # nodejs
+    nodejs-16_x
+
     # nix
     nixfmt
     rnix-lsp

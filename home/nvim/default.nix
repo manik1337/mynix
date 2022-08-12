@@ -1,5 +1,6 @@
 { lib, pkgs, ... }:
-
+let copilot = pkgs.callPackage ./copilot.nix { };
+in
 {
   home.sessionVariables.EDITOR = "vim";
   programs.neovim = {
@@ -41,6 +42,8 @@
 
       # Indent lines
       indent-blankline-nvim
+
+      copilot
     ];
     extraConfig =
       ''
