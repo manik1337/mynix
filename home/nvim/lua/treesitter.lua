@@ -1,13 +1,19 @@
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {
     "elixir",
+    "erlang",
     "rust",
     "go",
     "javascript",
-    "json",
-    "markdown",
     "python",
-    "typescript"
+    "typescript",
+    "solidity",
+
+    "nix",
+    "lua",
+    "dockerfile",
+    "json",
+    "markdown"
   },
   sync_install = false,
 
