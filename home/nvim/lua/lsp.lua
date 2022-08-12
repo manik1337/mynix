@@ -68,6 +68,7 @@ for _, server in pairs(servers) do
 end
 
 lspconfig.elixirls.setup {
+  on_attach = on_attach,
   cmd = { "elixir-ls" },
   settings = {
     elixirLS = {
