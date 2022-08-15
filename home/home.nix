@@ -15,6 +15,7 @@
     ./direnv.nix
     ./nvim
     ./tmux.nix
+    ./xdg.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
