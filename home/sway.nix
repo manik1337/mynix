@@ -31,6 +31,7 @@ in {
       bars = [ ];
       menu = "${pkgs.rofi}/bin/rofi modi drun -show drun";
       startup = [
+        { always = true; command = "${pkgs.glib}/bin/gsettings set org.gnome.desktop.interface cursor-theme 'GoogleDot-Blue'"; }
         { command = "${pkgs.mako}/bin/mako"; }
         { command = "systemctl --user restart waybar.service"; }
         {

@@ -10,4 +10,5 @@ self: super: rec {
 
   ledger-live = super.callPackage ./ledger-live.nix { };
   tmux-sessionizer = super.callPackage ../packages/tmux-sessionizer.nix { };
+  google-dot-cursor = super.callPackage ../packages/google-dot.nix { };
 }

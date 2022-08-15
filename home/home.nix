@@ -122,7 +122,11 @@
 
     lutris
     gitkraken
+    
+    google-dot-cursor
   ];
+
+  home.file.".icons/default".source = "${pkgs.google-dot-cursor}/share/icons/";
 
   programs = {
     gh = {
