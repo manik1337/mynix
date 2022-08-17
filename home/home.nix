@@ -61,6 +61,7 @@
     xclip
     ledger-live
     insomnia
+    beekeeper-studio
 
     # editors
     vim
