@@ -20,9 +20,9 @@
 
           "extensions.autoDisableScopes" = 0;
 
-          "browser.search.defaultenginename" = "Google";
-          "browser.search.selectedEngine" = "Google";
-          "browser.urlbar.placeholderName" = "Google";
+          "browser.search.defaultenginename" = "DuckDuckGo";
+          "browser.search.selectedEngine" = "DuckDuckGo";
+          "browser.urlbar.placeholderName" = "DuckDuckGo";
 
           "browser.search.region" = "US";
 
@@ -80,5 +80,5 @@
 
   home.packages = with pkgs; [ chromium ];
 
-  home.sessionVariables.BROWSER = "chromium";
+  home.sessionVariables.BROWSER = "firefox";
 }
