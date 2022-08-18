@@ -35,6 +35,7 @@ in
       # Eyecandy 
       base16-vim
       nvim-treesitter
+      lualine-nvim
 
       # Telescope
       telescope-nvim
@@ -54,6 +55,7 @@ in
         ${lib.strings.fileContents ./lua/treesitter.lua}
         ${lib.strings.fileContents ./lua/telescope.lua}
         ${lib.strings.fileContents ./lua/neogit.lua}
+        ${lib.strings.fileContents ./lua/lualine.lua}
         EOF
       '';
   };
