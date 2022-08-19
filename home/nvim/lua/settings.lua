@@ -5,6 +5,7 @@ local g = vim.g
 local map = vim.api.nvim_set_keymap
 options = { noremap = true }
 map('n', '<C-p>', ':NvimTreeToggle <CR>', options)
+map('n', '<C-S-p>', ':NvimTreeFindFile <CR>', options)
 map('n', '<C-f>', ':Telescope find_files <CR>', options)
 map('n', '<C-n>', ':Telescope live_grep <CR>', options)
 

@@ -6,7 +6,7 @@
       mainBar = {
         position = "top";
         modules-left = [ "sway/workspaces" "sway/mode" "wlr/taksbar" ];
-        modules-center = [];
+        modules-center = [ ];
         modules-right = [
           "sway/language"
           "tray"
@@ -26,9 +26,17 @@
             tooltip = false;
           };
 
-          "cpu" = { format = "\n{usage}%"; };
+          "cpu" = {
+            format = ''
+              
+              {usage}%'';
+          };
 
-          "memory" = { format = "\n{}%"; };
+          "memory" = {
+            format = ''
+              
+              {}%'';
+          };
 
           "battery" = {
             states = {
@@ -47,13 +55,17 @@
 
           "clock#time" = {
             interval = 1;
-            format = "{:%H\n%M}";
+            format = ''
+              {:%H
+              %M}'';
             tooltip = false;
           };
 
           "clock#date" = {
             # format = " {:%e\n%b}";
-            format = "{:%e\n%b}";
+            format = ''
+              {:%e
+              %b}'';
             tooltip-format = ''
               <big>{:%Y %B}</big>
               <tt><small>{calendar}</small></tt>'';

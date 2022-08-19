@@ -1,12 +1,5 @@
-{ lib
-, stdenv
-, rustPlatform
-, fetchFromGitHub
-, pkg-config
-, openssl
-, installShellFiles
-, makeWrapper
-}:
+{ lib, stdenv, rustPlatform, fetchFromGitHub, pkg-config, openssl
+, installShellFiles, makeWrapper }:
 
 rustPlatform.buildRustPackage rec {
   pname = "tmux-sessionizer";
@@ -36,7 +29,8 @@ rustPlatform.buildRustPackage rec {
   meta = with lib; {
     description = "The fastest way to manage projects as tmux sessions";
     homepage = "https://github.com/jrmoulton/tmux-sessionizer";
-    changelog = "https://github.com/jrmoulton/tmux-sessionizer/commits/v${version}";
+    changelog =
+      "https://github.com/jrmoulton/tmux-sessionizer/commits/v${version}";
     maintainers = with maintainers; [ manikdv ];
   };
 }

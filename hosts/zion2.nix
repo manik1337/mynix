@@ -72,14 +72,12 @@
         dns = [ "10.0.0.1" "fdc9:281f:04d7:9ee9::1" ];
         privateKey = "+GUbhtj2gbATmJtTbAnN5r0GIQQFbqeyMzVwHANVRm4=";
 
-        peers = [
-          {
-            publicKey = "L5f/b9oZJ7ahl/lQjsOfXVR2MJ5EGrM26urDi5Ul/0U=";
-            allowedIPs = [ "0.0.0.0/0" "::/0" ];
-            endpoint = "135.181.145.101:51820";
-            persistentKeepalive = 25;
-          }
-        ];
+        peers = [{
+          publicKey = "L5f/b9oZJ7ahl/lQjsOfXVR2MJ5EGrM26urDi5Ul/0U=";
+          allowedIPs = [ "0.0.0.0/0" "::/0" ];
+          endpoint = "135.181.145.101:51820";
+          persistentKeepalive = 25;
+        }];
       };
     };
   };
@@ -97,7 +95,6 @@
       gtkUsePortal = true;
     };
   };
-
 
   services.pipewire = {
     enable = true;

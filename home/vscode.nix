@@ -3,7 +3,7 @@
     enable = true;
     extensions = with pkgs.vscode-extensions; [
       bbenoist.nix
-      matklad.rust-analyzer 
+      matklad.rust-analyzer
       vscodevim.vim
       justusadam.language-haskell
       haskell.haskell

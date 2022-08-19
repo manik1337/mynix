@@ -31,7 +31,11 @@ in {
       bars = [ ];
       menu = "${pkgs.rofi}/bin/rofi modi drun -show drun";
       startup = [
-        { always = true; command = "${pkgs.glib}/bin/gsettings set org.gnome.desktop.interface cursor-theme 'GoogleDot-Blue'"; }
+        {
+          always = true;
+          command =
+            "${pkgs.glib}/bin/gsettings set org.gnome.desktop.interface cursor-theme 'GoogleDot-Blue'";
+        }
         { command = "${pkgs.mako}/bin/mako"; }
         { command = "systemctl --user restart waybar.service"; }
         {
@@ -68,9 +72,7 @@ in {
           resolution = "2560x1440@144hz";
           position = "0,0";
         };
-        "HDMI-A-1" = {
-          resolution = "3440x1440@60hz";
-        };
+        "HDMI-A-1" = { resolution = "3440x1440@60hz"; };
       };
       keybindings = let
         mod = config.wayland.windowManager.sway.config.modifier;

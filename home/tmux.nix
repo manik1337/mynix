@@ -13,7 +13,5 @@
     '';
   };
 
-  home.packages = with pkgs; [
-    tmux-sessionizer
-  ];
+  home.packages = with pkgs; [ tmux-sessionizer ];
 }
