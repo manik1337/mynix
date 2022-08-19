@@ -16,6 +16,7 @@
     ./nvim
     ./tmux.nix
     ./xdg.nix
+    ./mako.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -108,7 +109,6 @@
     brightnessctl
     slurp
     grim
-    mako
     swaylock
     swayidle
     wl-clipboard
@@ -124,7 +124,7 @@
 
     lutris
     gitkraken
-    
+
     google-dot-cursor
   ];
 
