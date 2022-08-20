@@ -46,6 +46,8 @@ in
       # Indent lines
       indent-blankline-nvim
 
+      # Editing
+      comment-nvim
       copilot
     ];
     extraConfig =
@@ -59,6 +61,7 @@ in
         ${lib.strings.fileContents ./lua/neogit.lua}
         ${lib.strings.fileContents ./lua/lualine.lua}
         ${lib.strings.fileContents ./lua/tabline.lua}
+        ${lib.strings.fileContents ./lua/comment.lua}
         EOF
       '';
   };
