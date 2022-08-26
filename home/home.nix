@@ -43,6 +43,7 @@
 
     # nodejs
     nodejs-16_x
+    nodePackages.typescript-language-server
 
     # nix
     nixfmt
