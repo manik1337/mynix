@@ -74,6 +74,7 @@ in {
         };
         "HDMI-A-1" = { resolution = "3440x1440@60hz"; };
       };
+      bindkeysToCode = true;
       keybindings = let
         mod = config.wayland.windowManager.sway.config.modifier;
         inherit (config.wayland.windowManager.sway.config) menu terminal;
