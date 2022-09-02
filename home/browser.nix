@@ -70,6 +70,7 @@
         https-everywhere
         ublock-origin
         foxyproxy-standard
+        i-dont-care-about-cookies
 
         # ui
         darkreader
