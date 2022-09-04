@@ -17,6 +17,7 @@
     ./tmux.nix
     ./xdg.nix
     ./mako.nix
+    ./zellij.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
