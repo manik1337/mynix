@@ -75,6 +75,8 @@
         # ui
         darkreader
         sidebery
+
+        bitwarden
       ];
     };
   };
