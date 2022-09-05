@@ -28,14 +28,12 @@
 
           "cpu" = {
             format = ''
-              
-              {usage}%'';
+               {usage}%'';
           };
 
           "memory" = {
             format = ''
-              
-              {}%'';
+               {}%'';
           };
 
           "battery" = {
@@ -56,16 +54,14 @@
           "clock#time" = {
             interval = 1;
             format = ''
-              {:%H
-              %M}'';
+              {:%H:%M}'';
             tooltip = false;
           };
 
           "clock#date" = {
             # format = " {:%e\n%b}";
             format = ''
-              {:%e
-              %b}'';
+              {:%e %b}'';
             tooltip-format = ''
               <big>{:%Y %B}</big>
               <tt><small>{calendar}</small></tt>'';
