@@ -30,6 +30,8 @@
             ({ pkgs, ... }: {
               nix = {
                 package = pkgs.nixFlakes;
+                nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+                registry.nixpkgs.flake = inputs.nixpkgs;
                 extraOptions = ''
                   experimental-features = nix-command flakes
                 '';
