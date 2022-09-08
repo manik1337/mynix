@@ -128,6 +128,8 @@
     gitkraken
 
     google-dot-cursor
+
+    mpv
   ];
 
   home.file.".icons/default".source = "${pkgs.google-dot-cursor}/share/icons/";
