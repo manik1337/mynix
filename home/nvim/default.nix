@@ -1,7 +1,6 @@
 { lib, pkgs, ... }:
 let copilot = pkgs.callPackage ./copilot.nix { };
-in
-{
+in {
   home.sessionVariables.EDITOR = "vim";
   programs.neovim = {
     enable = true;
@@ -24,7 +23,7 @@ in
       neogit
 
       # File tree
-      nvim-web-devicons 
+      nvim-web-devicons
       nvim-tree-lua
 
       # Languages
@@ -50,23 +49,20 @@ in
       comment-nvim
       copilot
     ];
-    extraConfig =
-      ''
-        lua << EOF
-        ${lib.strings.fileContents ./lua/lsp.lua}
-        ${lib.strings.fileContents ./lua/nvim-tree.lua}
-        ${lib.strings.fileContents ./lua/settings.lua}
-        ${lib.strings.fileContents ./lua/treesitter.lua}
-        ${lib.strings.fileContents ./lua/telescope.lua}
-        ${lib.strings.fileContents ./lua/neogit.lua}
-        ${lib.strings.fileContents ./lua/lualine.lua}
-        ${lib.strings.fileContents ./lua/tabline.lua}
-        ${lib.strings.fileContents ./lua/comment.lua}
-        EOF
-      '';
+    extraConfig = ''
+      lua << EOF
+      ${lib.strings.fileContents ./lua/lsp.lua}
+      ${lib.strings.fileContents ./lua/nvim-tree.lua}
+      ${lib.strings.fileContents ./lua/settings.lua}
+      ${lib.strings.fileContents ./lua/treesitter.lua}
+      ${lib.strings.fileContents ./lua/telescope.lua}
+      ${lib.strings.fileContents ./lua/neogit.lua}
+      ${lib.strings.fileContents ./lua/lualine.lua}
+      ${lib.strings.fileContents ./lua/tabline.lua}
+      ${lib.strings.fileContents ./lua/comment.lua}
+      EOF
+    '';
   };
 
-  home.packages = with pkgs; [
-    ripgrep
-  ];
+  home.packages = with pkgs; [ ripgrep ];
 }

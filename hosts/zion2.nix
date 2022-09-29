@@ -4,6 +4,7 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     ../hardware/ledger.nix
+    ../hardware/flipper.nix
   ];
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -138,6 +139,8 @@
   services.openssh.enable = true;
   #   hardware.pulseaudio.enable = true;
 
+  hardware.ledger.enable = true;
+
   hardware.opengl = {
     enable = true;
     driSupport = true;
@@ -148,6 +151,15 @@
   hardware.video.hidpi.enable = lib.mkDefault true;
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
+
+  nix = {
+    settings.auto-optimise-store = true;
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
+  };
 
   system.stateVersion = "21.11";
 }

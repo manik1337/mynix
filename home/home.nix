@@ -100,6 +100,7 @@
     krita
     thunderbird-wayland
     vlc
+    spotify
 
     # keyboard
     wally-cli
@@ -130,6 +131,9 @@
     google-dot-cursor
 
     mpv
+    
+    steam
+    qflipper
   ];
 
   home.file.".icons/default".source = "${pkgs.google-dot-cursor}/share/icons/";
@@ -146,5 +150,6 @@
     MOZ_ENABLE_WAYLAND = 1;
     XDG_CURRENT_DESKTOP = "sway";
   };
+
   home.stateVersion = "21.11";
 }
