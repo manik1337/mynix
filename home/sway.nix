@@ -164,6 +164,10 @@ in {
       };
       window.commands = [
         {
+          criteria = { title = "Picture-in-Picture"; };
+          command = "floating enable";
+        }
+        {
           criteria = { title = "Firefox — Sharing Indicator"; };
           command = "floating enable";
         }
