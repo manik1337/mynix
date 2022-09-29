@@ -67,7 +67,7 @@ in {
         };
       };
       output = {
-        # "*" = { bg = "~/wp3.png fill"; };
+        "*" = { bg = "#000000 solid_color"; };
         "DP-1" = {
           resolution = "2560x1440@144hz";
           position = "0,0";
