@@ -1,4 +1,4 @@
-.PHONY = clean update switch deploy
+.PHONY = clean update switch deploy format
 
 clean:
 	rm -rf result
@@ -11,3 +11,6 @@ switch:
 
 deploy:
 	nix run github:serokell/deploy-rs .#zion2.system
+
+format:
+	find . -name '*.nix' | nixfmt
