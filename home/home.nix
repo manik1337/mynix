@@ -56,7 +56,6 @@
     gcc
     gnumake
     ghc
-    jq
     oh-my-zsh
     git
     git-crypt
@@ -93,6 +92,9 @@
     wget
     unzip
     openssl
+    ranger
+    jq
+    jless
 
     libreoffice
     zathura
