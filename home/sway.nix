@@ -41,15 +41,14 @@ in {
         { command = "${pkgs.mako}/bin/mako"; }
         { command = "systemctl --user restart waybar.service"; }
         {
-          command =
-            let lockCmd = "'${pkgs.swaylock}/bin/swaylock -f";
-            in ''
-              ${pkgs.swayidle}/bin/swayidle -w \
-              timeout 600 ${lockCmd} \
-              timeout 1200 'swaymsg "output * dpms off"' \
-              resume 'swaymsg "output * dpms on"' \
-              before-sleep ${lockCmd}
-            '';
+          command = let lockCmd = "'${pkgs.swaylock}/bin/swaylock -f";
+          in ''
+            ${pkgs.swayidle}/bin/swayidle -w \
+            timeout 600 ${lockCmd} \
+            timeout 1200 'swaymsg "output * dpms off"' \
+            resume 'swaymsg "output * dpms on"' \
+            before-sleep ${lockCmd}
+          '';
         }
       ];
       input = {
@@ -171,7 +170,8 @@ in {
         }
         {
           criteria = { title = "Firefox — Sharing Indicator"; };
-          command = "floating enable, no_focus, resize set 0 0, move absolute position 10 10";
+          command =
+            "floating enable, no_focus, resize set 0 0, move absolute position 10 10";
         }
       ];
     };
