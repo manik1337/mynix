@@ -7,6 +7,8 @@ let
   ws5 = "5";
   ws6 = "6";
   ws7 = "7";
+  ws8 = "8";
+  ws9 = "9";
 in {
   wayland.windowManager.sway = {
     enable = true;
@@ -165,23 +167,11 @@ in {
       window.commands = [
         {
           criteria = { title = "Picture-in-Picture"; };
-          command = "floating enable";
+          command = "floating enable, sticky enable";
         }
         {
           criteria = { title = "Firefox — Sharing Indicator"; };
-          command = "floating enable";
-        }
-        {
-          criteria = { title = "Firefox — Sharing Indicator"; };
-          command = "no_focus";
-        }
-        {
-          criteria = { title = "Firefox — Sharing Indicator"; };
-          command = "resize set 0 0";
-        }
-        {
-          criteria = { title = "Firefox — Sharing Indicator"; };
-          command = "move absolute position 10 10";
+          command = "floating enable, no_focus, resize set 0 0, move absolute position 10 10";
         }
       ];
     };
