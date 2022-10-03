@@ -77,7 +77,7 @@
     discord
     slack
 
-    # spotify
+    spotify
     _1password-gui
     bitwarden
     bitwarden-cli
