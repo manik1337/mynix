@@ -151,6 +151,10 @@
   hardware.video.hidpi.enable = lib.mkDefault true;
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
+  services.printing = {
+    enable = true;
+    drivers = [ pkgs.gutenprint ];
+  };
 
   nix = {
     settings.auto-optimise-store = true;
