@@ -1,6 +1,5 @@
 { lib, pkgs, ... }:
-let copilot = pkgs.callPackage ./copilot.nix { };
-in {
+{
   home.sessionVariables.EDITOR = "vim";
   programs.neovim = {
     enable = true;
@@ -47,7 +46,6 @@ in {
 
       # Editing
       comment-nvim
-      copilot
     ];
     extraConfig = ''
       lua << EOF
