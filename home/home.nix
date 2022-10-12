@@ -46,6 +46,15 @@
     nodejs-16_x
     nodePackages.typescript-language-server
 
+    # ocaml
+    ocaml
+    opam
+    dune_3
+    ocamlPackages.merlin
+    ocamlPackages.ocaml-lsp
+    ocamlPackages.utop
+    nodePackages.esy
+
     # nix
     nixfmt
     rnix-lsp
@@ -53,6 +62,8 @@
     terraform
 
     # etc
+    binutils
+    pkg-config
     gcc
     gnumake
     ghc
