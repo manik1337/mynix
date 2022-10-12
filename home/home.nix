@@ -85,6 +85,7 @@
 
     # messengers
     tdesktop
+    kotatogram-desktop
     discord
     slack
 
