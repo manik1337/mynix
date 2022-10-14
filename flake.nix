@@ -2,8 +2,8 @@
   description = "My NixOS";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-22.05";
-    home-manager.url = "github:rycee/home-manager/release-22.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    home-manager.url = "github:rycee/home-manager";
     nur.url = "github:nix-community/NUR";
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     deploy-rs.url = "github:serokell/deploy-rs";
@@ -29,7 +29,7 @@
 
             ({ pkgs, ... }: {
               nix = {
-                package = pkgs.nixFlakes;
+                package =  pkgs.nixUnstable;
                 nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
                 registry.nixpkgs.flake = inputs.nixpkgs;
                 extraOptions = ''

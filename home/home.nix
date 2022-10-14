@@ -4,7 +4,6 @@
     ./rofi.nix
     ./git.nix
     ./redshift.nix
-    ./dunst.nix
     ./browser.nix
     ./emacs
     ./zsh.nix
