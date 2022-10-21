@@ -3,7 +3,6 @@
     ./alacritty.nix
     ./rofi.nix
     ./git.nix
-    ./redshift.nix
     ./browser.nix
     ./emacs
     ./zsh.nix
@@ -49,10 +48,10 @@
     ocaml
     opam
     dune_3
-    ocamlPackages.merlin
     ocamlPackages.ocaml-lsp
-    ocamlPackages.utop
-    nodePackages.esy
+    # ocamlPackages.merlin
+    # ocamlPackages.utop
+    # nodePackages.esy
 
     # nix
     nixfmt

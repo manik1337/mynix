@@ -1,5 +1,4 @@
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
--- vim.g.mapleader = "<Space>"
 vim.api.nvim_set_keymap('n', '<Space>', '', {})
 vim.g.mapleader = ' '
 
@@ -60,7 +59,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local lspconfig = require("lspconfig")
-local servers = { 'rnix', 'rust_analyzer' }
+local servers = { 'rnix', 'rust_analyzer', 'hls' }
 
 for _, server in pairs(servers) do
   lspconfig[server].setup {

@@ -1,4 +1,5 @@
 require'nvim-treesitter.configs'.setup {
+  parser_install_dir = "~/.local/share/nvim/site",
   ensure_installed = {
     "elixir",
     "erlang",
@@ -8,6 +9,8 @@ require'nvim-treesitter.configs'.setup {
     "python",
     "typescript",
     "solidity",
+    "ocaml",
+    "haskell",
 
     "nix",
     "lua",
@@ -22,6 +25,7 @@ require'nvim-treesitter.configs'.setup {
     use_languagetree = false,
     additional_vim_regex_highlighting = false,
   },
+
   refactor = {
     highlight_definitions = { enable = true },
     highlight_current_scope = { enable = false },

@@ -4,11 +4,6 @@ require'nvim-tree'.setup {
     open_on_setup       = false,
     ignore_ft_on_setup  = {},
 
-    update_to_buf_dir   = {
-        enable = true,
-        auto_open = true,
-    },
-
     open_on_tab         = false,
     hijack_cursor       = false,
     update_cwd          = false,
@@ -31,10 +26,7 @@ require'nvim-tree'.setup {
         args = {}
     },
     view = {
-        width = 25,
-        height = 30,
         side = 'left',
-        auto_resize = true,
         mappings = {
             custom_only = false,
             list = {}
