@@ -2,6 +2,7 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
+    enableAutosuggestions = true;
     shellAliases = {
       v = "nvim";
       c = "clear";
@@ -19,7 +20,7 @@
     oh-my-zsh = {
       enable = true;
       theme = "lambda";
-      plugins = [ "git" "sudo" ];
+      plugins = [ "git" ];
     };
   };
 }
