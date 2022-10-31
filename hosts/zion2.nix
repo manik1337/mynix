@@ -28,7 +28,7 @@
 
   sound.enable = true;
 
-  time.timeZone = "Europe/Moscow";
+  time.timeZone = "Europe/Nicosia";
 
   virtualisation.docker.enable = true;
 
