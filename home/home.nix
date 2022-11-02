@@ -24,7 +24,7 @@
     # elixir
     erlangR24
     erlang-ls
-    elixir
+    elixir_1_14
     elixir_ls
 
     # rust
@@ -146,6 +146,7 @@
     
     steam
     qflipper
+    sof-firmware
   ];
 
   home.file.".icons/default".source = "${pkgs.google-dot-cursor}/share/icons/";
