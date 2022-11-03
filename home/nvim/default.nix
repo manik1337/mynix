@@ -32,6 +32,7 @@
 
       # Eyecandy 
       base16-vim
+      material-nvim
       nvim-treesitter
       lualine-nvim
       lualine-lsp-progress
@@ -58,6 +59,7 @@
       ${lib.strings.fileContents ./lua/lualine.lua}
       ${lib.strings.fileContents ./lua/tabline.lua}
       ${lib.strings.fileContents ./lua/comment.lua}
+      ${lib.strings.fileContents ./lua/meterial.lua}
       EOF
     '';
   };
