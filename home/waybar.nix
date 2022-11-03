@@ -82,7 +82,7 @@
         border: none;
         border-radius: 0;
         font-family: Hack;
-        font-size: 13px;
+        font-size: 15px;
         min-height: 0;
       }
       window#waybar {
