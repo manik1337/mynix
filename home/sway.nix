@@ -82,6 +82,7 @@ in {
       in {
         "${mod}+d" = "exec ${menu}";
         "${mod}+Return" = "exec ${terminal}";
+        "${mod}+Shift+Return" = "exec ${terminal} --class floating_terminal";
         "${mod}+Shift+q" = "kill";
 
         "${mod}+h" = "focus left";
@@ -164,6 +165,10 @@ in {
         ];
       };
       window.commands = [
+        {
+          criteria = { app_id = "floating_terminal"; };
+          command = "floating enable, sticky enable";
+        }
         {
           criteria = { title = "Picture-in-Picture"; };
           command = "floating enable, sticky enable";
