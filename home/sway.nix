@@ -83,7 +83,7 @@ in {
         "${mod}+d" = "exec ${menu}";
         "${mod}+Return" = "exec ${terminal}";
         "${mod}+Shift+Return" = "exec ${terminal} --class floating_terminal";
-        "${mod}+Shift+q" = "kill";
+        "${mod}+q" = "kill";
 
         "${mod}+h" = "focus left";
         "${mod}+j" = "focus down";
