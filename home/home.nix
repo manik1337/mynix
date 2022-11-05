@@ -4,7 +4,7 @@
     ./rofi.nix
     ./git.nix
     ./browser.nix
-    ./emacs
+    # ./emacs
     ./zsh.nix
     ./security.nix
     ./vscode.nix
