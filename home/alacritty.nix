@@ -7,7 +7,7 @@
     enable = true;
     settings = {
       scrolling = {
-        history = 10000;
+        history = 100000;
         multiplier = 30;
       };
       font = {
