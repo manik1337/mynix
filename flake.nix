@@ -5,19 +5,18 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:rycee/home-manager";
     nur.url = "github:nix-community/NUR";
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
     deploy-rs.url = "github:serokell/deploy-rs";
   };
 
   outputs =
-    inputs@{ self, home-manager, nixpkgs, deploy-rs, emacs-overlay, ... }:
+    inputs@{ self, home-manager, nixpkgs, deploy-rs, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
         overlays =
-          [ (import ./overlays) inputs.nur.overlay emacs-overlay.overlay ];
+          [ (import ./overlays) inputs.nur.overlay ];
       };
       mkComputer = configurationNix: extraModules:
         nixpkgs.lib.nixosSystem {
