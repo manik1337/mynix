@@ -15,11 +15,14 @@
         normal.family = "IBM Plex Mono";
         size = 14;
       };
-      window.opacity = 0.95;
+      window = {
+        dynamic_title = true;
+        opacity = 0.95;
+      };
       selection.save_to_clipboard = true;
       custom_cursor_colors = true;
       cursor = {
-        style = "Block";
+        style = "Beam";
         unfocused_hollow = true;
       };
       url.launcher.program = "firefox";
