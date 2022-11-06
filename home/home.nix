@@ -67,6 +67,7 @@
     gnumake
     ghc
     oh-my-zsh
+    zsh-completions
     git
     git-crypt
     gnupg
@@ -102,10 +103,16 @@
     exa
     wget
     unzip
+    unrar
     openssl
     ranger
     jq
     jless
+    nethogs
+    gh
+    dua
+    noti
+    nix-index
 
     libreoffice
     zathura
