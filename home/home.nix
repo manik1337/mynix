@@ -9,6 +9,7 @@
     ./security.nix
     ./vscode.nix
     ./sway.nix
+    ./swaylock.nix
     ./waybar.nix
     ./direnv.nix
     ./nvim
