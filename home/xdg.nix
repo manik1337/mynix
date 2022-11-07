@@ -3,6 +3,17 @@
     userDirs = {
       enable = true;
       createDirectories = true;
+      desktop = "$HOME/ws";
+      documents = "$HOME/media/doc";
+      download = "$HOME/dl";
+      music = "$HOME/media/music";
+      pictures = "$HOME/media/pic";
+      templates = "$HOME/ws";
+      videos = "$HOME/media/videos";
+    };
+    systemDirs = {
+      data = [ "$HOME/.local/share" ];
+      config = [ "$HOME/.config" ];
     };
     mime.enable = true;
     mimeApps = {
