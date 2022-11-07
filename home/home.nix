@@ -157,7 +157,7 @@
     sof-firmware
   ];
 
-  home.file.".icons/default".source = "${pkgs.google-dot-cursor}/share/icons/";
+  # home.file.".icons/default".source = "${pkgs.google-dot-cursor}/share/icons/";
 
   programs = {
     gh = {
