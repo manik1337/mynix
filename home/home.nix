@@ -97,6 +97,7 @@
     # utils
     dmenu
     ncpamixer
+    htop
     btop
     bat
     fzf
@@ -116,6 +117,7 @@
 
     libreoffice
     zathura
+    foliate
     flameshot
     krita
     thunderbird-wayland
