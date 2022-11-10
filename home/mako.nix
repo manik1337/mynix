@@ -4,6 +4,6 @@
 
     defaultTimeout = 10000;
     ignoreTimeout = true;
-    font = "IBM Plex Serif 12";
+    font = "Hack Nerd Font 12";
   };
 }
