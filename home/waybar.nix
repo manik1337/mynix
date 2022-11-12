@@ -134,6 +134,14 @@
         animation-iteration-count: infinite;
         animation-direction: alternate;
       }
+      #battery.critical:not(.charging) {
+        color: red;
+        animation-name: blink;
+        animation-duration: 0.5s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
       #cpu {
       }
       #memory {

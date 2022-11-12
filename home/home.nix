@@ -54,6 +54,9 @@
     # ocamlPackages.utop
     # nodePackages.esy
 
+    # scala
+    dotty
+
     # nix
     nixfmt
     rnix-lsp
