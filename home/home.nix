@@ -55,7 +55,9 @@
     # nodePackages.esy
 
     # scala
-    dotty
+    # dotty
+    scala
+    sbt
     coursier
     metals
     jdk
