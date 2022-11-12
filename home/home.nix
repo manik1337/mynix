@@ -56,6 +56,9 @@
 
     # scala
     dotty
+    coursier
+    metals
+    jdk
 
     # nix
     nixfmt
@@ -78,9 +81,6 @@
     ledger-live
     insomnia
     beekeeper-studio
-
-    # editors
-    vim
 
     # fonts
     nerdfonts
