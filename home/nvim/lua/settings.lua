@@ -11,8 +11,8 @@ map('n', '<C-b>', ':Telescope buffers <CR>', options)
 
 -- Colorscheme
 -- vim.cmd [[ colorscheme base16-default-dark ]]
-g.material_style = "darker"
-vim.cmd 'colorscheme material'
+-- g.material_style = "darker"
+vim.cmd 'colorscheme tokyonight-night'
 
 -- Indent line
 opt.list = true

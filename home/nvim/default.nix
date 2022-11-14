@@ -37,6 +37,7 @@
       # Eyecandy 
       base16-vim
       material-nvim
+      tokyonight-nvim
       nvim-treesitter
       lualine-nvim
       lualine-lsp-progress
