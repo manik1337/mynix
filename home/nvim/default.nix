@@ -38,7 +38,8 @@
       base16-vim
       material-nvim
       tokyonight-nvim
-      nvim-treesitter
+      (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
+      # nvim-treesitter
       lualine-nvim
       lualine-lsp-progress
       tabline-nvim

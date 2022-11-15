@@ -83,6 +83,8 @@ in {
         "${mod}+d" = "exec ${menu}";
         "${mod}+Return" = "exec ${terminal}";
         "${mod}+Shift+Return" = "exec ${terminal} --class floating_terminal";
+        "${mod}+t" = "exec ${terminal} --class floating_terminal -e vim -c 'startinsert' $HOME/ws/todo.md";
+        "${mod}+Shift+t" = "exec ${terminal} --class floating_terminal --working-directory $HOME/ws/mynix/";
         "${mod}+q" = "kill";
 
         "${mod}+h" = "focus left";
