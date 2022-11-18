@@ -45,15 +45,6 @@
     nodejs-16_x
     nodePackages.typescript-language-server
 
-    # ocaml
-    ocaml
-    opam
-    dune_3
-    ocamlPackages.ocaml-lsp
-    # ocamlPackages.merlin
-    # ocamlPackages.utop
-    # nodePackages.esy
-
     # scala
     # dotty
     scala
@@ -61,6 +52,7 @@
     coursier
     metals
     jdk
+    jetbrains.idea-community
 
     # nix
     nixfmt
