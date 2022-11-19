@@ -4,7 +4,6 @@
     ./rofi.nix
     ./git.nix
     ./browser.nix
-    # ./emacs
     ./zsh.nix
     ./security.nix
     ./vscode.nix
@@ -34,16 +33,6 @@
     rust-analyzer
     rustfmt
     clippy
-
-    # haskell
-    haskell-language-server
-
-    # go
-    go
-
-    # nodejs
-    nodejs-16_x
-    nodePackages.typescript-language-server
 
     # scala
     # dotty
