@@ -10,9 +10,9 @@ map('n', '<C-n>', ':Telescope live_grep <CR>', options)
 map('n', '<C-b>', ':Telescope buffers <CR>', options)
 
 -- Colorscheme
--- vim.cmd [[ colorscheme base16-default-dark ]]
+vim.cmd [[ colorscheme base16-default-dark ]]
 -- g.material_style = "darker"
-vim.cmd 'colorscheme tokyonight-night'
+-- vim.cmd 'colorscheme tokyonight-night'
 
 -- Indent line
 opt.list = true

@@ -20,8 +20,8 @@
       # Git
       vim-fugitive
       vim-flog
-      git-blame-nvim
       diffview-nvim
+      gitsigns-nvim
       # neogit
 
       # File tree
@@ -65,6 +65,7 @@
       ${lib.strings.fileContents ./lua/comment.lua}
       ${lib.strings.fileContents ./lua/treesitter.lua}
       ${lib.strings.fileContents ./lua/lsp.lua}
+      ${lib.strings.fileContents ./lua/gitsigns.lua}
       EOF
     '';
   };
