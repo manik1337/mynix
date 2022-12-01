@@ -1,6 +1,4 @@
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
-vim.api.nvim_set_keymap('n', '<Space>', '', {})
-vim.g.mapleader = ' '
 
 local cmp = require'cmp'
 

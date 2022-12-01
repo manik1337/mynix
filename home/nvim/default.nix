@@ -22,6 +22,7 @@
       vim-flog
       diffview-nvim
       gitsigns-nvim
+      lazygit-nvim
       # neogit
 
       # File tree
@@ -66,6 +67,7 @@
       ${lib.strings.fileContents ./lua/treesitter.lua}
       ${lib.strings.fileContents ./lua/lsp.lua}
       ${lib.strings.fileContents ./lua/gitsigns.lua}
+      ${lib.strings.fileContents ./lua/lazygit.lua}
       EOF
     '';
   };
