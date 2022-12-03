@@ -164,5 +164,7 @@
     };
   };
 
+  programs.nm-applet.enable = true;
+
   system.stateVersion = "21.11";
 }
