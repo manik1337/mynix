@@ -39,7 +39,11 @@
       base16-vim
       material-nvim
       tokyonight-nvim
-      (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
+
+      (nvim-treesitter.withPlugins (plugins: with plugins; [
+        nix lua scala javascript yaml python rust c erlang elixir kotlin
+      ]))
+
       # nvim-treesitter
       lualine-nvim
       lualine-lsp-progress

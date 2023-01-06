@@ -41,7 +41,11 @@
     coursier
     metals
     jdk
-    jetbrains.idea-community
+
+    # kotlin
+    kotlin
+    kotlin-language-server
+    gradle
 
     # nix
     nixfmt
