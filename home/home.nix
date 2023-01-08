@@ -47,6 +47,10 @@
     kotlin-language-server
     gradle
 
+    # golang
+    go
+    gopls
+
     # nix
     nixfmt
     rnix-lsp

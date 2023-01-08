@@ -41,7 +41,7 @@
       tokyonight-nvim
 
       (nvim-treesitter.withPlugins (plugins: with plugins; [
-        nix lua scala javascript yaml python rust c erlang elixir kotlin
+        nix lua scala javascript yaml python rust c erlang elixir kotlin go
       ]))
 
       # nvim-treesitter
