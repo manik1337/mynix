@@ -58,6 +58,8 @@
 
       # Editing
       comment-nvim
+
+      copilot-vim
     ];
     extraConfig = ''
       lua << EOF

@@ -55,6 +55,9 @@
     nixfmt
     rnix-lsp
 
+    # js
+    nodejs
+
     terraform
 
     # etc
@@ -122,10 +125,12 @@
     # keyboard
     wally-cli
 
+    # sound
     pavucontrol
     pulseaudio
     pipewire
 
+    # wayland
     brightnessctl
     slurp
     grim
@@ -138,18 +143,14 @@
     xdg-desktop-portal-wlr
     swaykbdd
 
+    # media
     obs-studio
     mpd
     ncmpcpp
-
-    lutris
-    gitkraken
+    mpv
 
     google-dot-cursor
 
-    mpv
-    
-    steam
     qflipper
     sof-firmware
   ];

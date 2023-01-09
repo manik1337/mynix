@@ -6,7 +6,6 @@
     userName = "Dmitrii Manik";
     userEmail = "manikdmitry@gmail.com";
     extraConfig = {
-      init.defaultBranch = "main";
       push.default = "current";
       pull.ff = "only";
       core = {
