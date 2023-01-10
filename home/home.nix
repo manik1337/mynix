@@ -153,6 +153,8 @@
 
     qflipper
     sof-firmware
+
+    obsidian
   ];
 
   # home.file.".icons/default".source = "${pkgs.google-dot-cursor}/share/icons/";

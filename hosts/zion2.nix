@@ -59,7 +59,8 @@
     wg-quick.interfaces = {
       wg0 = {
         address = [ "10.2.1.32/32" ];
-        privateKey = "MHJTByIGz357jx7Oqjkm1j4U/MAGzJuUF4nVxzL7t0A=";
+        # privateKey = "MHJTByIGz357jx7Oqjkm1j4U/MAGzJuUF4nVxzL7t0A=";
+        privateKeyFile = "/home/dmanik/.secret/wg0";
 
         peers = [{
           publicKey = "Yip5NXZngVAK0kyN6BmULElqaaeeUdStWSkbLw9AzRo=";
@@ -71,7 +72,8 @@
       wg1 = {
         address = [ "10.0.0.4/24" "fdc9:281f:04d7:9ee9::4/64" ];
         dns = [ "10.0.0.1" "fdc9:281f:04d7:9ee9::1" ];
-        privateKey = "+GUbhtj2gbATmJtTbAnN5r0GIQQFbqeyMzVwHANVRm4=";
+        # privateKey = "+GUbhtj2gbATmJtTbAnN5r0GIQQFbqeyMzVwHANVRm4=";
+        privateKeyFile = "/home/dmanik/.secret/wg1";
 
         peers = [{
           publicKey = "L5f/b9oZJ7ahl/lQjsOfXVR2MJ5EGrM26urDi5Ul/0U=";
@@ -136,7 +138,6 @@
   };
 
   services.openssh.enable = true;
-  #   hardware.pulseaudio.enable = true;
 
   hardware.ledger.enable = true;
 
@@ -146,7 +147,6 @@
   };
   hardware.cpu.amd.updateMicrocode =
     lib.mkDefault config.hardware.enableRedistributableFirmware;
-  # high-resolution display
   hardware.video.hidpi.enable = lib.mkDefault true;
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
