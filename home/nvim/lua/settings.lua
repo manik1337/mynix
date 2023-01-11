@@ -5,7 +5,9 @@ local g = vim.g
 local map = vim.api.nvim_set_keymap
 options = { noremap = true }
 
-map('n', '<C-p>', ':NvimTreeToggle <CR>', options)
+g.mapleader = ' '
+
+map('n', '<C-p>', ':NvimTreeFindFileToggle <CR>', options)
 map('n', '<C-f>', ':Telescope find_files <CR>', options)
 map('n', '<C-n>', ':Telescope live_grep <CR>', options)
 map('n', '<C-b>', ':Telescope buffers <CR>', options)
@@ -62,5 +64,3 @@ opt.ttimeoutlen = 5
 opt.compatible = false
 opt.hidden = true
 opt.shortmess = "atI"
-
-opt.autochdir = true
