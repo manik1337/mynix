@@ -63,3 +63,5 @@ opt.ttimeoutlen = 5
 opt.compatible = false
 opt.hidden = true
 opt.shortmess = "atI"
+
+opt.autochdir = true

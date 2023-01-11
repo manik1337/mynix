@@ -23,7 +23,6 @@
       diffview-nvim
       gitsigns-nvim
       lazygit-nvim
-      # neogit
 
       # File tree
       nvim-web-devicons
@@ -41,10 +40,9 @@
       tokyonight-nvim
 
       (nvim-treesitter.withPlugins (plugins: with plugins; [
-        nix lua scala javascript yaml python rust c erlang elixir kotlin go
+        nix lua scala javascript yaml python rust c erlang elixir kotlin go neorg
       ]))
 
-      # nvim-treesitter
       lualine-nvim
       lualine-lsp-progress
       tabline-nvim
@@ -58,8 +56,10 @@
 
       # Editing
       comment-nvim
-
       copilot-vim
+
+      # Misc
+      neorg
     ];
     extraConfig = ''
       lua << EOF
@@ -74,6 +74,7 @@
       ${lib.strings.fileContents ./lua/lsp.lua}
       ${lib.strings.fileContents ./lua/gitsigns.lua}
       ${lib.strings.fileContents ./lua/lazygit.lua}
+      ${lib.strings.fileContents ./lua/neorg.lua}
       EOF
     '';
   };
