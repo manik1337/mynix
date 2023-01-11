@@ -9,7 +9,6 @@ map('n', '<C-p>', ':NvimTreeToggle <CR>', options)
 map('n', '<C-f>', ':Telescope find_files <CR>', options)
 map('n', '<C-n>', ':Telescope live_grep <CR>', options)
 map('n', '<C-b>', ':Telescope buffers <CR>', options)
-g.mapleader = ' '
 
 -- Colorscheme
 vim.cmd [[ colorscheme base16-default-dark ]]
