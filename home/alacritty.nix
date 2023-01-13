@@ -20,10 +20,10 @@
       };
       selection.save_to_clipboard = true;
       custom_cursor_colors = true;
-      cursor = {
-        style = "Beam";
-        unfocused_hollow = true;
-      };
+      # cursor = {
+      #   style = "Beam";
+      #   unfocused_hollow = true;
+      # };
       url.launcher.program = "firefox";
       colors = {
         primary = {
