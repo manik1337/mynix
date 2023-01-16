@@ -12,10 +12,8 @@
     ./waybar.nix
     ./direnv.nix
     ./nvim
-    ./tmux.nix
     ./xdg.nix
     ./mako.nix
-    ./zellij.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
