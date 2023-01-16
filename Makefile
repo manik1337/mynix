@@ -7,10 +7,10 @@ update:
 	nix flake update
 
 switch:
-	nixos-rebuild --flake .#zion2 switch
+	nixos-rebuild --flake .#zion switch
 
 deploy:
-	nix run github:serokell/deploy-rs .#zion2.system
+	nix run github:serokell/deploy-rs .#zion.system
 
 format:
 	find . -name '*.nix' | nixfmt

@@ -47,16 +47,16 @@
           ] ++ extraModules);
         };
     in {
-      nixosConfigurations = { zion2 = mkComputer ./hosts/zion2.nix [ ]; };
+      nixosConfigurations = { zion = mkComputer ./hosts/zion.nix [ ]; };
       deploy = {
         sshUser = "root";
         nodes = {
-          zion2 = {
+          zion = {
             hostname = "localhost";
             profiles.system = {
               user = "root";
               path = deploy-rs.lib.x86_64-linux.activate.nixos
-                self.nixosConfigurations.zion2;
+                self.nixosConfigurations.zion;
             };
           };
         };
