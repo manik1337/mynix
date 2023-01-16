@@ -7,15 +7,13 @@ options = { noremap = true }
 
 g.mapleader = ' '
 
-map('n', '<C-p>', ':NvimTreeFindFileToggle <CR>', options)
-map('n', '<C-f>', ':Telescope find_files <CR>', options)
-map('n', '<C-n>', ':Telescope live_grep <CR>', options)
-map('n', '<C-b>', ':Telescope buffers <CR>', options)
+map('n', '<Leader>pp', ':NvimTreeFindFileToggle <CR>', options)
+map('n', '<Leader>ff', ':Telescope find_files<CR>', options)
+map('n', '<Leader>fg', ':Telescope live_grep<CR>', options)
+-- map('n', '<C-b>', ':Telescope buffers <CR>', options)
 
 -- Colorscheme
 vim.cmd [[ colorscheme base16-default-dark ]]
--- g.material_style = "darker"
--- vim.cmd 'colorscheme tokyonight-night'
 
 -- Indent line
 opt.list = true
