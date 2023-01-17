@@ -14,6 +14,7 @@
     ./nvim
     ./xdg.nix
     ./mako.nix
+    ./zellij.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
