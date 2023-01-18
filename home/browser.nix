@@ -67,7 +67,6 @@
       };
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         # privacy
-        https-everywhere
         ublock-origin
         foxyproxy-standard
         i-dont-care-about-cookies
