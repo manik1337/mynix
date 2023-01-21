@@ -169,6 +169,7 @@
   programs.home-manager.enable = true;
   home.sessionVariables = {
     MOZ_ENABLE_WAYLAND = 1;
+    NIXOS_OZONE_WL = 1;
     XDG_CURRENT_DESKTOP = "sway";
   };
 
