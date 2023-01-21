@@ -69,6 +69,9 @@ in {
       };
       output = {
         "*" = { bg = "#000000 solid_color"; };
+        "eDP-1" = {
+          scale = "1.5";
+        };
         "DP-1" = {
           resolution = "2560x1440@144hz";
           position = "0,0";
