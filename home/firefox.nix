@@ -1,14 +1,5 @@
-{ pkgs, ... }:
-
-{
+{ pkgs, ... }: {
   programs = {
-    chromium = {
-      extensions = [
-        "gcbommkclmclpchllfjekcdonpmejbdp" # httsp everywhere
-        "nkbihfbeogaeaoehlefnkodbefgpgknn" # metamask
-        "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
-      ];
-    };
     firefox = {
       enable = true;
       package = pkgs.firefox-wayland;
@@ -66,12 +57,10 @@
         '';
       };
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-        # privacy
         ublock-origin
         foxyproxy-standard
         i-dont-care-about-cookies
 
-        # ui
         darkreader
         sidebery
 
@@ -79,8 +68,6 @@
       ];
     };
   };
-
-  home.packages = with pkgs; [ chromium ];
 
   home.sessionVariables.BROWSER = "firefox";
 }

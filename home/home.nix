@@ -3,7 +3,6 @@
     ./alacritty.nix
     ./rofi.nix
     ./git.nix
-    ./browser.nix
     ./zsh.nix
     ./security.nix
     ./vscode.nix
@@ -15,6 +14,8 @@
     ./xdg.nix
     ./mako.nix
     ./zellij.nix
+    ./chromium.nix
+    ./firefox.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
