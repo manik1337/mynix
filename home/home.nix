@@ -86,6 +86,7 @@
     kotatogram-desktop
     discord
     slack
+    teams
 
     spotify
     _1password-gui
