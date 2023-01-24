@@ -6,6 +6,8 @@
       unbind "Ctrl b" "Ctrl o"
       normal {
         bind "Alt f" { ToggleFocusFullscreen; }
+        bind "Alt 1" { GoToTab 1; }
+        bind "Alt 2" { GoToTab 2; }
       }
     }
     theme "base16"
