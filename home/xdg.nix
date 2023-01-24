@@ -16,6 +16,8 @@
       config = [ "$HOME/.config" ];
     };
     mime.enable = true;
+    dataFile."applications/mimeapps.list".force = true;
+    configFile."mimeapps.list".force = true;
     mimeApps = {
       enable = true;
       defaultApplications = {
