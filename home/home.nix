@@ -156,6 +156,7 @@
     sof-firmware
 
     obsidian
+    steam
   ];
 
   # home.file.".icons/default".source = "${pkgs.google-dot-cursor}/share/icons/";
