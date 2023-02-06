@@ -169,7 +169,13 @@
     };
   };
 
-  programs.nm-applet.enable = true;
+  programs = {
+    nm-applet.enable = true;
+    wireshark = {
+      enable = true;
+      package = pkgs.wireshark;
+    };
+  };
 
   system.stateVersion = "21.11";
 }

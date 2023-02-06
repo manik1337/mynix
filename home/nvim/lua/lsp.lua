@@ -73,10 +73,11 @@ end
 lspconfig.elixirls.setup {
   on_attach = on_attach,
   cmd = { "elixir-ls" },
-  flags = { debounce_text_changes = 150, },
+  flags = { debounce_text_changes = 150 },
   capabilities = capabilities,
   settings = {
     elixirLS = {
+      mixEnv = "dev",
       dialyzerEnabled = false,
       fetchDeps = false
     }
