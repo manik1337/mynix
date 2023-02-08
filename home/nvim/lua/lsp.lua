@@ -98,6 +98,9 @@ metals_config.settings = {
 }
 metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
 metals_config.init_options.statusBarProvider = "on"
+metals_config.init_options.showImplicitArguments = true
+metals_config.init_options.excludedPackages = {}
+metals_config.on_attach = on_attach
 
 local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
 vim.api.nvim_create_autocmd("FileType", {
