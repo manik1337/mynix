@@ -55,6 +55,7 @@
       indent-blankline-nvim
 
       # Editing
+      align
       comment-nvim
       copilot-vim
 
