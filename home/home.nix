@@ -157,6 +157,8 @@
 
     obsidian
     steam
+
+    kitty
   ];
 
   # home.file.".icons/default".source = "${pkgs.google-dot-cursor}/share/icons/";
