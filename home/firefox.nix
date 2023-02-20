@@ -55,17 +55,18 @@
         userChrome = ''
           #TabsToolbar { visibility: collapse !important; }
         '';
+        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+          ublock-origin
+          foxyproxy-standard
+          i-dont-care-about-cookies
+
+          darkreader
+          sidebery
+
+          bitwarden
+        ];
+
       };
-      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-        ublock-origin
-        foxyproxy-standard
-        i-dont-care-about-cookies
-
-        darkreader
-        sidebery
-
-        bitwarden
-      ];
     };
   };
 
