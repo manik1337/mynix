@@ -17,10 +17,10 @@ vim.cmd [[ colorscheme base16-default-dark ]]
 
 -- Indent line
 opt.list = true
-opt.listchars:append("space:⋅")
-opt.listchars:append("eol:↴")
-g.show_end_of_line = true
-g.space_char_blankline = " "
+-- opt.listchars:append("space:⋅")
+-- opt.listchars:append("eol:↴")
+-- g.show_end_of_line = true
+-- g.space_char_blankline = " "
 
 -- Performance
 opt.lazyredraw = true;
