@@ -1,65 +1,130 @@
 * {
-  border: none;
-  border-radius: 0;
+	color: #b4b4b9;
+	border: none;
+	border-radius: 0;
+	/* font-family: "Misc fixed", "Unifont"; */
   font-family: "Hack Nerd Font";
-  font-size: 14px;
-  min-height: 0;
-}
-
-#mode,
-#temperature,
-#cpu,
-#memory,
-#network,
-#pulseaudio,
-#battery,
-#language,
-#idle_inhibitor,
-#clock {
-  color: darkgray;
-  padding: 5px 8px 4px;
-  margin-bottom: 2px;
+	font-size: 13px;
+	min-height: 0px;
+	padding: 5px 0;
+	margin:  5px 0;
+	/*max-height: 13px;*/
 }
 
 #window {
-  color: white;
-  padding: 0 8px;
-}
-window#waybar {
-  background: rgba(43, 48, 59, 0.5);
-  border-bottom: 2px solid rgba(100, 114, 125, 0.5);
+	padding: 1px 0;
 }
 
-tooltip {
-  background: rgba(43, 48, 59, 0.5);
-  border: 1px solid rgba(100, 114, 125, 0.5);
+window#waybar {
+	padding: 0 0;
+	background-color: transparent;
+	/*background-color: rgba(11, 11, 11, 0.4);*/
+	color: #ffffff;
 }
-tooltip label {
-  color: white;
+
+window#waybar.hidden {
+	background-color: transparent;
+}
+
+window#waybar.empty {
+	background-color: transparent;
+}
+
+window#waybar.solo {
+	background-color: #1A1A21;
+}
+
+window#waybar.mpv {
+	background-color: rgba(255, 255, 255, 0.00);
+}
+
+window#waybar.telegramdesktop {
+	background-color: #212127;
+}
+
+window#waybar.Alacritty {
+  background-color: rgba(255, 255, 255, 0.00);
 }
 
 #workspaces button {
-  color: darkgray;
-  background: transparent;
-  padding: 5px 8px 4px;
-  border-bottom: 2px solid transparent;
+	padding: 0 0px;
+	margin: 0 0px;
+	background-color: transparent;
+	/*border-left: 2px solid rgba(100, 114, 125, 0.5);*/
+	border-left: 2px solid #635196;
+	color: #999999;
 }
+
 #workspaces button.focused {
-  color: white;
-  background: rgba(100, 114, 125, 0.5);
-  border-bottom: 2px solid white;
+	color: #ffffff;
+	background-color: transparent;
+	border-left: 2px solid #ff5fff;
 }
 
-#mode {
-  color: white;
-  background: rgba(100, 114, 125, 0.5);
+#workspaces button.persistent {
+	border-left: 2px solid #10100e;
 }
 
-#idle_inhibitor.activated {
-  color: white;
+#workspaces button.urgent {
+	border-left: 2px solid #ff76a1;
 }
+
+#network {
+	background-color: transparent;
+	border-left: 2px solid #99a4bc;
+	color: #b4b4b9;
+}
+#clock,
+#cpu,
+#memory,
+#backlight,
+#pulseaudio,
+#tray,
+#mode,
+#battery,
 
 #clock {
-  color: white;
-  background: rgba(100, 114, 125, 0.5);
+	color: #b4b4b9;
+	/* border-left: 2px solid #9f97cc; */
 }
+#tray {
+	border-left: transparent;
+}
+#cpu {
+	color: #b4b4b9;
+	/* border-left: 2px solid #635196; */
+}
+#memory {
+	color: #b4b4b9;
+	/* border-left: 2px solid #635196; */
+}
+
+#battery.charging {
+	color: #b4b4b9;
+	/* border-left: 2px solid #ff761a; */
+}
+#battery.discharging {
+	color: #b4b4b9;
+	/* border-left: 2px solid #99a4bc; */
+}
+#battery.warning.discharging {
+	color: #b4b4b9;
+	/* border-left: 2px solid #ffc552; */
+}
+#battery.critical.discharging {
+	color: #b4b4b9;
+	/* border-left: 2px solid #ff3600; */
+}
+#battery.warning.charging {
+	color: #b4b4b9;
+	/* border-left: 2px solid #ff761a; */
+}
+#battery.critical.charging {
+	color: #b4b4b9;
+	/* border-left: 2px solid #ff761a; */
+}
+
+label:focus {
+	background-color: #000000;
+}
+
