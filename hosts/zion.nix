@@ -171,6 +171,7 @@
   };
 
   programs = {
+    dconf.enable = true;
     nm-applet.enable = true;
     wireshark = {
       enable = true;

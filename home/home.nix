@@ -159,9 +159,19 @@
     steam
 
     kitty
+
+    yaru-theme
   ];
 
   # home.file.".icons/default".source = "${pkgs.google-dot-cursor}/share/icons/";
+  home.file.".icons/default".source = "${pkgs.yaru-theme}/share/icons/Yaru";
+
+  gtk = {
+    enable = true;
+    cursorTheme.name = "Yaru";
+    iconTheme.name = "Yaru-blue-dark";
+    theme.name = "Yaru-blue-dark";
+  };
 
   programs = {
     gh = {
