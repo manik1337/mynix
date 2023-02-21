@@ -15,6 +15,7 @@
     [ "nvme" "xhci_pci" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
