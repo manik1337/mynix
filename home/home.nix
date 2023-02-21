@@ -8,7 +8,7 @@
     ./vscode.nix
     ./sway.nix
     ./swaylock.nix
-    ./waybar.nix
+    ./waybar
     ./direnv.nix
     ./nvim
     ./xdg.nix
