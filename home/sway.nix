@@ -18,6 +18,7 @@ in {
       set $laptop eDP-1
       bindswitch --reload --locked lid:on output $laptop disable
       bindswitch --reload --locked lid:off output $laptop enable
+      default_border none
     '';
     config = {
       gaps = {
@@ -68,7 +69,7 @@ in {
         };
       };
       output = {
-        "*" = { bg = "#000000 solid_color"; };
+        "*" = { bg = "${./wallpapers/cat_leaves.png} fill"; };
         "eDP-1" = {
           scale = "1.5";
         };
