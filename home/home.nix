@@ -161,6 +161,8 @@
     kitty
 
     yaru-theme
+
+    jetbrains.idea-community
   ];
 
   # home.file.".icons/default".source = "${pkgs.google-dot-cursor}/share/icons/";
