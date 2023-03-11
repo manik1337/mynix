@@ -1,9 +1,8 @@
 { pkgs, ... }: {
   programs.mako = {
-    enable = true;
-
+    enable         = true;
+    font           = "Hack Nerd Font 12";
     defaultTimeout = 10000;
-    ignoreTimeout = true;
-    font = "Hack Nerd Font 12";
+    ignoreTimeout  = true;
   };
 }
