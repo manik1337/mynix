@@ -23,7 +23,7 @@
   home.packages = with pkgs; [
     # elixir
     erlangR24
-    erlang-ls
+    # erlang-ls
     elixir_1_14
     elixir_ls
 
