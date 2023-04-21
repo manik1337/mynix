@@ -3,20 +3,21 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-22.11";
     home-manager.url = "github:rycee/home-manager";
     nur.url = "github:nix-community/NUR";
     deploy-rs.url = "github:serokell/deploy-rs";
   };
 
   outputs =
-    inputs@{ self, home-manager, nixpkgs, deploy-rs, ... }:
+    inputs@{ self, home-manager, nixpkgs, nixpkgs-stable, deploy-rs, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
         overlays =
-          [ (import ./overlays) inputs.nur.overlay ];
+          [ (import ./overlays inputs system) inputs.nur.overlay ];
       };
       mkComputer = configurationNix: extraModules:
         nixpkgs.lib.nixosSystem {
@@ -47,21 +48,33 @@
           ] ++ extraModules);
         };
     in {
-      nixosConfigurations = { zion = mkComputer ./hosts/zion.nix [ ]; };
-      deploy = {
-        sshUser = "root";
-        nodes = {
-          zion = {
-            hostname = "localhost";
-            profiles.system = {
-              user = "root";
-              path = deploy-rs.lib.x86_64-linux.activate.nixos
-                self.nixosConfigurations.zion;
-            };
-          };
-        };
+      nixosConfigurations = {
+        zion = mkComputer ./hosts/zion.nix [ ];
+        zionpad = mkComputer ./hosts/zionpad.nix [ ];
       };
-      checks = builtins.mapAttrs
-        (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
+      # deploy = {
+      #   sshUser = "root";
+      #   nodes = {
+      #     zionpad = {
+      #       hostname = "localhost";
+      #       profiles.system = {
+      #         user = "root";
+      #         path = deploy-rs.lib.x86_64-linux.activate.nixos
+      #           self.nixosConfigurations.zionpad;
+      #       };
+      #     };
+      #
+      #     zion = {
+      #       hostname = "localhost";
+      #       profiles.system = {
+      #         user = "root";
+      #         path = deploy-rs.lib.x86_64-linux.activate.nixos
+      #           self.nixosConfigurations.zion;
+      #       };
+      #     };
+      #   };
+      # };
+      # checks = builtins.mapAttrs
+      #   (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
     };
 }
