@@ -34,7 +34,8 @@
       rust-tools-nvim
       nvim-metals
 
-      # Eyecandy 
+      # Eyecandy
+      catppuccin-nvim
       base16-vim
       material-nvim
       tokyonight-nvim
@@ -42,6 +43,7 @@
       (nvim-treesitter.withPlugins (plugins: with plugins; [
         nix lua scala javascript yaml python rust c erlang elixir kotlin go neorg
       ]))
+      nvim-treesitter-context
 
       lualine-nvim
       lualine-lsp-progress
@@ -76,6 +78,7 @@
       ${lib.strings.fileContents ./lua/gitsigns.lua}
       ${lib.strings.fileContents ./lua/lazygit.lua}
       ${lib.strings.fileContents ./lua/neorg.lua}
+      ${lib.strings.fileContents ./lua/fugitive.lua}
       EOF
     '';
   };

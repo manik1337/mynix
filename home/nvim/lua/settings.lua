@@ -13,7 +13,7 @@ map('n', '<Leader>fg', ':Telescope live_grep<CR>', options)
 map('n', '<Leader>fb', ':Telescope buffers<CR>', options)
 
 -- Colorscheme
-vim.cmd [[ colorscheme base16-default-dark ]]
+vim.cmd [[ colorscheme catppuccin-mocha ]]
 
 -- Indent line
 opt.list = true
