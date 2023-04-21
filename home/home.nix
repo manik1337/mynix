@@ -21,9 +21,8 @@
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
-    # elixir
+    dconf
     erlangR24
-    # erlang-ls
     elixir_1_14
     elixir_ls
 
@@ -35,29 +34,17 @@
     clippy
 
     # scala
-    # dotty
     scala
     sbt
     coursier
     metals
     jdk
 
-    # kotlin
-    kotlin
-    kotlin-language-server
-    gradle
-
-    # golang
-    go
-    gopls
-
     # nix
     nixfmt
     rnix-lsp
 
-    # js
-    nodejs
-
+    python3
     terraform
 
     # etc
@@ -79,7 +66,6 @@
 
     # fonts
     nerdfonts
-    ibm-plex
 
     # messengers
     tdesktop
@@ -89,6 +75,8 @@
     teams
 
     spotify
+    ncspot
+
     _1password-gui
     bitwarden
     bitwarden-cli
@@ -114,7 +102,7 @@
     noti
     nix-index
 
-    libreoffice
+    pkgs.stable.libreoffice
     zathura
     foliate
     flameshot
@@ -142,6 +130,7 @@
     bemenu
     wf-recorder
     xdg-desktop-portal-wlr
+    wlroots
     swaykbdd
 
     # media
@@ -149,20 +138,20 @@
     mpd
     ncmpcpp
     mpv
+    crow-translate
 
     google-dot-cursor
 
     qflipper
     sof-firmware
 
-    obsidian
-    steam
-
-    kitty
-
     yaru-theme
 
     jetbrains.idea-community
+
+    steam
+    lutris
+    vulkan-tools
   ];
 
   # home.file.".icons/default".source = "${pkgs.google-dot-cursor}/share/icons/";
@@ -187,6 +176,9 @@
     MOZ_ENABLE_WAYLAND = 1;
     NIXOS_OZONE_WL = 1;
     XDG_CURRENT_DESKTOP = "sway";
+    SDL_VIDEODRIVER = "wayland";
+    QT_QPA_PLATFORM = "wayland";
+    QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
   };
 
   home.stateVersion = "21.11";

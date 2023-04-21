@@ -77,7 +77,7 @@ in {
           resolution = "2560x1440@144hz";
           position = "0,0";
         };
-        "HDMI-A-1" = { resolution = "3440x1440@60hz"; };
+        "HDMI-A-1" = { resolution = "3440x1440@99hz"; };
       };
       bindkeysToCode = true;
       keybindings = let
