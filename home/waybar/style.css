@@ -1,130 +1,130 @@
 * {
-	color: #b4b4b9;
 	border: none;
-	border-radius: 0;
-	/* font-family: "Misc fixed", "Unifont"; */
-  font-family: "Hack Nerd Font";
-	font-size: 13px;
-	min-height: 0px;
-	padding: 5px 0;
-	margin:  5px 0;
-	/*max-height: 13px;*/
+  font-family: DejaVuSansMono Nerd Font;
+	font-size: 14px;
 }
 
-#window {
-	padding: 1px 0;
+window {
 }
-
 window#waybar {
-	padding: 0 0;
-	background-color: transparent;
-	/*background-color: rgba(11, 11, 11, 0.4);*/
-	color: #ffffff;
+	background: rgba(8, 8, 8, 0.45);
+	border-radius: 7px;
+	transition-property: background-color;
+	transition-duration: 0.5s;
+	/* background: transparent; */
+}
+/*-----module groups----*/
+.modules-right {
+	/* background-color: rgba(8,8,8,0.85); */
+	background: transparent;
+	margin: 0 12px 0 0;
+	border-radius: 20px;
+}
+.modules-center {
+	background: transparent;
+	margin: 0 0 0 0;
+	border-radius: 20px;
+}
+.modules-left {
+	background: transparent;
+	margin: 0 0 0 -12px;
+	border-radius: 20px;
 }
 
-window#waybar.hidden {
-	background-color: transparent;
+tooltip {
+	background: #323437;
+	color: #cdd6f4;
+	border-radius: 12px;
 }
 
-window#waybar.empty {
-	background-color: transparent;
-}
-
-window#waybar.solo {
-	background-color: #1A1A21;
-}
-
-window#waybar.mpv {
-	background-color: rgba(255, 255, 255, 0.00);
-}
-
-window#waybar.telegramdesktop {
-	background-color: #212127;
-}
-
-window#waybar.Alacritty {
-  background-color: rgba(255, 255, 255, 0.00);
+#workspaces {
+	padding: 0 14px;
 }
 
 #workspaces button {
-	padding: 0 0px;
-	margin: 0 0px;
-	background-color: transparent;
-	/*border-left: 2px solid rgba(100, 114, 125, 0.5);*/
-	border-left: 2px solid #635196;
-	color: #999999;
+  padding: 1px 5px;
+  background: transparent;
+  color: #4c566a;
+}
+
+#workspaces button:hover {
+  box-shadow: inherit;
+  text-shadow: inherit;
+  color: #d8dee9;
 }
 
 #workspaces button.focused {
-	color: #ffffff;
-	background-color: transparent;
-	border-left: 2px solid #ff5fff;
-}
-
-#workspaces button.persistent {
-	border-left: 2px solid #10100e;
+    /* color: #BC83E3; */
+	color: #cdd6f4;
+  transition: all 0.2s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
 #workspaces button.urgent {
-	border-left: 2px solid #ff76a1;
+  color: #11111b;
+  background: #fab387;
+  border-radius: 10px;
 }
 
-#network {
-	background-color: transparent;
-	border-left: 2px solid #99a4bc;
-	color: #b4b4b9;
+#custom-separator {
+	color: #313244;
+	font-size: 18px;
 }
-#clock,
-#cpu,
-#memory,
-#backlight,
-#pulseaudio,
-#tray,
-#mode,
-#battery,
+
+#window {
+	color: #cdd6f4;
+	font-family: JetbrainsMono Nerd Font;
+	font-size: 12;
+}
+
+#custom-recorder {
+	font-size: 10px;
+	margin: 2px 7px 0px 7px;
+}
 
 #clock {
-	color: #b4b4b9;
-	/* border-left: 2px solid #9f97cc; */
-}
-#tray {
-	border-left: transparent;
-}
-#cpu {
-	color: #b4b4b9;
-	/* border-left: 2px solid #635196; */
-}
-#memory {
-	color: #b4b4b9;
-	/* border-left: 2px solid #635196; */
+	margin: 2px 0 0 0;
+	padding: 2px;
+	border-radius: 10px;
+	font-family: JetbrainsMono Nerd Font;
 }
 
+#battery,
+#cpu,
+#memory,
+#temperature,
+#network #pulseaudio,
+#tray,
+#mode,
+#custom-power,
+#custom-menu,
+#idle_inhibitor {
+	padding: 0 5px;
+}
+
+#mode {
+	color: #cc3436;
+	font-weight: bold;
+}
+
+/*-----Indicators----*/
+#network.disconnected {
+	color: #ff5454;
+}
+#network.disabled {
+	color: #e3c78a;
+}
+#idle_inhibitor.activated {
+	color: #2dcc36;
+}
+#pulseaudio.muted {
+	color: #e3c78a;
+}
 #battery.charging {
-	color: #b4b4b9;
-	/* border-left: 2px solid #ff761a; */
+	color: #8cc85f;
 }
-#battery.discharging {
-	color: #b4b4b9;
-	/* border-left: 2px solid #99a4bc; */
+#battery.warning:not(.charging) {
+	color: #e3c78a;
 }
-#battery.warning.discharging {
-	color: #b4b4b9;
-	/* border-left: 2px solid #ffc552; */
+#battery.critical:not(.charging) {
+	color: #ff5454;
 }
-#battery.critical.discharging {
-	color: #b4b4b9;
-	/* border-left: 2px solid #ff3600; */
-}
-#battery.warning.charging {
-	color: #b4b4b9;
-	/* border-left: 2px solid #ff761a; */
-}
-#battery.critical.charging {
-	color: #b4b4b9;
-	/* border-left: 2px solid #ff761a; */
-}
-
-label:focus {
-	background-color: #000000;
-}
-
