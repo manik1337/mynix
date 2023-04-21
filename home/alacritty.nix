@@ -11,7 +11,7 @@
         multiplier = 30;
       };
       font = {
-        normal.family = "Hack Nerd Font";
+        normal.family = "DejaVuSansMono Nerd Font";
         size = 14;
       };
       window = {
@@ -23,40 +23,93 @@
       url.launcher.program = "firefox";
       colors = {
         primary = {
-          background = "0x1d1f21";
-          foreground = "0xc5c8c6";
+          background = "#1E1E2E"; # base
+          foreground = "#CDD6F4"; # text
+          # Bright and dim foreground colors
+          dim_foreground = "#CDD6F4"; # text
+          bright_foreground = "#CDD6F4"; # text
         };
 
-        # Colors the cursor will use if `custom_cursor_colors` is true
+        # Cursor colors
         cursor = {
-          text = "0x1d1f21";
-          cursor = "0xc5c8c6";
+          text = "#1E1E2E"; # base
+          cursor = "#F5E0DC"; # rosewater
+        };
+        vi_mode_cursor = {
+          text = "#1E1E2E"; # base
+          cursor = "#B4BEFE"; # lavender
         };
 
-        # Normal colors
-        normal = {
-          black = "0x1d1f21";
-          red = "0xcc6666";
-          green = "0xb5bd68";
-          yellow = "0xf0c674";
-          blue = "0x81a2be";
-          magenta = "0xb294bb";
-          cyan = "0x8abeb7";
-          white = "0xc5c8c6";
-        };
+        # Search colors
+        search = {
+          matches = {
+            foreground = "#1E1E2E"; # base
+            background = "#A6ADC8"; # subtext0
+          };
+          focused_match = {
+            foreground = "#1E1E2E"; # base
+            background = "#A6E3A1"; # green
+          };
+          footer_bar = {
+            foreground = "#1E1E2E"; # base
+            background = "#A6ADC8"; # subtext0
+          };
 
-        # Bright colors
-        bright = {
-          black = "0x969896";
-          red = "0xcc6666";
-          green = "0xb5bd68";
-          yellow = "0xf0c674";
-          blue = "0x81a2be";
-          magenta = "0xb294bb";
-          cyan = "0x8abeb7";
-          white = "0xffffff";
+          # Keyboard regex hints
+          hints = {
+            start = {
+              foreground = "#1E1E2E"; # base
+              background = "#F9E2AF"; # yellow
+            };
+            end = {
+              foreground = "#1E1E2E"; # base
+              background = "#A6ADC8"; # subtext0
+            };
+          };
+
+          # Selection colors
+          selection = {
+            text = "#1E1E2E"; # base
+            background = "#F5E0DC"; # rosewater
+          };
+
+          # Normal colors
+          normal = {
+            black = "#45475A"; # surface1
+            red = "#F38BA8"; # red
+            green = "#A6E3A1"; # green
+            yellow = "#F9E2AF"; # yellow
+            blue = "#89B4FA"; # blue
+            magenta = "#F5C2E7"; # pink
+            cyan = "#94E2D5"; # teal
+            white = "#BAC2DE"; # subtext1
+          };
+
+          # Bright colors
+          bright = {
+            black = "#585B70"; # surface2
+            red = "#F38BA8"; # red
+            green = "#A6E3A1"; # green
+            yellow = "#F9E2AF"; # yellow
+            blue = "#89B4FA"; # blue
+            magenta = "#F5C2E7"; # pink
+            cyan = "#94E2D5"; # teal
+            white = "#A6ADC8"; # subtext0
+          };
+
+          # Dim colors
+          dim = {
+            black = "#45475A"; # surface1
+            red = "#F38BA8"; # red
+            green = "#A6E3A1"; # green
+            yellow = "#F9E2AF"; # yellow
+            blue = "#89B4FA"; # blue
+            magenta = "#F5C2E7"; # pink
+            cyan = "#94E2D5"; # teal
+            white = "#BAC2DE"; # subtext1
+          };
+          env = { TERM = "xterm-256color"; };
         };
-        env = { TERM = "xterm-256color"; };
       };
     };
   };
