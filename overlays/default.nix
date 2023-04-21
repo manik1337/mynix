@@ -1,4 +1,9 @@
-self: super: rec {
+inputs: system: self: super: rec {
+  stable = import inputs.nixpkgs-stable {
+    inherit system;
+    config.allowUnfree = true;
+  };
+
   discord = super.discord.overrideAttrs (old: rec {
     version = "0.0.21";
     src = super.fetchurl {
