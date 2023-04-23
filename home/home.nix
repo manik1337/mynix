@@ -7,7 +7,6 @@
     ./security.nix
     ./vscode.nix
     ./sway.nix
-    ./swaylock.nix
     ./waybar
     ./direnv.nix
     ./nvim
@@ -122,7 +121,7 @@
     brightnessctl
     slurp
     grim
-    swaylock
+    swaylock-effects
     swayidle
     wl-clipboard
     kanshi

@@ -9,6 +9,11 @@ let
   ws7 = "7";
   ws8 = "8";
   ws9 = "9";
+  lockCmd = ''
+    ${pkgs.swaylock-effects}/bin/swaylock -f \
+    --screenshots \
+    --effect-blur 5x5 \
+  '';
 in {
   wayland.windowManager.sway = {
     enable = true;
@@ -42,8 +47,7 @@ in {
         { command = "${pkgs.mako}/bin/mako"; }
         { command = "systemctl --user restart waybar.service"; }
         {
-          command = let lockCmd = "'${pkgs.swaylock}/bin/swaylock -f";
-          in ''
+          command = ''
             ${pkgs.swayidle}/bin/swayidle -w \
             timeout 600 ${lockCmd} \
             timeout 1200 'swaymsg "output * dpms off"' \
@@ -141,8 +145,7 @@ in {
         "${mod}+Shift+p" =
           "exec ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g- ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png";
 
-        # "${mod}+Shift+l" = "exec ${pkgs.swaylock}/bin/swaylock -f -i ~/wp3.png";
-        "${mod}+Shift+l" = "exec ${pkgs.swaylock}/bin/swaylock -f";
+        "${mod}+Shift+l" = "exec ${lockCmd}";
         # "${mod}+k" = "exec ${pkgs.mako}/bin/makoctl invoke";
         "${mod}+Shift+k" = "exec ${pkgs.mako}/bin/makoctl dismiss -a";
 

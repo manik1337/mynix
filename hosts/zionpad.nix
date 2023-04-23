@@ -202,6 +202,7 @@
       [ (builtins.readFile ../secrets/ssh.rsa.pub) ];
   };
 
+  security.pam.services.swaylock.text = "auth include login";
 
   programs = {
     zsh.enable = true;
