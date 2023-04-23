@@ -49,7 +49,7 @@
         };
     in {
       nixosConfigurations = {
-        zion = mkComputer ./hosts/zion.nix [ ];
+        # zion = mkComputer ./hosts/zion.nix [ ];
         zionpad = mkComputer ./hosts/zionpad.nix [ ];
       };
       # deploy = {
