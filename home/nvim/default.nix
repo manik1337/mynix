@@ -22,7 +22,6 @@
       vim-flog
       diffview-nvim
       gitsigns-nvim
-      lazygit-nvim
 
       # File tree
       nvim-web-devicons
@@ -76,7 +75,6 @@
       ${lib.strings.fileContents ./lua/treesitter.lua}
       ${lib.strings.fileContents ./lua/lsp.lua}
       ${lib.strings.fileContents ./lua/gitsigns.lua}
-      ${lib.strings.fileContents ./lua/lazygit.lua}
       ${lib.strings.fileContents ./lua/neorg.lua}
       ${lib.strings.fileContents ./lua/fugitive.lua}
       EOF

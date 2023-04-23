@@ -57,7 +57,6 @@
     zsh-completions
     git
     git-crypt
-    lazygit
     gnupg
     xclip
     ledger-live
