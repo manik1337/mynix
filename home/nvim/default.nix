@@ -40,7 +40,7 @@
       tokyonight-nvim
 
       (nvim-treesitter.withPlugins (plugins: with plugins; [
-        nix lua scala javascript yaml python rust c erlang elixir kotlin go neorg
+        nix lua scala javascript yaml python rust c erlang elixir kotlin go
       ]))
       nvim-treesitter-context
 
@@ -59,9 +59,6 @@
       align
       comment-nvim
       copilot-vim
-
-      # Misc
-      neorg
     ];
     extraConfig = ''
       lua << EOF
@@ -75,7 +72,6 @@
       ${lib.strings.fileContents ./lua/treesitter.lua}
       ${lib.strings.fileContents ./lua/lsp.lua}
       ${lib.strings.fileContents ./lua/gitsigns.lua}
-      ${lib.strings.fileContents ./lua/neorg.lua}
       ${lib.strings.fileContents ./lua/fugitive.lua}
       EOF
     '';
