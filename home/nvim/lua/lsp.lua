@@ -90,6 +90,8 @@ lspconfig.ocamllsp.setup({
     capabilities = capabilities
 })
 
+lspconfig.nil_ls.setup{}
+
 local metals_config = require("metals").bare_config()
 metals_config.settings = {
   showImplicitArguments = true,

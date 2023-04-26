@@ -39,6 +39,7 @@
     # nix
     nixfmt
     rnix-lsp
+    nil
 
     python3
     terraform
