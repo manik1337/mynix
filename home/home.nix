@@ -21,9 +21,6 @@
 
   home.packages = with pkgs; [
     dconf
-    erlangR24
-    elixir_1_14
-    elixir_ls
 
     # rust
     cargo

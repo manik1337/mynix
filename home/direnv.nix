@@ -1,7 +1,11 @@
 { pkgs, ... }:
 
 {
-  programs.direnv.enable = true;
-  programs.direnv.nix-direnv.enable = true;
-  programs.zsh.enable = true;
+  programs = {
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
+    zsh.enable = true;
+  };
 }
