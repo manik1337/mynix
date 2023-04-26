@@ -14,9 +14,5 @@ stdenv.mkDerivation rec {
     mkdir -p $out/share/icons
     cp -r cursor.theme cursors index.theme $out/share/icons/
   '';
-  #installPhase = ''
-  #  install -dm 755 $out/share/icons
-  #  cp -r cursor.theme cursors index.theme $out/share/icons/
-  #'';
 }
 
