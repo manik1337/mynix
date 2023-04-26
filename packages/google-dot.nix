@@ -1,6 +1,6 @@
-{ stdenv, fetchurl, lib, pkgs }:
+{ stdenv, fetchurl }:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   pname = "google-dot-cursor-theme";
   version = "1.1.3";
 

@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{
   services.mako = {
     enable         = true;
     font           = "Hack Nerd Font 12";

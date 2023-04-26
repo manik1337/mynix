@@ -1,6 +1,4 @@
-{ pkgs, config, ... }:
-let inherit (config.lib.formats.rasi) mkLiteral;
-in {
+{ pkgs, ... }: {
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;

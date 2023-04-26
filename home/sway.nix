@@ -7,8 +7,6 @@ let
   ws5 = "5";
   ws6 = "6";
   ws7 = "7";
-  ws8 = "8";
-  ws9 = "9";
   lockCmd = ''
     ${pkgs.swaylock-effects}/bin/swaylock -f \
     --screenshots \

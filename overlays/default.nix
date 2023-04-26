@@ -1,4 +1,4 @@
-inputs: system: self: super: rec {
+inputs: system: self: super: {
   stable = import inputs.nixpkgs-stable {
     inherit system;
     config.allowUnfree = true;
