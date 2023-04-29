@@ -90,7 +90,9 @@ lspconfig.ocamllsp.setup({
     capabilities = capabilities
 })
 
-lspconfig.nil_ls.setup{}
+lspconfig.nil_ls.setup{
+  on_attach = on_attach
+}
 
 local metals_config = require("metals").bare_config()
 metals_config.settings = {
