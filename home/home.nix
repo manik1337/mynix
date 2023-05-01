@@ -64,8 +64,7 @@
     nerdfonts
 
     # messengers
-    tdesktop
-    kotatogram-desktop
+    pkgs.tdesktop
     discord
     slack
     teams
