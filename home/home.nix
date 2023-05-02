@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   imports = [
     ./alacritty.nix
-    ./rofi.nix
+    ./rofi
     ./git.nix
     ./zsh.nix
     ./security.nix

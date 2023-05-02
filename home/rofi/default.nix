@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
@@ -9,5 +10,6 @@
       show-icons = true;
       modi = "run,drun,ssh,filebrowser,window";
     };
+    theme = ./catppuccin-theme.rasi;
   };
 }
