@@ -1,6 +1,7 @@
-{ config, pkgs, lib, ... }: {
+{ pkgs, ... }: {
   programs.waybar = {
     enable = true;
+    package = pkgs.stable.waybar;
     style = ./style.css;
     systemd.enable = true;
     settings = {
