@@ -64,7 +64,7 @@
     nerdfonts
 
     # messengers
-    pkgs.tdesktop
+    pkgs.stable.tdesktop
     discord
     slack
     teams
