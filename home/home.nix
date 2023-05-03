@@ -22,13 +22,6 @@
   home.packages = with pkgs; [
     dconf
 
-    # rust
-    cargo
-    rustc
-    rust-analyzer
-    rustfmt
-    clippy
-
     # scala
     scala
     sbt
