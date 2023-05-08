@@ -2,7 +2,7 @@
   programs = {
     firefox = {
       enable = true;
-      package = pkgs.stable.firefox-wayland;
+      package = pkgs.firefox-wayland;
       profiles.dmanik = {
         id = 0;
         name = "dmanik";
