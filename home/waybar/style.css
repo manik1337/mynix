@@ -1,7 +1,7 @@
 * {
 	border: none;
-  font-family: DejaVuSansMono Nerd Font;
-	font-size: 14px;
+  font-family: DejaVuSansM Nerd Font;
+	font-size: 16px;
 }
 
 window {
@@ -72,7 +72,7 @@ tooltip {
 
 #window {
 	color: #cdd6f4;
-	font-family: JetbrainsMono Nerd Font;
+	font-family: DejaVuSansM Nerd Font;
 	font-size: 12;
 }
 
@@ -85,7 +85,7 @@ tooltip {
 	margin: 2px 0 0 0;
 	padding: 2px;
 	border-radius: 10px;
-	font-family: JetbrainsMono Nerd Font;
+	font-family: DejaVuSansM Nerd Font;
 }
 
 #battery,

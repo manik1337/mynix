@@ -9,7 +9,7 @@
         multiplier = 30;
       };
       font = {
-        normal.family = "DejaVuSansMono Nerd Font";
+        normal.family = "DejaVuSansM Nerd Font";
         size = 14;
       };
       window = {
