@@ -52,6 +52,7 @@
     ledger-live
     insomnia
     beekeeper-studio
+    tasktimer
 
     # fonts
     nerdfonts
