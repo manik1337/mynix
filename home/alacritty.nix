@@ -9,8 +9,8 @@
         multiplier = 30;
       };
       font = {
-        normal.family = "DejaVuSansM Nerd Font";
-        size = 14;
+        normal.family = "Terminess Nerd Font";
+        size = 18;
       };
       window = {
         dynamic_title = true;

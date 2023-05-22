@@ -1,4 +1,5 @@
 { pkgs, ... }: {
+
   imports = [
     ./alacritty.nix
     ./rofi
@@ -22,20 +23,13 @@
   home.packages = with pkgs; [
     dconf
 
-    # scala
-    scala
-    sbt
-    coursier
-    metals
-    jdk
-
     # nix
     nixfmt
     rnix-lsp
     nil
 
+    lua-language-server
     python3
-    terraform
 
     # etc
     binutils
@@ -67,8 +61,7 @@
     ncspot
 
     _1password-gui
-    bitwarden
-    bitwarden-cli
+    pkgs.stable.bitwarden
 
     # utils
     dmenu

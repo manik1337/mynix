@@ -40,13 +40,23 @@
       tokyonight-nvim
 
       (nvim-treesitter.withPlugins (plugins: with plugins; [
-        nix lua scala javascript yaml python rust c erlang elixir kotlin go
+        nix
+        lua
+        scala
+        javascript
+        yaml
+        python
+        rust
+        c
+        erlang
+        elixir
+        kotlin
+        go
       ]))
       nvim-treesitter-context
 
       lualine-nvim
       lualine-lsp-progress
-      tabline-nvim
 
       # Telescope
       telescope-nvim
@@ -67,7 +77,6 @@
       ${lib.strings.fileContents ./lua/nvim-tree.lua}
       ${lib.strings.fileContents ./lua/telescope.lua}
       ${lib.strings.fileContents ./lua/lualine.lua}
-      ${lib.strings.fileContents ./lua/tabline.lua}
       ${lib.strings.fileContents ./lua/comment.lua}
       ${lib.strings.fileContents ./lua/treesitter.lua}
       ${lib.strings.fileContents ./lua/lsp.lua}

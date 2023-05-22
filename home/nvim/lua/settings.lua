@@ -17,10 +17,6 @@ vim.cmd [[ colorscheme catppuccin-mocha ]]
 
 -- Indent line
 opt.list = true
--- opt.listchars:append("space:⋅")
--- opt.listchars:append("eol:↴")
--- g.show_end_of_line = true
--- g.space_char_blankline = " "
 
 -- Performance
 opt.lazyredraw = true;
@@ -48,7 +44,7 @@ opt.clipboard = "unnamedplus"
 opt.mouse = "a"
 
 -- Nicer UI settings
-opt.cursorline = true
+-- opt.cursorline = true
 opt.relativenumber = true
 opt.number = true
 

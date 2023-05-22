@@ -58,7 +58,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local lspconfig = require("lspconfig")
-local servers = { 'rnix', 'rust_analyzer', 'hls', 'kotlin_language_server', 'gopls'}
+local servers = { 'rnix', 'rust_analyzer', 'hls', 'kotlin_language_server', 'gopls', 'lua_ls'}
 
 for _, server in pairs(servers) do
   lspconfig[server].setup {
