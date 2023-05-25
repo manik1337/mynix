@@ -45,7 +45,7 @@
     xclip
     ledger-live
     insomnia
-    beekeeper-studio
+    pkgs.stable.beekeeper-studio
     tasktimer
 
     # fonts
