@@ -22,6 +22,7 @@
       vim-flog
       diffview-nvim
       gitsigns-nvim
+      neogit
 
       # File tree
       nvim-web-devicons
@@ -38,6 +39,7 @@
       base16-vim
       material-nvim
       tokyonight-nvim
+      kanagawa-nvim
 
       (nvim-treesitter.withPlugins (plugins: with plugins; [
         nix
@@ -68,7 +70,7 @@
       # Editing
       align
       comment-nvim
-      copilot-vim
+      copilot-lua
     ];
     extraConfig = ''
       lua << EOF
@@ -82,6 +84,8 @@
       ${lib.strings.fileContents ./lua/lsp.lua}
       ${lib.strings.fileContents ./lua/gitsigns.lua}
       ${lib.strings.fileContents ./lua/fugitive.lua}
+      ${lib.strings.fileContents ./lua/neogit.lua}
+      ${lib.strings.fileContents ./lua/copilot.lua}
       EOF
     '';
   };

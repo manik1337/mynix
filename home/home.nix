@@ -1,5 +1,4 @@
-{ pkgs, ... }: {
-
+{ pkgs, inputs, ... }: {
   imports = [
     ./alacritty.nix
     ./rofi
@@ -30,6 +29,7 @@
 
     lua-language-server
     python3
+    nodejs-slim
 
     # etc
     binutils
@@ -64,6 +64,7 @@
     pkgs.stable.bitwarden
 
     # utils
+    cachix
     dmenu
     ncpamixer
     htop

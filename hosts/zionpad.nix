@@ -1,4 +1,4 @@
-{ config, pkgs, modulesPath, ... }: {
+{ config, pkgs, modulesPath, inputs, ... }: {
   imports =
     [
       (modulesPath + "/installer/scan/not-detected.nix")
@@ -7,6 +7,10 @@
       ../hardware/ergodox.nix
       ../hardware/dock.nix
     ];
+
+  environment.systemPackages = [
+    inputs.devenv.packages.${pkgs.system}.devenv
+  ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "thunderbolt" "nvme" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ "dm-snapshot" ];
@@ -24,45 +28,50 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/729af431-d657-4feb-92fb-79b5987c23cf";
+    {
+      device = "/dev/disk/by-uuid/729af431-d657-4feb-92fb-79b5987c23cf";
       fsType = "btrfs";
       options = [ "subvol=root" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/729af431-d657-4feb-92fb-79b5987c23cf";
+    {
+      device = "/dev/disk/by-uuid/729af431-d657-4feb-92fb-79b5987c23cf";
       fsType = "btrfs";
       options = [ "subvol=home" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/729af431-d657-4feb-92fb-79b5987c23cf";
+    {
+      device = "/dev/disk/by-uuid/729af431-d657-4feb-92fb-79b5987c23cf";
       fsType = "btrfs";
       options = [ "subvol=nix" "compress=zstd" "noatime" ];
     };
 
   fileSystems."/persist" =
-    { device = "/dev/disk/by-uuid/729af431-d657-4feb-92fb-79b5987c23cf";
+    {
+      device = "/dev/disk/by-uuid/729af431-d657-4feb-92fb-79b5987c23cf";
       fsType = "btrfs";
       options = [ "subvol=persist" "compress=zstd" "noatime" ];
       neededForBoot = true;
     };
 
   fileSystems."/var/log" =
-    { device = "/dev/disk/by-uuid/729af431-d657-4feb-92fb-79b5987c23cf";
+    {
+      device = "/dev/disk/by-uuid/729af431-d657-4feb-92fb-79b5987c23cf";
       fsType = "btrfs";
       options = [ "subvol=log" "compress=zstd" "noatime" ];
       neededForBoot = true;
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/CA59-C463";
+    {
+      device = "/dev/disk/by-uuid/CA59-C463";
       fsType = "vfat";
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/9bd0932e-9434-4cdd-b9aa-2b7d451792f1"; }
-    ];
+    [{ device = "/dev/disk/by-uuid/9bd0932e-9434-4cdd-b9aa-2b7d451792f1"; }];
 
   sound.enable = true;
 
@@ -73,32 +82,32 @@
     pulse.enable = true;
   };
   services.pipewire.wireplumber.enable = true;
-    # media-session.config.bluez-monitor.rules = [
-    #   {
-    #     # Matches all cards
-    #     matches = [{ "device.name" = "~bluez_card.*"; }];
-    #     actions = {
-    #       "update-props" = {
-    #         "bluez5.reconnect-profiles" = [ "hfp_hf" "hsp_hs" "a2dp_sink" ];
-    #         # mSBC is not expected to work on all headset + adapter combinations.
-    #         "bluez5.msbc-support" = true;
-    #         # SBC-XQ is not expected to work on all headset + adapter combinations.
-    #         "bluez5.sbc-xq-support" = true;
-    #       };
-    #     };
-    #   }
-    # ];
-    #   {
-    #     matches = [
-    #       # Matches all sources
-    #       {
-    #         "node.name" = "~bluez_input.*";
-    #       }
-    #       # Matches all outputs
-    #       { "node.name" = "~bluez_output.*"; }
-    #     ];
-    #   }
-    # ];
+  # media-session.config.bluez-monitor.rules = [
+  #   {
+  #     # Matches all cards
+  #     matches = [{ "device.name" = "~bluez_card.*"; }];
+  #     actions = {
+  #       "update-props" = {
+  #         "bluez5.reconnect-profiles" = [ "hfp_hf" "hsp_hs" "a2dp_sink" ];
+  #         # mSBC is not expected to work on all headset + adapter combinations.
+  #         "bluez5.msbc-support" = true;
+  #         # SBC-XQ is not expected to work on all headset + adapter combinations.
+  #         "bluez5.sbc-xq-support" = true;
+  #       };
+  #     };
+  #   }
+  # ];
+  #   {
+  #     matches = [
+  #       # Matches all sources
+  #       {
+  #         "node.name" = "~bluez_input.*";
+  #       }
+  #       # Matches all outputs
+  #       { "node.name" = "~bluez_output.*"; }
+  #     ];
+  #   }
+  # ];
 
 
 
@@ -125,13 +134,13 @@
       rocm-opencl-runtime
     ];
   };
- 
+
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.supportedFilesystems = [ "btrfs" ];
   hardware.enableAllFirmware = true;
   nixpkgs.config.allowUnfree = true;
-  
+
   # boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub = {
@@ -212,6 +221,8 @@
       package = pkgs.wireshark;
     };
   };
+
+  fonts.enableDefaultFonts = true;
 
   time.timeZone = "Europe/Nicosia";
 

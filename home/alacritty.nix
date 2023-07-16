@@ -9,7 +9,7 @@
         multiplier = 30;
       };
       font = {
-        normal.family = "Terminess Nerd Font";
+        normal.family = "Hack Nerd Font";
         size = 18;
       };
       window = {

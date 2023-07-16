@@ -7,10 +7,11 @@
     home-manager.url = "github:rycee/home-manager";
     nur.url = "github:nix-community/NUR";
     deploy-rs.url = "github:serokell/deploy-rs";
+    devenv.url = "github:cachix/devenv/latest";
   };
 
   outputs =
-    inputs@{ self, home-manager, nixpkgs, nixpkgs-stable, deploy-rs, ... }:
+    inputs@{ self, home-manager, nixpkgs, nixpkgs-stable, deploy-rs, devenv, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -29,7 +30,7 @@
 
             ({ pkgs, ... }: {
               nix = {
-                package =  pkgs.nixUnstable;
+                package = pkgs.nixUnstable;
                 nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
                 registry.nixpkgs.flake = inputs.nixpkgs;
                 extraOptions = ''
@@ -47,7 +48,8 @@
             }
           ] ++ extraModules);
         };
-    in {
+    in
+    {
       nixosConfigurations = {
         # zion = mkComputer ./hosts/zion.nix [ ];
         zionpad = mkComputer ./hosts/zionpad.nix [ ];
