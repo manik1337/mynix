@@ -46,16 +46,14 @@
     ledger-live
     insomnia
     pkgs.stable.beekeeper-studio
-    tasktimer
 
     # fonts
     nerdfonts
 
     # messengers
-    pkgs.stable.tdesktop
+    tdesktop
     discord
     slack
-    teams
 
     spotify
     ncspot
@@ -85,7 +83,7 @@
     noti
     nix-index
 
-    pkgs.stable.libreoffice
+    libreoffice
     zathura
     foliate
     flameshot
@@ -130,15 +128,13 @@
 
     yaru-theme
 
-    jetbrains.idea-community
-
     steam
     lutris
     vulkan-tools
   ];
 
   # home.file.".icons/default".source = "${pkgs.google-dot-cursor}/share/icons/";
-  home.file.".icons/default".source = "${pkgs.yaru-theme}/share/icons/Yaru";
+  # home.file.".icons/default".source = "${pkgs.yaru-theme}/share/icons/Yaru";
 
   gtk = {
     enable = true;
