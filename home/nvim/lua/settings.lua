@@ -3,7 +3,7 @@ local g = vim.g
 
 -- Hotkeys
 local map = vim.api.nvim_set_keymap
-options = { noremap = true }
+local options = { noremap = true }
 
 g.mapleader = ' '
 

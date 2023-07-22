@@ -18,7 +18,6 @@
       plenary-nvim
 
       # Git
-      vim-fugitive
       vim-flog
       diffview-nvim
       gitsigns-nvim
@@ -83,7 +82,6 @@
       ${lib.strings.fileContents ./lua/treesitter.lua}
       ${lib.strings.fileContents ./lua/lsp.lua}
       ${lib.strings.fileContents ./lua/gitsigns.lua}
-      ${lib.strings.fileContents ./lua/fugitive.lua}
       ${lib.strings.fileContents ./lua/neogit.lua}
       ${lib.strings.fileContents ./lua/copilot.lua}
       EOF
