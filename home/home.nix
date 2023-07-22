@@ -1,11 +1,10 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, ... }: {
   imports = [
     ./alacritty.nix
     ./rofi
     ./git.nix
     ./zsh.nix
     ./security.nix
-    ./vscode.nix
     ./sway.nix
     ./waybar
     ./direnv.nix
