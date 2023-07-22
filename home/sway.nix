@@ -158,19 +158,6 @@ in {
         "XF86MonBrightnessUp" = "exec brightnessctl s +10%";
         "XF86MonBrightnessDown" = "exec brightnessctl s 10%-";
       };
-      assigns = {
-        "${ws1}" = [{ class = "^Firefox$"; }];
-        "${ws4}" = [
-          { app_id = "^telegramdesktop$"; }
-          { class = "^Slack$"; }
-          { class = "^discord$"; }
-        ];
-        "${ws5}" = [
-          { class = "^Bitwarden$"; }
-          { class = "^1password$"; }
-          { class = "^Thunderbird$"; }
-        ];
-      };
       window.commands = [
         {
           criteria = { app_id = "floating_terminal"; };
