@@ -60,6 +60,8 @@
     _1password-gui
     pkgs.stable.bitwarden
 
+    obsidian
+
     # utils
     cachix
     dmenu
