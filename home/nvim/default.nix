@@ -17,6 +17,8 @@
 
       plenary-nvim
 
+      harpoon
+
       # Git
       vim-flog
       diffview-nvim
@@ -84,6 +86,7 @@
       ${lib.strings.fileContents ./lua/gitsigns.lua}
       ${lib.strings.fileContents ./lua/neogit.lua}
       ${lib.strings.fileContents ./lua/copilot.lua}
+      ${lib.strings.fileContents ./lua/harpoon.lua}
       EOF
     '';
   };
