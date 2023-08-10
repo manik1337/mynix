@@ -75,41 +75,26 @@
 
   sound.enable = true;
 
+  xdg = {
+    autostart.enable = true;
+    portal = {
+      enable = true;
+      wlr.enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
+      ];
+    };
+  };
+
   services.pipewire = {
     enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
+    alsa = {
+      enable = true;
+      support32Bit = true;
+    };
     pulse.enable = true;
+    # wireplumber.enable = true;
   };
-  services.pipewire.wireplumber.enable = true;
-  # media-session.config.bluez-monitor.rules = [
-  #   {
-  #     # Matches all cards
-  #     matches = [{ "device.name" = "~bluez_card.*"; }];
-  #     actions = {
-  #       "update-props" = {
-  #         "bluez5.reconnect-profiles" = [ "hfp_hf" "hsp_hs" "a2dp_sink" ];
-  #         # mSBC is not expected to work on all headset + adapter combinations.
-  #         "bluez5.msbc-support" = true;
-  #         # SBC-XQ is not expected to work on all headset + adapter combinations.
-  #         "bluez5.sbc-xq-support" = true;
-  #       };
-  #     };
-  #   }
-  # ];
-  #   {
-  #     matches = [
-  #       # Matches all sources
-  #       {
-  #         "node.name" = "~bluez_input.*";
-  #       }
-  #       # Matches all outputs
-  #       { "node.name" = "~bluez_output.*"; }
-  #     ];
-  #   }
-  # ];
-
-
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
@@ -199,6 +184,7 @@
       extraGroups = [
         "wheel"
         "audio"
+        "video"
         "docker"
         "wireshark"
         "networkmanager"

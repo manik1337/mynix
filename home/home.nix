@@ -98,8 +98,9 @@
 
     # sound
     pavucontrol
-    pulseaudio
+    # pulseaudio
     pipewire
+    wireplumber
 
     # wayland
     brightnessctl
