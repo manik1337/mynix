@@ -9,7 +9,8 @@
         multiplier = 30;
       };
       font = {
-        normal.family = "Hack Nerd Font";
+        # normal.family = "Hack Nerd Font";
+        normal.family = "FantasqueSansM Nerd Font";
         size = 18;
       };
       window = {
