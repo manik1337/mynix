@@ -48,6 +48,7 @@
 
     # fonts
     nerdfonts
+    fantasque-sans-mono
 
     # messengers
     tdesktop
@@ -106,6 +107,7 @@
     brightnessctl
     slurp
     grim
+    swappy
     swaylock-effects
     swayidle
     wl-clipboard
