@@ -50,33 +50,21 @@
         };
     in
     {
-      nixosConfigurations = {
-        # zion = mkComputer ./hosts/zion.nix [ ];
-        zionpad = mkComputer ./hosts/zionpad.nix [ ];
+      nixosConfigurations.zionpad = mkComputer ./hosts/zionpad.nix [ ];
+
+      deploy = {
+        sshUser = "root";
+        nodes.zionpad = {
+          hostname = "localhost";
+          profiles.system = {
+            user = "root";
+            path = deploy-rs.lib.x86_64-linux.activate.nixos
+              self.nixosConfigurations.zionpad;
+          };
+        };
       };
-      # deploy = {
-      #   sshUser = "root";
-      #   nodes = {
-      #     zionpad = {
-      #       hostname = "localhost";
-      #       profiles.system = {
-      #         user = "root";
-      #         path = deploy-rs.lib.x86_64-linux.activate.nixos
-      #           self.nixosConfigurations.zionpad;
-      #       };
-      #     };
-      #
-      #     zion = {
-      #       hostname = "localhost";
-      #       profiles.system = {
-      #         user = "root";
-      #         path = deploy-rs.lib.x86_64-linux.activate.nixos
-      #           self.nixosConfigurations.zion;
-      #       };
-      #     };
-      #   };
-      # };
-      # checks = builtins.mapAttrs
-      #   (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
+      checks = builtins.mapAttrs
+        (system: deployLib: deployLib.deployChecks self.deploy)
+        deploy-rs.lib;
     };
 }
