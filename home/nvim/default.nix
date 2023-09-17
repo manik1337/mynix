@@ -72,6 +72,7 @@
       align
       comment-nvim
       copilot-lua
+      undotree
     ];
     extraConfig = ''
       lua << EOF
@@ -87,6 +88,7 @@
       ${lib.strings.fileContents ./lua/neogit.lua}
       ${lib.strings.fileContents ./lua/copilot.lua}
       ${lib.strings.fileContents ./lua/harpoon.lua}
+      ${lib.strings.fileContents ./lua/undotree.lua}
       EOF
     '';
   };
