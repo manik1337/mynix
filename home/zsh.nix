@@ -14,8 +14,8 @@
       cat = "bat --paging=never --style=plain";
       fzf =
         "fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'";
-      ls = "exa --icons";
-      tree = "exa --tree --icons";
+      ls = "eza --icons";
+      tree = "eza --tree --icons";
     };
     oh-my-zsh = {
       enable = true;

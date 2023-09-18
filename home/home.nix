@@ -71,7 +71,7 @@
     btop
     bat
     fzf
-    exa
+    eza
     wget
     unzip
     unrar
