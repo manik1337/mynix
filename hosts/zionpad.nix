@@ -86,6 +86,9 @@
     };
   };
 
+  services.printing.enable = true;
+  services.printing.drivers = [ pkgs.gutenprint ];
+
   services.pipewire = {
     enable = true;
     alsa = {
