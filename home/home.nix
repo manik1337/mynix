@@ -31,6 +31,8 @@
     python3
     nodejs-slim
 
+    postgresql
+
     # etc
     binutils
     pkg-config
@@ -88,6 +90,7 @@
 
     libreoffice
     zathura
+    sioyek
     foliate
     flameshot
     krita
