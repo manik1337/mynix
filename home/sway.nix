@@ -71,7 +71,7 @@ in {
         };
       };
       output = {
-        "*" = { bg = "${./wallpapers/cat_leaves.png} fill"; };
+        "*" = { bg = "${./wallpapers/anime.png} fill"; };
         "eDP-1" = {
           scale = "1.5";
         };
