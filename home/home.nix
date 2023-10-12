@@ -14,6 +14,7 @@
     ./zellij.nix
     ./chromium.nix
     ./firefox.nix
+    ./tmux
   ];
 
   nixpkgs.config.allowUnfree = true;
