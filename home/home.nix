@@ -17,8 +17,6 @@
     ./tmux
   ];
 
-  nixpkgs.config.allowUnfree = true;
-
   home.packages = with pkgs; [
     cups
     dconf

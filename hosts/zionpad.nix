@@ -127,7 +127,6 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.supportedFilesystems = [ "btrfs" ];
   hardware.enableAllFirmware = true;
-  nixpkgs.config.allowUnfree = true;
 
   # boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
