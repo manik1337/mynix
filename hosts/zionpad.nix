@@ -210,7 +210,7 @@
     };
   };
 
-  # fonts.enableDefaultFonts = true;
+  fonts.enableDefaultFonts = true;
 
   time.timeZone = "Europe/Nicosia";
 
