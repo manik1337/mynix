@@ -93,7 +93,7 @@
     foliate
     flameshot
     krita
-    # thunderbird-wayland
+    thunderbird
     vlc
     spotify
 
