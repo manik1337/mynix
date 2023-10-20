@@ -118,8 +118,8 @@
     extraPackages = with pkgs; [
       amdvlk
       intel-media-driver
-      rocm-opencl-icd
-      rocm-opencl-runtime
+      rocmPackages.clr
+      rocmPackages.clr.icd
     ];
   };
 
@@ -210,7 +210,7 @@
     };
   };
 
-  fonts.enableDefaultFonts = true;
+  fonts.enableDefaultPackages = true;
 
   time.timeZone = "Europe/Nicosia";
 
