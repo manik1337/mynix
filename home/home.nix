@@ -61,7 +61,7 @@
     ncspot
 
     _1password-gui
-    pkgs.stable.bitwarden
+    bitwarden
 
     obsidian
 
