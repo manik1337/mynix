@@ -15,11 +15,16 @@
     ./chromium.nix
     ./firefox.nix
     ./tmux
+    ./mangohud.nix
   ];
 
   home.packages = with pkgs; [
     cups
     dconf
+    glib
+
+    elixir
+    erlang
 
     # nix
     nixfmt
