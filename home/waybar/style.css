@@ -1,14 +1,14 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: Hack;
+  font-family: "VictorMono Nerd Font";
   font-size: 13px;
   min-height: 0;
 }
 
 window#waybar {
-  background: transparent;
-  color: white;
+  /* background: transparent; */
+  /* color: white; */
 }
 
 #window {
