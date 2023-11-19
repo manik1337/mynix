@@ -6,12 +6,13 @@
     settings = {
       scrolling = {
         history = 100000;
-        multiplier = 30;
+        multiplier = 5;
       };
       font = {
         # normal.family = "Hack Nerd Font";
-        normal.family = "FantasqueSansM Nerd Font";
-        size = 18;
+        # normal.family = "FantasqueSansM Nerd Font";
+        normal.family = "VictorMono Nerd Font";
+        size = 16;
       };
       window = {
         dynamic_title = true;
