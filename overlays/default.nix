@@ -14,5 +14,4 @@ inputs: system: self: super: {
   });
 
   ledger-live = super.callPackage ./ledger-live.nix { };
-  google-dot-cursor = super.callPackage ../packages/google-dot.nix { };
 }

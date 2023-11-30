@@ -134,7 +134,6 @@
     mpv
     crow-translate
 
-    google-dot-cursor
 
     qflipper
     sof-firmware
@@ -146,13 +145,8 @@
     vulkan-tools
   ];
 
-  # home.file.".icons/default".source = "${pkgs.google-dot-cursor}/share/icons/";
-  # home.file.".icons/default".source = "${pkgs.yaru-theme}/share/icons/Yaru";
-  home.file.".icons/default".source = "${pkgs.vanilla-dmz}/share/icons/Vanilla-DMZ";
-
   gtk = {
     enable = true;
-    cursorTheme.name = "Yaru";
     iconTheme.name = "Yaru-blue-dark";
     theme.name = "Yaru-blue-dark";
   };
@@ -165,6 +159,7 @@
   };
 
   programs.home-manager.enable = true;
+
   home.sessionVariables = {
     MOZ_ENABLE_WAYLAND = 1;
     NIXOS_OZONE_WL = 1;
