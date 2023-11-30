@@ -6,6 +6,7 @@
     ./zsh.nix
     ./security.nix
     ./sway.nix
+    ./wlsunset.nix
     ./waybar
     ./direnv.nix
     ./nvim
