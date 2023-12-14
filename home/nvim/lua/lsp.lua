@@ -1,6 +1,6 @@
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
-local cmp = require'cmp'
+local cmp = require 'cmp'
 
 cmp.setup({
   snippet = {
@@ -32,7 +32,7 @@ cmp.setup({
   }),
 })
 
-local opts = { noremap=true, silent=true }
+local opts = { noremap = true, silent = true }
 vim.api.nvim_set_keymap('n', '<Leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
@@ -46,7 +46,8 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>wl',
+    '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
@@ -58,7 +59,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local lspconfig = require("lspconfig")
-local servers = { 'rnix', 'rust_analyzer', 'hls', 'kotlin_language_server', 'gopls', 'lua_ls', 'elmls'}
+local servers = { 'rnix', 'rust_analyzer', 'hls', 'kotlin_language_server', 'gopls', 'lua_ls', 'tsserver', 'terraformls', 'clangd', 'zls' }
 
 for _, server in pairs(servers) do
   lspconfig[server].setup {
@@ -67,6 +68,42 @@ for _, server in pairs(servers) do
     capabilities = capabilities
   }
 end
+
+-- local configs = require("lspconfig.configs")
+--
+-- local lexical_config = {
+--   filetypes = { "elixir", "eelixir", },
+--   cmd = { "/my/home/projects/_build/dev/package/lexical/bin/start_lexical.sh" },
+--   settings = {},
+-- }
+--
+-- if not configs.lexical then
+--   configs.lexical = {
+--     default_config = {
+--       filetypes = lexical_config.filetypes,
+--       -- cmd = lexical_config.cmd,
+--       cmd = { "/home/dmanik/ws/elixir/lexical/_build/dev/package/lexical/bin/start_lexical.sh" },
+--       root_dir = function(fname)
+--         return lspconfig.util.root_pattern("mix.exs", ".git")(fname) or vim.loop.os_homedir()
+--       end,
+--       -- optional settings
+--       settings = lexical_config.settings,
+--     },
+--   }
+-- end
+
+-- lspconfig.lexical.setup({
+--   on_attach = on_attach,
+--   -- cmd = { "elixir-ls" },
+--   flags = { debounce_text_changes = 150 },
+--   capabilities = capabilities,
+--   settings = {
+--     -- elixirLS = {
+--     --   dialyzerEnabled = false,
+--     --   fetchDeps = true
+--     -- }
+--   }
+-- })
 
 lspconfig.elixirls.setup {
   on_attach = on_attach,
@@ -82,14 +119,14 @@ lspconfig.elixirls.setup {
 }
 
 lspconfig.ocamllsp.setup({
-    cmd = { "ocamllsp" },
-    filetypes = { "ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "reason", "dune" },
-    root_dir = lspconfig.util.root_pattern("*.opam", "esy.json", "package.json", ".git", "dune-project", "dune-workspace"),
-    on_attach = on_attach,
-    capabilities = capabilities
+  cmd = { "ocamllsp" },
+  filetypes = { "ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "reason", "dune" },
+  root_dir = lspconfig.util.root_pattern("*.opam", "esy.json", "package.json", ".git", "dune-project", "dune-workspace"),
+  on_attach = on_attach,
+  capabilities = capabilities
 })
 
-lspconfig.nil_ls.setup{
+lspconfig.nil_ls.setup {
   on_attach = on_attach
 }
 
