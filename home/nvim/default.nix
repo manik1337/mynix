@@ -55,6 +55,8 @@
         elixir
         kotlin
         go
+        gleam
+        terraform
       ]))
       nvim-treesitter-context
 
