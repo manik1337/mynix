@@ -26,6 +26,9 @@
   # '';
   boot.kernelModules = [ "kvm-intel" "wl" ];
   boot.extraModulePackages = [ ];
+  # boot.extraModprobeConfig = ''
+  #   options snd-intel-dspcfg dsp_driver=1
+  # '';
 
   fileSystems."/" =
     {
@@ -80,14 +83,13 @@
     portal = {
       enable = true;
       wlr.enable = true;
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-gtk
-      ];
     };
   };
 
-  services.printing.enable = true;
-  services.printing.drivers = [ pkgs.gutenprint ];
+  services.printing = {
+    enable = true;
+    drivers = [ pkgs.gutenprint ];
+  };
 
   services.pipewire = {
     enable = true;
@@ -96,7 +98,7 @@
       support32Bit = true;
     };
     pulse.enable = true;
-    # wireplumber.enable = true;
+    #     wireplumber.enable = true;
   };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
@@ -109,26 +111,27 @@
 
   nixpkgs.hostPlatform = "x86_64-linux";
   powerManagement.cpuFreqGovernor = "powersave";
-  hardware.cpu.intel.updateMicrocode = config.hardware.enableRedistributableFirmware;
-  hardware.bluetooth.enable = true;
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-    extraPackages = with pkgs; [
-      amdvlk
-      intel-media-driver
-      rocmPackages.clr
-      rocmPackages.clr.icd
-    ];
+  hardware = {
+    enableAllFirmware = true;
+    cpu.intel.updateMicrocode = config.hardware.enableRedistributableFirmware;
+    bluetooth.enable = true;
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+      extraPackages = with pkgs; [
+        amdvlk
+        intel-media-driver
+        rocmPackages.clr
+        rocmPackages.clr.icd
+      ];
+    };
   };
 
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.supportedFilesystems = [ "btrfs" ];
-  hardware.enableAllFirmware = true;
 
-  # boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub = {
     enable = true;
@@ -147,33 +150,37 @@
   networking = {
     hostName = "zionpad";
     networkmanager.enable = true;
+    extraHosts = ''
+      127.0.0.1    localhost
+      255.255.255.255 broadcasthost
+      ::1          localhost # IPv6 entry for faster resolving on mac
+      127.0.0.1    kurabu.local
+      ::1          kurabu.local # IPv6 entry for faster resolving on mac
+      127.0.0.1    tsg-bergedorf.kurabu.local
+      ::1          tsg-bergedorf.kurabu.local
+      127.0.0.1    hsv-ev.kurabu.local # add subdomain for each club you use locally
+      ::1          hsv-ev.kurabu.local
+      127.0.0.1    app.kurabu.local # for testing the app
+      ::1          app.kurabu.local
+      127.0.0.1    abc.kurabu.local # for testing non existing club
+      ::1          abc.kurabu.local
+    '';
     # useDHCP = false;
     # interfaces.wlp0s20f3.useDHCP = true;
     # interfaces.wwp0s20f0u2.useDHCP = true;
     wg-quick.interfaces = {
-      wg0 = {
-        address = [ "10.2.1.32/32" ];
-        privateKeyFile = "/home/dmanik/.secret/wg0";
+      wg1 = {
+        address = [ "10.0.0.4/24" "fdc9:281f:04d7:9ee9::4/64" ];
+        dns = [ "10.0.0.1" "fdc9:281f:04d7:9ee9::1" ];
+        privateKeyFile = "/home/dmanik/.secret/wg1";
 
         peers = [{
-          publicKey = "Yip5NXZngVAK0kyN6BmULElqaaeeUdStWSkbLw9AzRo=";
-          allowedIPs = [ "10.2.0.0/16" "10.1.0.0/16" ];
-          endpoint = "116.202.196.124:51820";
-          persistentKeepalive = 12;
+          publicKey = "L5f/b9oZJ7ahl/lQjsOfXVR2MJ5EGrM26urDi5Ul/0U=";
+          allowedIPs = [ "0.0.0.0/0" "::/0" ];
+          endpoint = "135.181.145.101:51820";
+          persistentKeepalive = 25;
         }];
       };
-      # wg1 = {
-      #   address = [ "10.0.0.4/24" "fdc9:281f:04d7:9ee9::4/64" ];
-      #   dns = [ "10.0.0.1" "fdc9:281f:04d7:9ee9::1" ];
-      #   privateKeyFile = "/home/dmanik/.secret/wg1";
-      #
-      #   peers = [{
-      #     publicKey = "L5f/b9oZJ7ahl/lQjsOfXVR2MJ5EGrM26urDi5Ul/0U=";
-      #     allowedIPs = [ "0.0.0.0/0" "::/0" ];
-      #     endpoint = "135.181.145.101:51820";
-      #     persistentKeepalive = 25;
-      #   }];
-      # };
     };
   };
 
@@ -210,9 +217,12 @@
     };
   };
 
-  fonts.enableDefaultPackages = true;
+  fonts = {
+    enableDefaultPackages = true;
+    fontconfig.defaultFonts.monospace = [ "VictorMono Nerd Font" ];
+  };
 
-  time.timeZone = "Europe/Nicosia";
+  time.timeZone = "Europe/Berlin";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
