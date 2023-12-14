@@ -34,7 +34,8 @@
           max-length = 50;
         };
         "sway/language" = {
-          format = "{}";
+          format = "{flag}";
+          tooltip = false;
           max-length = 50;
         };
         "tray" = {
@@ -68,12 +69,12 @@
         };
         "pulseaudio" = {
           format = "{volume}% {icon}";
-          format-bluetooth = "{volume}% {icon}";
+          format-bluetooth = "{volume}% {icon} ";
           format-muted = "";
           format-icons = {
             headphones = "";
-            handsfree = "";
-            headset = "";
+            handsfree = "";
+            headset = "";
             phone = "";
             portable = "";
             car = "";
@@ -86,5 +87,4 @@
 
     style = ./style.css;
   };
-  home.packages = [ pkgs.hack-font ];
 }

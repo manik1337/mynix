@@ -2,7 +2,7 @@
   border: none;
   border-radius: 0;
   font-family: "VictorMono Nerd Font";
-  font-size: 13px;
+  font-size: 12px;
   min-height: 0;
 }
 
@@ -17,7 +17,7 @@ window#waybar {
 
 #workspaces button {
   padding: 0 5px;
-  background: transparent;
+  /* background: transparent; */
   color: white;
   border-top: 2px solid transparent;
 }
