@@ -17,9 +17,14 @@
     ./firefox.nix
     ./tmux
     ./mangohud.nix
+    ./vscode.nix
   ];
 
   home.packages = with pkgs; [
+    awscli2
+    calibre
+    godot_4
+    pixelorama
     cups
     dconf
     glib
@@ -69,7 +74,7 @@
     _1password-gui
     bitwarden
 
-    obsidian
+    pkgs.stable.obsidian
 
     # utils
     cachix
