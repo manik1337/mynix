@@ -18,6 +18,7 @@
     ./tmux
     ./mangohud.nix
     ./vscode.nix
+    ./syncthing.nix
   ];
 
   home.packages = with pkgs; [
