@@ -11,10 +11,10 @@
       rm = "rm -rifv";
       mv = "mv -iv";
       cp = "cp -riv";
-      cat = "bat --paging=never --style=plain";
+      # cat = "bat --paging=never --style=plain";
       fzf =
         "fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'";
-      ls = "eza --icons";
+      # ls = "eza --icons";
       tree = "eza --tree --icons";
     };
     oh-my-zsh = {
