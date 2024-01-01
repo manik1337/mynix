@@ -70,6 +70,7 @@
     slack
 
     spotify
+    tidal-hifi
     ncspot
 
     _1password-gui
