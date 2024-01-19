@@ -1,20 +1,10 @@
 local opt = vim.opt
 local g = vim.g
 
--- Hotkeys
-local map = vim.api.nvim_set_keymap
-local options = { noremap = true }
-
 g.mapleader = ' '
 
-map('n', '<Leader>pp', ':NvimTreeFindFileToggle <CR>', options)
-map('n', '<Leader>ff', ':Telescope find_files<CR>', options)
-map('n', '<Leader>fg', ':Telescope live_grep<CR>', options)
-map('n', '<Leader>fb', ':Telescope buffers<CR>', options)
-
 -- Colorscheme
-vim.cmd [[ colorscheme kanagawa ]]
--- vim.cmd [[ colorscheme catppuccin-mocha ]]
+vim.cmd.colorscheme "kanagawa-dragon"
 
 -- Indent line
 opt.list = true

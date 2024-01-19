@@ -14,6 +14,7 @@
       nvim-cmp
       cmp-vsnip
       vim-vsnip
+      lsp-status-nvim
 
       plenary-nvim
 
@@ -41,6 +42,8 @@
       material-nvim
       tokyonight-nvim
       kanagawa-nvim
+      tender-vim
+      everforest
 
       (nvim-treesitter.withPlugins (plugins: with plugins; [
         nix
@@ -79,7 +82,6 @@
     extraConfig = ''
       lua << EOF
       ${lib.strings.fileContents ./lua/settings.lua}
-      ${lib.strings.fileContents ./lua/meterial.lua}
       ${lib.strings.fileContents ./lua/nvim-tree.lua}
       ${lib.strings.fileContents ./lua/telescope.lua}
       ${lib.strings.fileContents ./lua/lualine.lua}

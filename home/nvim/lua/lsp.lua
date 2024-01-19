@@ -59,7 +59,9 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local lspconfig = require("lspconfig")
-local servers = { 'rnix', 'rust_analyzer', 'hls', 'kotlin_language_server', 'gopls', 'lua_ls', 'tsserver', 'terraformls', 'clangd', 'zls' }
+local servers = { 'rnix', 'rust_analyzer', 'hls', 'kotlin_language_server', 'gopls', 'lua_ls', 'tsserver',
+  'terraformls',
+  'clangd', 'zls' }
 
 for _, server in pairs(servers) do
   lspconfig[server].setup {
@@ -117,6 +119,34 @@ lspconfig.elixirls.setup {
     }
   }
 }
+
+lspconfig.pylsp.setup({
+  on_attach = on_attach,
+  settings = {
+    pylsp = {
+      plugins = {
+        -- formatter options
+        black = { enabled = true },
+        autopep8 = { enabled = false },
+        yapf = { enabled = false },
+        -- linter options
+        pylint = { enabled = true, executable = "pylint" },
+        pyflakes = { enabled = false },
+        pycodestyle = { enabled = false },
+        -- type checker
+        pylsp_mypy = { enabled = true },
+        -- auto-completion options
+        jedi_completion = { fuzzy = true },
+        -- import sorting
+        pyls_isort = { enabled = true },
+      },
+    },
+  },
+  flags = {
+    debounce_text_changes = 200,
+  },
+  capabilities = capabilities,
+})
 
 lspconfig.ocamllsp.setup({
   cmd = { "ocamllsp" },

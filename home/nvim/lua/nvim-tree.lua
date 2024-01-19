@@ -23,6 +23,10 @@ require 'nvim-tree'.setup {
     args = {}
   },
   view = {
-    side = 'left',
+    side = 'right',
   }
 }
+
+local opts = { noremap = true, silent = true }
+vim.api.nvim_set_keymap('n', '<Leader>pp', ':NvimTreeFindFileToggle <CR>', opts)
+vim.api.nvim_set_keymap('n', '<Leader>pP', ':NvimTreeFindFile <CR>', opts)
