@@ -26,6 +26,8 @@ in
       bindswitch --reload --locked lid:on output $laptop disable
       bindswitch --reload --locked lid:off output $laptop enable
       default_border none
+      set $XCURSOR_SIZE 48
+      seat seat0 xcursor_theme macOS-BigSur 48
     '';
     config = {
       gaps = {

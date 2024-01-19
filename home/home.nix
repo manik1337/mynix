@@ -146,6 +146,7 @@
     sof-firmware
 
     yaru-theme
+    apple-cursor
 
     steam
     lutris
@@ -156,6 +157,21 @@
     enable = true;
     iconTheme.name = "Yaru-blue-dark";
     theme.name = "Yaru-blue-dark";
+    cursorTheme = {
+      package = pkgs.apple-cursor;
+      name = "macOS-BigSur";
+      size = 48;
+    };
+  };
+
+  home.file.".icons/default".source = "${pkgs.yaru-theme}/share/icons/Yaru-blue-dark";
+
+  home.pointerCursor = {
+    package = pkgs.apple-cursor;
+    name = "macOS-BigSur";
+    size = 48;
+    gtk.enable = true;
+    x11.enable = true;
   };
 
   programs = {
@@ -169,6 +185,7 @@
 
   home.sessionVariables = {
     MOZ_ENABLE_WAYLAND = 1;
+    XCURSOR_SIZE = 48;
     NIXOS_OZONE_WL = 1;
     XDG_CURRENT_DESKTOP = "sway";
     SDL_VIDEODRIVER = "wayland";
