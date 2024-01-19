@@ -9,25 +9,25 @@
       height = 24;
       modules-left = [ "sway/workspaces" "sway/mode" ];
       modules-center = [ "sway/window" ];
-      modules-right = [ "pulseaudio" "network" "cpu" "memory" "battery" "tray" "clock" "sway/language" ];
+      modules-right = [ "pulseaudio" "cpu" "memory" "battery" "tray" "clock" "sway/language" ];
 
       modules = {
         "sway/workspaces" = {
           disable-scroll = true;
           all-outputs = false;
           format = "{icon}";
-          format-icons = {
-            "1" = "λ";
-            "2" = "";
-            "3" = "";
-            "5" = "";
-            "8" = "";
-            "9" = "";
-            "10" = "♫";
-            "urgent" = "";
-            # "focused" = "";
-            "default" = "";
-          };
+          # format-icons = {
+          #   "1" = "λ";
+          #   "2" = "";
+          #   "3" = "";
+          #   "5" = "";
+          #   "8" = "";
+          #   "9" = "";
+          #   "10" = "♫";
+          #   "urgent" = "";
+          #   # "focused" = "";
+          #   "default" = "";
+          # };
         };
         "sway/mode" = {
           format = " {}";

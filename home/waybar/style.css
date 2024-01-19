@@ -1,95 +1,45 @@
+@define-color alpha_black rgba(0, 0, 0, 0.6);
+
 * {
   border: none;
   border-radius: 0;
   font-family: "VictorMono Nerd Font";
   font-size: 12px;
+  color: @theme_text_color;
   min-height: 0;
-}
-
-window#waybar {
-  /* background: transparent; */
-  /* color: white; */
+  margin: 0;
+  padding: 0;
 }
 
 #window {
   font-weight: bold;
+  padding: 0 8px;
 }
 
-#workspaces button {
-  padding: 0 5px;
-  /* background: transparent; */
-  color: white;
-  border-top: 2px solid transparent;
+window#waybar {
+  background: @alpha_black;
+}
+
+#clock, #mode {
+  background: @theme_bg_color;
+  padding: 0 8px;
+}
+
+#temperature, #cpu, #pulseaudio, #battery, #language, #idle_inhibitor, #workspaces button {
+  background: transparent;
+  padding: 0 8px;
+}
+
+#idle_inhibitor.deactivated {
+  color: @theme_unfocused_fg_color;
 }
 
 #workspaces button.focused {
-  color: #c9545d;
-  border-top: 2px solid #c9545d;
+  background: @theme_bg_color;
+  border-top: 2px solid @theme_fg_color;
+  padding: 0 8px;
 }
 
-#mode {
-  background: #64727D;
-  border-bottom: 3px solid white;
+tooltip {
+  background: @alpha_black;
 }
-
-#clock, #battery, #cpu, #memory, #network, #pulseaudio, #custom-spotify, #tray, #mode {
-  padding: 0 3px;
-  margin: 0 4px;
-}
-
-#clock {
-  font-weight: bold;
-}
-
-#battery {
-}
-
-#battery icon {
-  color: red;
-}
-
-#battery.charging {
-}
-
-@keyframes blink {
-  to {
-    background-color: #ffffff;
-    color: black;
-  }
-}
-
-#battery.warning:not(.charging) {
-  color: white;
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-#cpu {
-}
-
-#memory {
-}
-
-#network {
-}
-
-#network.disconnected {
-  background: #f53c3c;
-}
-
-#pulseaudio {
-}
-
-#pulseaudio.muted {
-}
-
-#custom-spotify {
-  color: rgb(102, 220, 105);
-}
-
-#tray {
-}
-
