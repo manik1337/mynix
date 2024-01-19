@@ -152,13 +152,10 @@ in
           # "${mod}+Shift+k" = "exec ${pkgs.mako}/bin/makoctl invoke";
           "${mod}+Shift+k" = "exec ${pkgs.mako}/bin/makoctl dismiss -a";
 
-          "XF86AudioMute" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
-          "XF86AudioRaiseVolume" =
-            "exec pactl set-sink-volume @DEFAULT_SINK@ +5%";
-          "XF86AudioLowerVolume" =
-            "exec pactl set-sink-volume @DEFAULT_SINK@ -5%";
-          "XF86AudioMicMute" =
-            "exec pactl set-source-mute @DEFAULT_SOURCE@ toggle";
+          "XF86AudioMute" = "exec --no-startup-id pamixer -t";
+          "XF86AudioRaiseVolume" = "exec --no-startup-id pamixer -i 5";
+          "XF86AudioLowerVolume" = "exec --no-startup-id pamixer -d 5";
+          # "XF86AudioMicMute" = "exec --no-startup-id pamixer -t";
 
           "XF86MonBrightnessUp" = "exec brightnessctl s +10%";
           "XF86MonBrightnessDown" = "exec brightnessctl s 10%-";

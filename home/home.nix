@@ -81,6 +81,7 @@
     # utils
     cachix
     dmenu
+    pamixer
     ncpamixer
     htop
     btop
