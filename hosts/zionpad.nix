@@ -8,6 +8,7 @@
       ../hardware/dock.nix
     ];
 
+  environment.variables.XCURSOR_SIZE = "48";
   environment.systemPackages = [
     inputs.devenv.packages.${pkgs.system}.devenv
   ];
@@ -80,10 +81,7 @@
 
   xdg = {
     autostart.enable = true;
-    portal = {
-      enable = true;
-      wlr.enable = true;
-    };
+    portal.config.common.default = "*";
   };
 
   services.printing = {
