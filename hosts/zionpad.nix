@@ -151,6 +151,11 @@
     hostName = "zionpad";
     networkmanager.enable = true;
     extraHosts = ''
+      127.0.0.1   www.twitter.com
+      127.0.0.1   twitter.com
+      127.0.0.1   www.x.com
+      127.0.0.1   x.com
+
       127.0.0.1    localhost
       255.255.255.255 broadcasthost
       ::1          localhost # IPv6 entry for faster resolving on mac
