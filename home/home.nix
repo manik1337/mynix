@@ -92,6 +92,7 @@
     unrar
     openssl
     ranger
+    broot
     jq
     jless
     nethogs
