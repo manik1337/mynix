@@ -155,6 +155,7 @@ in
           "XF86AudioMute" = "exec --no-startup-id pamixer -t";
           "XF86AudioRaiseVolume" = "exec --no-startup-id pamixer -i 5";
           "XF86AudioLowerVolume" = "exec --no-startup-id pamixer -d 5";
+          "XF86Favorites" = "exec ${lockCmd}";
           # "XF86AudioMicMute" = "exec --no-startup-id pamixer -t";
 
           "XF86MonBrightnessUp" = "exec brightnessctl s +10%";
