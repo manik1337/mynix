@@ -12,7 +12,7 @@
         # normal.family = "Hack Nerd Font";
         # normal.family = "FantasqueSansM Nerd Font";
         normal.family = "VictorMono Nerd Font";
-        size = 12;
+        size = 10;
       };
       window = {
         dynamic_title = true;
