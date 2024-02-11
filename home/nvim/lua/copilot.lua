@@ -10,4 +10,7 @@ require("copilot").setup {
       accept_word = "<M-l>",
     },
   },
+  filetypes = {
+    yaml = true,
+  },
 }
