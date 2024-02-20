@@ -22,6 +22,9 @@
   ];
 
   home.packages = with pkgs; [
+    wine
+    winetricks
+
     awscli2
     calibre
     godot_4
