@@ -25,15 +25,15 @@ in
       set $laptop eDP-1
       bindswitch --reload --locked lid:on output $laptop disable
       bindswitch --reload --locked lid:off output $laptop enable
-      default_border none
+      # default_border none
       set $XCURSOR_SIZE 48
       seat seat0 xcursor_theme macOS-BigSur 48
     '';
     config = {
-      gaps = {
-        inner = 10;
-        outer = 5;
-      };
+      # gaps = {
+      #   inner = 10;
+      #   outer = 5;
+      # };
       terminal = "${pkgs.alacritty}/bin/alacritty";
       modifier = "Mod4";
       fonts = {
@@ -76,7 +76,8 @@ in
         };
       };
       output = {
-        "*" = { bg = "#000000 solid_color"; };
+        # "*" = { bg = "#000000 solid_color"; };
+        "*" = { bg = "/home/dmanik/dl/linux.jpg fill"; };
       };
       bindkeysToCode = true;
       keybindings =
