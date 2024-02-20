@@ -138,6 +138,7 @@
     xdg-desktop-portal-wlr
     wlroots
     swaykbdd
+    wdisplays
 
     # media
     obs-studio
