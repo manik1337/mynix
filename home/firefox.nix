@@ -65,6 +65,7 @@
             sidebery
 
             bitwarden
+            onepassword-password-manager
           ];
 
         };
