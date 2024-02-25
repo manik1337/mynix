@@ -19,6 +19,7 @@
     ./mangohud.nix
     ./vscode.nix
     ./syncthing.nix
+    ./newsboat.nix
   ];
 
   home.packages = with pkgs; [
