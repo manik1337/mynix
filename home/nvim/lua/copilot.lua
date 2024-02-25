@@ -12,5 +12,6 @@ require("copilot").setup {
   },
   filetypes = {
     yaml = true,
+    markdown = true,
   },
 }
