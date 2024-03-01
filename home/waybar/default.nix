@@ -9,7 +9,7 @@
       height = 24;
       modules-left = [ "sway/workspaces" "sway/mode" ];
       modules-center = [ "sway/window" ];
-      modules-right = [ "pulseaudio" "cpu" "memory" "battery" "tray" "clock" "sway/language" ];
+      modules-right = [ "custom/btc" "custom/eth" "pulseaudio" "cpu" "memory" "battery" "tray" "clock" "sway/language" ];
 
       modules = {
         "sway/workspaces" = {
@@ -82,6 +82,23 @@
           };
           on-click = "pavucontrol";
         };
+      };
+
+      "custom/btc" = {
+        format = " {} ";
+        interval = 60;
+        exec = pkgs.writeShellScript "hello-from-waybar" ''
+          ${pkgs.curl}/bin/curl -s https://api.coingecko.com/api/v3/simple/price?ids=bitcoin\&vs_currencies=usd | ${pkgs.jq}/bin/jq -r '.bitcoin.usd'
+        '';
+      };
+
+      "custom/eth" = {
+        format = "⟠ {}";
+        interval = 60;
+
+        exec = pkgs.writeShellScript "hello-from-waybar" ''
+          ${pkgs.curl}/bin/curl -s https://api.coingecko.com/api/v3/simple/price?ids=ethereum\&vs_currencies=usd | ${pkgs.jq}/bin/jq -r '.ethereum.usd'
+        '';
       };
     }];
 
