@@ -60,9 +60,9 @@
     git-crypt
     gnupg
     xclip
-    ledger-live
+    ledger-live-desktop
     insomnia
-    pkgs.stable.beekeeper-studio
+    beekeeper-studio
 
     # fonts
     nerdfonts
@@ -80,7 +80,7 @@
     _1password-gui
     bitwarden
 
-    pkgs.stable.obsidian
+    obsidian
 
     # utils
     cachix

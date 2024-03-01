@@ -2,7 +2,7 @@
   imports =
     [
       (modulesPath + "/installer/scan/not-detected.nix")
-      ../hardware/ledger.nix
+      # ../hardware/ledger.nix
       ../hardware/flipper.nix
       ../hardware/ergodox.nix
       ../hardware/dock.nix
