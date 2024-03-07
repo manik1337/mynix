@@ -59,9 +59,13 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local lspconfig = require("lspconfig")
-local servers = { 'rnix', 'rust_analyzer', 'hls', 'kotlin_language_server', 'gopls', 'lua_ls', 'tsserver',
-  'terraformls',
-  'clangd', 'zls' }
+local configs = require('lspconfig.configs')
+
+local servers = {
+  'rnix', 'rust_analyzer', 'hls',
+  'kotlin_language_server', 'gopls', 'lua_ls',
+  'tsserver', 'terraformls', 'clangd'
+}
 
 for _, server in pairs(servers) do
   lspconfig[server].setup {
@@ -160,25 +164,13 @@ lspconfig.nil_ls.setup {
   on_attach = on_attach
 }
 
-local metals_config = require("metals").bare_config()
-metals_config.settings = {
-  showImplicitArguments = true,
-  excludedPackages = {},
+configs.solidity = {
+  default_config = {
+    cmd = {'npx', 'nomicfoundation-solidity-language-server', '--stdio'},
+    filetypes = { 'solidity' },
+    root_dir = lspconfig.util.find_git_ancestor,
+    single_file_support = true,
+  },
 }
-metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
-metals_config.init_options.statusBarProvider = "on"
-metals_config.init_options.showImplicitArguments = true
-metals_config.init_options.excludedPackages = {}
-metals_config.on_attach = on_attach
 
-local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
-vim.api.nvim_create_autocmd("FileType", {
-  -- NOTE: You may or may not want java included here. You will need it if you
-  -- want basic Java support but it may also conflict if you are using
-  -- something like nvim-jdtls which also works on a java filetype autocmd.
-  pattern = { "scala", "sbt", "java" },
-  callback = function()
-    require("metals").initialize_or_attach(metals_config)
-  end,
-  group = nvim_metals_group,
-})
+lspconfig.solidity.setup {}
