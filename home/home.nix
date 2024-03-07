@@ -37,7 +37,6 @@
     elixir
     erlang
 
-    # nix
     nixfmt
     rnix-lsp
     nil
@@ -105,6 +104,7 @@
     dua
     noti
     nix-index
+    overskride
 
     libreoffice
     zathura
