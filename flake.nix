@@ -8,6 +8,7 @@
     nur.url = "github:nix-community/NUR";
     deploy-rs.url = "github:serokell/deploy-rs";
     devenv.url = "github:cachix/devenv/latest";
+    foundry.url = "github:shazow/foundry.nix/monthly";
   };
 
   outputs =
@@ -18,7 +19,7 @@
         inherit system;
         config.allowUnfree = true;
         overlays =
-          [ (import ./overlays inputs system) inputs.nur.overlay ];
+          [ (import ./overlays inputs system) inputs.nur.overlay inputs.foundry.overlay ];
       };
       mkComputer = configurationNix: extraModules:
         nixpkgs.lib.nixosSystem {

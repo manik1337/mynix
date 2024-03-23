@@ -47,6 +47,9 @@
 
     postgresql
 
+    foundry-bin
+    solc
+
     # etc
     binutils
     pkg-config
