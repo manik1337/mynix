@@ -12,11 +12,9 @@
     ./nvim
     ./xdg.nix
     ./mako.nix
-    ./zellij.nix
     ./chromium.nix
     ./firefox.nix
     ./tmux
-    ./mangohud.nix
     ./vscode.nix
     ./syncthing.nix
     ./newsboat.nix
@@ -28,8 +26,6 @@
 
     awscli2
     calibre
-    godot_4
-    pixelorama
     cups
     dconf
     glib
@@ -38,7 +34,6 @@
     erlang
 
     nixfmt
-    rnix-lsp
     nil
 
     lua-language-server
@@ -76,7 +71,6 @@
     slack
 
     spotify
-    tidal-hifi
     ncspot
 
     _1password-gui
@@ -149,8 +143,6 @@
     mpd
     ncmpcpp
     mpv
-    crow-translate
-
 
     qflipper
     sof-firmware

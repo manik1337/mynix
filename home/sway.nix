@@ -176,10 +176,6 @@ in
           command =
             "floating enable, no_focus, resize set 0 0, move absolute position 10 10";
         }
-        {
-          criteria = { class = "Godot"; };
-          command = "floating enable, sticky enable";
-        }
       ];
     };
   };

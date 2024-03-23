@@ -26,7 +26,7 @@
         "text/plain" = [ "nvim.desktop" ];
         "text/x-*"   = [ "nvim.desktop" ];
         "text/html"  = [ "firefox.desktop" "nvim.desktop" ];
-     
+
         "x-scheme-handler/http" = "firefox.desktop";
         "x-scheme-handler/https" = "firefox.desktop";
         "x-scheme-handler/ftp" = "firefox.desktop";

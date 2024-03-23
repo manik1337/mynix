@@ -62,7 +62,7 @@ local lspconfig = require("lspconfig")
 local configs = require('lspconfig.configs')
 
 local servers = {
-  'rnix', 'rust_analyzer', 'hls',
+  'rust_analyzer', 'hls',
   'kotlin_language_server', 'gopls', 'lua_ls',
   'tsserver', 'terraformls', 'clangd'
 }

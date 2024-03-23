@@ -44,11 +44,11 @@
       kanagawa-nvim
       tender-vim
       everforest
+      onedarkpro-nvim
 
       (nvim-treesitter.withPlugins (plugins: with plugins; [
         nix
         lua
-        scala
         javascript
         yaml
         python
@@ -56,7 +56,6 @@
         c
         erlang
         elixir
-        kotlin
         go
         gleam
         terraform
