@@ -11,7 +11,6 @@
       modules-center = [ "sway/window" ];
       modules-right = [ "custom/btc" "custom/eth" "pulseaudio" "cpu" "memory" "battery" "tray" "clock" "sway/language" ];
 
-      modules = {
         "sway/workspaces" = {
           disable-scroll = true;
           all-outputs = false;
@@ -82,7 +81,6 @@
           };
           on-click = "pavucontrol";
         };
-      };
 
       "custom/btc" = {
         format = " {} ";

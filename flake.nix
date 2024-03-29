@@ -3,28 +3,23 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-22.11";
     home-manager.url = "github:rycee/home-manager";
     nur.url = "github:nix-community/NUR";
-    deploy-rs.url = "github:serokell/deploy-rs";
-    devenv.url = "github:cachix/devenv/latest";
     foundry.url = "github:shazow/foundry.nix/monthly";
   };
 
   outputs =
-    inputs@{ self, home-manager, nixpkgs, nixpkgs-stable, deploy-rs, devenv, ... }:
+    inputs@{ self, home-manager, nixpkgs, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
-        overlays =
-          [ (import ./overlays inputs system) inputs.nur.overlay inputs.foundry.overlay ];
+        overlays = [ (import ./overlays inputs system) inputs.nur.overlay inputs.foundry.overlay ];
       };
       mkComputer = configurationNix: extraModules:
         nixpkgs.lib.nixosSystem {
           inherit system pkgs;
-
           specialArgs = { inherit system inputs; };
           modules = ([
             configurationNix
@@ -50,22 +45,5 @@
           ] ++ extraModules);
         };
     in
-    {
-      nixosConfigurations.zionpad = mkComputer ./hosts/zionpad.nix [ ];
-
-      deploy = {
-        sshUser = "root";
-        nodes.zionpad = {
-          hostname = "localhost";
-          profiles.system = {
-            user = "root";
-            path = deploy-rs.lib.x86_64-linux.activate.nixos
-              self.nixosConfigurations.zionpad;
-          };
-        };
-      };
-      checks = builtins.mapAttrs
-        (system: deployLib: deployLib.deployChecks self.deploy)
-        deploy-rs.lib;
-    };
+    { nixosConfigurations.zionpad = mkComputer ./hosts/zionpad.nix [ ]; };
 }

@@ -12,15 +12,13 @@
     ./nvim
     ./xdg.nix
     ./mako.nix
-    ./chromium.nix
-    ./firefox.nix
-    ./tmux
-    ./vscode.nix
-    ./syncthing.nix
+    ./browser
     ./newsboat.nix
   ];
 
   home.packages = with pkgs; [
+    devenv
+
     wine
     winetricks
 
@@ -108,7 +106,6 @@
     sioyek
     foliate
     flameshot
-    krita
     thunderbird
     vlc
     spotify
@@ -195,5 +192,5 @@
     QT_WAYLAND_DISABLE_WINDOWDECORATION = 1;
   };
 
-  home.stateVersion = "21.11";
+  home.stateVersion = "24.05";
 }

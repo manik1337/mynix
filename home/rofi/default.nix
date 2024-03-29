@@ -10,6 +10,6 @@
       show-icons = true;
       modi = "run,drun,ssh,filebrowser,window";
     };
-    theme = ./catppuccin-theme.rasi;
+    # theme = ./catppuccin-theme.rasi;
   };
 }

@@ -37,7 +37,7 @@ in
       terminal = "${pkgs.alacritty}/bin/alacritty";
       modifier = "Mod4";
       fonts = {
-        names = [ "VictorMono Nerd Font" ];
+        names = [ "Hack Nerd Font" ];
         size = 10.0;
       };
       focus = {

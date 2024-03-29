@@ -4,6 +4,5 @@
     enableSshSupport = true;
     defaultCacheTtl = 60;
     maxCacheTtl = 120;
-    pinentryFlavor = "curses";
   };
 }
