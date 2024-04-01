@@ -8,14 +8,17 @@
     foundry.url = "github:shazow/foundry.nix/monthly";
   };
 
-  outputs =
-    inputs@{ self, home-manager, nixpkgs, ... }:
+  outputs = inputs@{ self, home-manager, nixpkgs, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
-        overlays = [ (import ./overlays inputs system) inputs.nur.overlay inputs.foundry.overlay ];
+        overlays = [
+          (import ./overlays inputs system)
+          inputs.nur.overlay
+          inputs.foundry.overlay
+        ];
       };
       mkComputer = configurationNix: extraModules:
         nixpkgs.lib.nixosSystem {
@@ -44,6 +47,5 @@
             }
           ] ++ extraModules);
         };
-    in
-    { nixosConfigurations.zionpad = mkComputer ./hosts/zionpad.nix [ ]; };
+    in { nixosConfigurations.zionpad = mkComputer ./hosts/zionpad.nix [ ]; };
 }

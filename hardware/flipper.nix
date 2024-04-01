@@ -1,3 +1,1 @@
-{ pkgs, ... }: {
-  services.udev.packages = [ pkgs.qFlipper ];
-}
+{ pkgs, ... }: { services.udev.packages = [ pkgs.qFlipper ]; }

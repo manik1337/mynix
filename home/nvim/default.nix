@@ -1,5 +1,4 @@
-{ lib, pkgs, ... }:
-{
+{ lib, pkgs, ... }: {
   home.sessionVariables.EDITOR = "vim";
   programs.neovim = {
     enable = true;
@@ -46,20 +45,21 @@
       everforest
       onedarkpro-nvim
 
-      (nvim-treesitter.withPlugins (plugins: with plugins; [
-        nix
-        lua
-        javascript
-        yaml
-        python
-        rust
-        c
-        erlang
-        elixir
-        go
-        gleam
-        terraform
-      ]))
+      (nvim-treesitter.withPlugins (plugins:
+        with plugins; [
+          nix
+          lua
+          javascript
+          yaml
+          python
+          rust
+          c
+          erlang
+          elixir
+          go
+          gleam
+          terraform
+        ]))
       nvim-treesitter-context
 
       lualine-nvim

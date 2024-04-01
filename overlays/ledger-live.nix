@@ -4,7 +4,8 @@ appimageTools.wrapType2 rec {
   version = "2.77.2";
   name = "${pname}-${version}";
   src = fetchurl {
-    url = "https://download.live.ledger.com/${pname}-${version}-linux-x86_64.AppImage";
+    url =
+      "https://download.live.ledger.com/${pname}-${version}-linux-x86_64.AppImage";
     hash = "sha256-orIyfRs6TJgqGGLpl2tvoUtejsB0ni8xRK0SboP2LHw=";
   };
 }

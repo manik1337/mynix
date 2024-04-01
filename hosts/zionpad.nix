@@ -1,62 +1,64 @@
 { config, pkgs, modulesPath, ... }: {
-  imports =
-    [
-      (modulesPath + "/installer/scan/not-detected.nix")
-      ../hardware/ledger.nix
-      ../hardware/flipper.nix
-      ../hardware/ergodox.nix
-      ../hardware/dock.nix
-    ];
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+    ../hardware/ledger.nix
+    ../hardware/flipper.nix
+    ../hardware/ergodox.nix
+    ../hardware/dock.nix
+  ];
 
   environment.variables.XCURSOR_SIZE = "48";
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "thunderbolt" "nvme" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules = [
+    "xhci_pci"
+    "ahci"
+    "nvme"
+    "usbhid"
+    "thunderbolt"
+    "nvme"
+    "usb_storage"
+    "sd_mod"
+  ];
   boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-intel" "wl" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    {
-      device = "/dev/disk/by-uuid/729af431-d657-4feb-92fb-79b5987c23cf";
-      fsType = "btrfs";
-      options = [ "subvol=root" "compress=zstd" "noatime" ];
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/729af431-d657-4feb-92fb-79b5987c23cf";
+    fsType = "btrfs";
+    options = [ "subvol=root" "compress=zstd" "noatime" ];
+  };
 
-  fileSystems."/home" =
-    {
-      device = "/dev/disk/by-uuid/729af431-d657-4feb-92fb-79b5987c23cf";
-      fsType = "btrfs";
-      options = [ "subvol=home" "compress=zstd" "noatime" ];
-    };
+  fileSystems."/home" = {
+    device = "/dev/disk/by-uuid/729af431-d657-4feb-92fb-79b5987c23cf";
+    fsType = "btrfs";
+    options = [ "subvol=home" "compress=zstd" "noatime" ];
+  };
 
-  fileSystems."/nix" =
-    {
-      device = "/dev/disk/by-uuid/729af431-d657-4feb-92fb-79b5987c23cf";
-      fsType = "btrfs";
-      options = [ "subvol=nix" "compress=zstd" "noatime" ];
-    };
+  fileSystems."/nix" = {
+    device = "/dev/disk/by-uuid/729af431-d657-4feb-92fb-79b5987c23cf";
+    fsType = "btrfs";
+    options = [ "subvol=nix" "compress=zstd" "noatime" ];
+  };
 
-  fileSystems."/persist" =
-    {
-      device = "/dev/disk/by-uuid/729af431-d657-4feb-92fb-79b5987c23cf";
-      fsType = "btrfs";
-      options = [ "subvol=persist" "compress=zstd" "noatime" ];
-      neededForBoot = true;
-    };
+  fileSystems."/persist" = {
+    device = "/dev/disk/by-uuid/729af431-d657-4feb-92fb-79b5987c23cf";
+    fsType = "btrfs";
+    options = [ "subvol=persist" "compress=zstd" "noatime" ];
+    neededForBoot = true;
+  };
 
-  fileSystems."/var/log" =
-    {
-      device = "/dev/disk/by-uuid/729af431-d657-4feb-92fb-79b5987c23cf";
-      fsType = "btrfs";
-      options = [ "subvol=log" "compress=zstd" "noatime" ];
-      neededForBoot = true;
-    };
+  fileSystems."/var/log" = {
+    device = "/dev/disk/by-uuid/729af431-d657-4feb-92fb-79b5987c23cf";
+    fsType = "btrfs";
+    options = [ "subvol=log" "compress=zstd" "noatime" ];
+    neededForBoot = true;
+  };
 
-  fileSystems."/boot" =
-    {
-      device = "/dev/disk/by-uuid/CA59-C463";
-      fsType = "vfat";
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/CA59-C463";
+    fsType = "vfat";
+  };
 
   swapDevices =
     [{ device = "/dev/disk/by-uuid/9bd0932e-9434-4cdd-b9aa-2b7d451792f1"; }];
@@ -105,7 +107,6 @@
     };
   };
 
-
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.supportedFilesystems = [ "btrfs" ];
 
@@ -127,28 +128,6 @@
   networking = {
     hostName = "zionpad";
     networkmanager.enable = true;
-    extraHosts = ''
-      # 127.0.0.1   www.twitter.com
-      # 127.0.0.1   twitter.com
-      # 127.0.0.1   www.x.com
-      # 127.0.0.1   x.com
-
-      127.0.0.1    localhost
-      255.255.255.255 broadcasthost
-      ::1          localhost # IPv6 entry for faster resolving on mac
-      127.0.0.1    kurabu.local
-      ::1          kurabu.local # IPv6 entry for faster resolving on mac
-      127.0.0.1    tsg-bergedorf.kurabu.local
-      ::1          tsg-bergedorf.kurabu.local
-      127.0.0.1    hsv-ev.kurabu.local # add subdomain for each club you use locally
-      ::1          hsv-ev.kurabu.local
-      127.0.0.1    kitest.kurabu.local # add subdomain for each club you use locally
-      ::1          kitest.kurabu.local
-      127.0.0.1    app.kurabu.local # for testing the app
-      ::1          app.kurabu.local
-      127.0.0.1    abc.kurabu.local # for testing non existing club
-      ::1          abc.kurabu.local
-    '';
     wg-quick.interfaces = {
       # wg0 = {
       #   address = [ "10.0.0.4/24" "fdc9:281f:04d7:9ee9::4/64" ];
@@ -189,9 +168,7 @@
   security.pam.services.swaylock.text = "auth include login";
 
   nix = {
-    settings = {
-      auto-optimise-store = true;
-    };
+    settings = { auto-optimise-store = true; };
     gc = {
       automatic = true;
       dates = "weekly";

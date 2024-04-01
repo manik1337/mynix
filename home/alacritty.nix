@@ -9,7 +9,7 @@
         multiplier = 5;
       };
       font = {
-        normal.family = "Hack Nerd Font";
+        normal.family = "JetBrainsMono Nerd Font";
         size = 12;
       };
       window = {

@@ -163,7 +163,8 @@
     };
   };
 
-  home.file.".icons/default".source = "${pkgs.yaru-theme}/share/icons/Yaru-blue-dark";
+  home.file.".icons/default".source =
+    "${pkgs.yaru-theme}/share/icons/Yaru-blue-dark";
 
   home.pointerCursor = {
     package = pkgs.apple-cursor;
@@ -171,13 +172,6 @@
     size = 48;
     gtk.enable = true;
     x11.enable = true;
-  };
-
-  programs = {
-    gh = {
-      enable = true;
-      settings.git_protocol = "ssh";
-    };
   };
 
   programs.home-manager.enable = true;

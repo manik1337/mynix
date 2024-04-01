@@ -4,7 +4,8 @@
   "browser.startup.page" = 0;
   "browser.startup.homepage" = "about:blank";
   "browser.newtabpage.enabled" = false;
-  "geo.provider.network.url" = "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%";
+  "geo.provider.network.url" =
+    "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%";
   "extensions.getAddons.showPane" = false;
   "extensions.htmlaboutaddons.recommendations.enabled" = false;
   "browser.discovery.enabled" = false;
