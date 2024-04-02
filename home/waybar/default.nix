@@ -21,6 +21,9 @@
         all-outputs = false;
         format = "{icon}";
       };
+      "sway/window" = {
+        max-length = 50;
+      };
       "sway/mode" = {
         format = " {}";
         max-length = 50;
@@ -28,10 +31,8 @@
       "sway/language" = {
         format = "{flag}";
         tooltip = false;
-        # max-length = 50;
       };
       "tray" = {
-        # icon-size = 21;
         spacing = 10;
       };
       "clock" = {
@@ -52,7 +53,6 @@
           on-scroll-up = "shift_up";
           on-scroll-down = "shift_down";
         };
-        # format-alt = "{:%Y-%M-%d}";
       };
       "cpu" = { format = "{usage}%"; };
       "memory" = { format = "{}%"; };
