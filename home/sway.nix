@@ -29,10 +29,6 @@ in {
       seat seat0 xcursor_theme macOS-BigSur 48
     '';
     config = {
-      # gaps = {
-      #   inner = 10;
-      #   outer = 5;
-      # };
       terminal = "${pkgs.alacritty}/bin/alacritty";
       modifier = "Mod4";
       fonts = {
