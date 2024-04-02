@@ -56,10 +56,7 @@
         };
         arkenfoxUserJsSettings =
           # SEE https://github.com/arkenfox/user.js
-          import ./generated-userjs.nix // (baseSettings // {
-            "media.peerconnection.enabled" =
-              false; # disable vpn detection through webrtc
-          });
+          import ./generated-userjs.nix // baseSettings;
         userChrome = ''
           #TabsToolbar { visibility: collapse !important; }
         '';
