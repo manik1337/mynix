@@ -28,8 +28,8 @@
 
           # search settings
           "browser.search.region" = "US";
-          "browser.search.defaultenginename" = "DuckDuckGo";
-          "browser.urlbar.placeholderName" = "DuckDuckGo";
+          "browser.search.defaultenginename" = "Google";
+          "browser.urlbar.placeholderName" = "Google";
           "keyword.enabled" = true; # (?)
 
           # privacy
@@ -89,7 +89,7 @@
 
               icon =
                 "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-              definedAliases = [ ".nsp" ];
+              definedAliases = [ ".np" ];
             };
 
             "NixOS Options" = {
@@ -103,7 +103,7 @@
 
               icon =
                 "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-              definedAliases = [ ".nso" ];
+              definedAliases = [ ".no" ];
             };
 
             "NixOS Wiki" = {
@@ -112,7 +112,7 @@
               }];
               iconUpdateURL = "https://nixos.wiki/favicon.png";
               updateInterval = 24 * 60 * 60 * 1000; # every day
-              definedAliases = [ ".nsw" ];
+              definedAliases = [ ".nw" ];
             };
 
             "HexDocs" = {
