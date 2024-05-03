@@ -31,7 +31,6 @@
     elixir
     erlang
 
-    nixfmt
     nil
 
     lua-language-server

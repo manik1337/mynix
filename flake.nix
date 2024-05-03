@@ -5,7 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:rycee/home-manager";
     nur.url = "github:nix-community/NUR";
-    foundry.url = "github:shazow/foundry.nix/monthly";
+    foundry.url = "github:shazow/foundry.nix";
   };
 
   outputs = inputs@{ self, home-manager, nixpkgs, ... }:
@@ -29,7 +29,7 @@
 
             ({ pkgs, ... }: {
               nix = {
-                package = pkgs.nixUnstable;
+                package = pkgs.nixVersions.latest;
                 nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
                 registry.nixpkgs.flake = inputs.nixpkgs;
                 extraOptions = ''

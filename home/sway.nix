@@ -69,8 +69,8 @@ in {
         };
       };
       output = {
-        # "*" = { bg = "#000000 solid_color"; };
-        "*" = { bg = "/home/dmanik/dl/linux.jpg fill"; };
+        "*" = { bg = "#000000 solid_color"; };
+        # "*" = { bg = "/home/dmanik/dl/linux.jpg fill"; };
       };
       bindkeysToCode = true;
       keybindings = let
