@@ -6,9 +6,10 @@
     home-manager.url = "github:rycee/home-manager";
     nur.url = "github:nix-community/NUR";
     foundry.url = "github:shazow/foundry.nix";
+    deploy-rs.url = "github:serokell/deploy-rs";
   };
 
-  outputs = inputs@{ self, home-manager, nixpkgs, ... }:
+  outputs = inputs@{ self, home-manager, nixpkgs, deploy-rs, ... }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -20,32 +21,55 @@
           inputs.foundry.overlay
         ];
       };
-      mkComputer = configurationNix: extraModules:
+    in
+    {
+      nixosConfigurations.zionpad =
         nixpkgs.lib.nixosSystem {
           inherit system pkgs;
-          specialArgs = { inherit system inputs; };
-          modules = ([
-            configurationNix
+          specialArgs = {
+            inherit system inputs;
+          };
+          modules = (
+            [
+              ./machines/t14s
 
-            ({ pkgs, ... }: {
-              nix = {
-                package = pkgs.nixVersions.latest;
-                nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
-                registry.nixpkgs.flake = inputs.nixpkgs;
-                extraOptions = ''
-                  experimental-features = nix-command flakes
-                '';
-              };
-            })
+              (
+                { pkgs, ... }:
+                {
+                  nix = {
+                    package = pkgs.nixVersions.latest;
+                    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+                    registry.nixpkgs.flake = inputs.nixpkgs;
+                    extraOptions = ''
+                      experimental-features = nix-command flakes
+                    '';
+                  };
+                }
+              )
 
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.dmanik =
-                import ./home/home.nix { inherit inputs system pkgs; };
-            }
-          ] ++ extraModules);
+              home-manager.nixosModules.home-manager
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.users.dmanik = import ./home/home.nix { inherit inputs system pkgs; };
+              }
+            ]
+          );
         };
-    in { nixosConfigurations.zionpad = mkComputer ./hosts/zionpad.nix [ ]; };
+
+      deploy = {
+        sshUser = "root";
+        nodes = {
+          zionpad = {
+            hostname = "localhost";
+            profiles = {
+              system = {
+                user = "root";
+                path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.zionpad;
+              };
+            };
+          };
+        };
+      };
+    };
 }
