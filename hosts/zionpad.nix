@@ -168,7 +168,10 @@
   security.pam.services.swaylock.text = "auth include login";
 
   nix = {
-    settings = { auto-optimise-store = true; };
+    settings = {
+      auto-optimise-store = true;
+      trusted-users = [ "dmanik" ];
+    };
     gc = {
       automatic = true;
       dates = "weekly";
