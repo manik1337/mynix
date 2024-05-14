@@ -28,8 +28,6 @@
 
           # search settings
           "browser.search.region" = "US";
-          "browser.search.defaultenginename" = "Google";
-          "browser.urlbar.placeholderName" = "Google";
           "keyword.enabled" = true; # (?)
 
           # privacy
@@ -54,17 +52,14 @@
           "dom.ipc.processPrelaunch.enabled" = false;
           "dom.ipc.keepProcessesAlive.privilegedabout" = 0;
         };
-        arkenfoxUserJsSettings =
-          # SEE https://github.com/arkenfox/user.js
-          import ./generated-userjs.nix // baseSettings;
         userChrome = ''
           #TabsToolbar { visibility: collapse !important; }
         '';
         search = {
-          default = "DuckDuckGo";
-          privateDefault = "DuckDuckGo";
+          default = "Google";
+          privateDefault = "Google";
           force = true;
-          order = [ "DuckDuckGo" "Google" "Wikipedia (en)" ];
+          order = [ "Google" "Wikipedia (en)" ];
           engines = {
             "DuckDuckGo".metaData.alias = ".d";
             "Google".metaData.alias = ".g";
@@ -137,7 +132,7 @@
       in {
         personal = {
           id = 0;
-          settings = arkenfoxUserJsSettings;
+          settings = baseSettings;
           inherit userChrome extensions search;
         };
       };
