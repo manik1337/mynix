@@ -12,8 +12,7 @@
     ./nvim
     ./xdg.nix
     ./mako.nix
-    ./browser
-    ./newsboat.nix
+    ./browser.nix
   ];
 
   home.packages = with pkgs; [
