@@ -3,6 +3,16 @@ local g = vim.g
 
 g.mapleader = ' '
 
+local opts = { noremap = true, silent = true }
+
+vim.api.nvim_set_keymap('n', "<M-h>", "<C-w>5<", opts)
+vim.api.nvim_set_keymap('n', "<M-j>", "<C-w>2+", opts)
+vim.api.nvim_set_keymap('n', "<M-k>", "<C-w>2-", opts)
+vim.api.nvim_set_keymap('n', "<M-l>", "<C-w>5>", opts)
+
+-- Colors
+opt.termguicolors = true
+
 -- Colorscheme
 vim.cmd.colorscheme "kanagawa-dragon"
 
@@ -13,9 +23,6 @@ opt.list = true
 opt.lazyredraw = true;
 opt.shell = "zsh"
 opt.shadafile = "NONE"
-
--- Colors
-opt.termguicolors = true
 
 -- Undo files
 opt.undofile = true
