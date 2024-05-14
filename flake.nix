@@ -23,39 +23,50 @@
       };
     in
     {
-      nixosConfigurations.zionpad =
-        nixpkgs.lib.nixosSystem {
+      nixosConfigurations = {
+        v111 = nixpkgs.lib.nixosSystem {
           inherit system pkgs;
           specialArgs = {
             inherit system inputs;
           };
-          modules = (
-            [
-              ./machines/t14s
-
-              (
-                { pkgs, ... }:
-                {
-                  nix = {
-                    package = pkgs.nixVersions.latest;
-                    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
-                    registry.nixpkgs.flake = inputs.nixpkgs;
-                    extraOptions = ''
-                      experimental-features = nix-command flakes
-                    '';
-                  };
-                }
-              )
-
-              home-manager.nixosModules.home-manager
-              {
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-                home-manager.users.dmanik = import ./home/home.nix { inherit inputs system pkgs; };
-              }
-            ]
-          );
+          modules = [
+            ./machines/v111
+          ];
         };
+        zionpad =
+          nixpkgs.lib.nixosSystem {
+            inherit system pkgs;
+            specialArgs = {
+              inherit system inputs;
+            };
+            modules = (
+              [
+                ./machines/t14s
+
+                (
+                  { pkgs, ... }:
+                  {
+                    nix = {
+                      package = pkgs.nixVersions.latest;
+                      nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+                      registry.nixpkgs.flake = inputs.nixpkgs;
+                      extraOptions = ''
+                        experimental-features = nix-command flakes
+                      '';
+                    };
+                  }
+                )
+
+                home-manager.nixosModules.home-manager
+                {
+                  home-manager.useGlobalPkgs = true;
+                  home-manager.useUserPackages = true;
+                  home-manager.users.dmanik = import ./home/home.nix { inherit inputs system pkgs; };
+                }
+              ]
+            );
+          };
+      };
 
       deploy = {
         sshUser = "root";
@@ -66,6 +77,15 @@
               system = {
                 user = "root";
                 path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.zionpad;
+              };
+            };
+          };
+          v111 = {
+            hostname = "107.191.44.103";
+            profiles = {
+              system = {
+                user = "root";
+                path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.v111;
               };
             };
           };
