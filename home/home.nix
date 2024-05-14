@@ -63,7 +63,7 @@
 
     # messengers
     tdesktop
-    discord
+    (pkgs.discord.override { withOpenASAR = true; })
     slack
 
     spotify
