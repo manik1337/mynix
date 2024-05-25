@@ -1,5 +1,5 @@
 {
-  programs.git = {
+  home-manager.users.dmanik.programs.git = {
     enable = true;
     userName = "Dmitrii Manik";
     userEmail = "manikdmitry@gmail.com";

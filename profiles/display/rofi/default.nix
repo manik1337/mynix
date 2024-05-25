@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  programs.rofi = {
+  home-manager.users.dmanik.programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
     terminal = "${pkgs.alacritty}/bin/alacritty";

@@ -1,5 +1,5 @@
 {
-  programs.waybar = {
+  home-manager.users.dmanik.programs.waybar = {
     enable = true;
     settings = [{
       layer = "top";

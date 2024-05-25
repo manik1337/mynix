@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{
   services.udev.extraRules = ''
     # Wally Flashing rules for the Ergodox EZ
     ATTRS{idVendor}=="16c0", ATTRS{idProduct}=="04[789B]?", ENV{ID_MM_DEVICE_IGNORE}="1"

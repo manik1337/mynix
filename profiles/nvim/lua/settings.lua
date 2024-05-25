@@ -14,7 +14,7 @@ vim.api.nvim_set_keymap('n', "<M-l>", "<C-w>5>", opts)
 opt.termguicolors = true
 
 -- Colorscheme
-vim.cmd.colorscheme "kanagawa-dragon"
+vim.cmd.colorscheme "kanagawa-wave"
 
 -- Indent line
 opt.list = true

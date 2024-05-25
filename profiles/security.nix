@@ -1,5 +1,5 @@
 {
-  services.gpg-agent = {
+  home-manager.users.dmanik.services.gpg-agent = {
     enable = true;
     enableSshSupport = true;
     defaultCacheTtl = 60;

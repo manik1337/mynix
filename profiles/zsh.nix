@@ -1,5 +1,5 @@
 {
-  programs.zsh = {
+  home-manager.users.dmanik.programs.zsh = {
     enable = true;
     enableCompletion = true;
     autosuggestion.enable = true;
@@ -11,10 +11,8 @@
       rm = "rm -rifv";
       mv = "mv -iv";
       cp = "cp -riv";
-      # cat = "bat --paging=never --style=plain";
       fzf =
         "fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'";
-      # ls = "eza --icons";
       tree = "eza --tree --icons";
     };
     oh-my-zsh = {

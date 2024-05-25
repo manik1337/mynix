@@ -1,6 +1,7 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
   imports = [
     ./hardware-configuration.nix
+    inputs.self.nixosRoles.desktop
     ../../hardware/ledger.nix
     ../../hardware/flipper.nix
     ../../hardware/ergodox.nix
@@ -24,7 +25,7 @@
   };
 
   services.openssh = {
-    enable   = true;
+    enable = true;
     settings.PasswordAuthentication = false;
   };
 
@@ -84,6 +85,7 @@
     settings = {
       auto-optimise-store = true;
       trusted-users = [ "dmanik" ];
+      experimental-features = [ "nix-command flakes" ];
     };
     gc = {
       automatic = true;

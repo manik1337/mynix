@@ -5,91 +5,72 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:rycee/home-manager";
     nur.url = "github:nix-community/NUR";
-    foundry.url = "github:shazow/foundry.nix";
     deploy-rs.url = "github:serokell/deploy-rs";
   };
 
   outputs = inputs@{ self, home-manager, nixpkgs, deploy-rs, ... }:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-        overlays = [
-          (import ./overlays inputs system)
-          inputs.nur.overlay
-          inputs.foundry.overlay
-        ];
-      };
+      lib = inputs.nixpkgs.lib;
+
+      findModules = dir:
+        builtins.concatLists (builtins.attrValues (builtins.mapAttrs
+          (name: type:
+            if type == "regular" then [{
+              name = builtins.elemAt (builtins.match "(.*)\\.nix" name) 0;
+              value = dir + "/${name}";
+            }] else if (builtins.readDir (dir + "/${name}")) ? "default.nix" then [{
+              inherit name;
+              value = dir + "/${name}";
+            }] else findModules (dir + "/${name}"))
+          (builtins.readDir dir)
+        ));
     in
     {
-      nixosConfigurations = {
-        v111 = nixpkgs.lib.nixosSystem {
-          inherit system pkgs;
-          specialArgs = {
-            inherit system inputs;
-          };
-          modules = [
-            ./machines/v111
-          ];
-        };
-        zionpad =
-          nixpkgs.lib.nixosSystem {
-            inherit system pkgs;
-            specialArgs = {
-              inherit system inputs;
-            };
-            modules = (
-              [
-                ./machines/t14s
+      nixosModules = builtins.listToAttrs (findModules ./modules);
+      nixosProfiles = builtins.listToAttrs (findModules ./profiles);
+      nixosRoles = import ./roles;
+      nixosConfigurations =
+        let
+          hosts = builtins.attrNames (builtins.readDir ./machines);
+          mkHost = name:
+            lib.nixosSystem {
+              inherit system;
+              modules = builtins.attrValues self.nixosModules ++ [
+                inputs.home-manager.nixosModules.home-manager
 
-                (
-                  { pkgs, ... }:
-                  {
-                    nix = {
-                      package = pkgs.nixVersions.latest;
-                      nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
-                      registry.nixpkgs.flake = inputs.nixpkgs;
-                      extraOptions = ''
-                        experimental-features = nix-command flakes
-                      '';
-                    };
-                  }
-                )
-
-                home-manager.nixosModules.home-manager
+                (import (./machines + "/${name}"))
                 {
-                  home-manager.useGlobalPkgs = true;
-                  home-manager.useUserPackages = true;
-                  home-manager.users.dmanik = import ./home/home.nix { inherit inputs system pkgs; };
+                  nixpkgs = {
+                    pkgs = import inputs.nixpkgs
+                      {
+                        overlays = [ self.orly inputs.nur.overlay ];
+                        localSystem = { inherit system; };
+                        config.allowUnfree = true;
+                      };
+                  };
                 }
-              ]
-            );
-          };
-      };
+                { device = name; }
+              ];
+              specialArgs = { inherit inputs; };
+            };
+        in
+        lib.genAttrs hosts mkHost;
+      orly = import ./overlays inputs;
 
       deploy = {
         sshUser = "root";
-        nodes = {
-          zionpad = {
-            hostname = "localhost";
-            profiles = {
-              system = {
+        nodes = (builtins.mapAttrs
+          (name: machine:
+            {
+              hostname = if name == "t14s" then "localhost" else "127.0.0.1";
+              profiles.system = {
                 user = "root";
-                path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.zionpad;
+                path = deploy-rs.lib.${machine.pkgs.system}.activate.nixos machine;
               };
-            };
-          };
-          v111 = {
-            hostname = "107.191.44.103";
-            profiles = {
-              system = {
-                user = "root";
-                path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.v111;
-              };
-            };
-          };
-        };
+            })
+          self.nixosConfigurations);
       };
     };
 }
+

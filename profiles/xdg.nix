@@ -1,5 +1,5 @@
 {
-  xdg = {
+  home-manager.users.dmanik.xdg = {
     userDirs = {
       enable = true;
       createDirectories = true;
