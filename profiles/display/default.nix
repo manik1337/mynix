@@ -12,6 +12,7 @@
 
   home-manager.users.dmanik = {
     home.packages = with pkgs; [
+      gimp
       calibre
       cups
       dconf
