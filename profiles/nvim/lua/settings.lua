@@ -16,6 +16,10 @@ opt.termguicolors = true
 -- Colorscheme
 vim.cmd.colorscheme "kanagawa-wave"
 
+-- Transparency
+vim.cmd("highlight Normal guibg=NONE ctermbg=NONE")
+vim.cmd("highlight SignColumn guibg=NONE ctermbg=NONE")
+
 -- Indent line
 opt.list = true
 
