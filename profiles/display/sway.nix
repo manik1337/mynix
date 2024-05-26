@@ -37,6 +37,13 @@ in
           names = [ "Hack Nerd Font" ];
           size = 10.0;
         };
+        colors.focused = {
+          background = "#6e5f7c";
+          border = "#6e5f7c";
+          childBorder = "#5f676a";
+          indicator = "#484e50";
+          text = "#ffffff";
+        };
         focus = {
           followMouse = "no";
           mouseWarping = false;
