@@ -71,8 +71,8 @@ in
           };
         };
         output = {
-          "*" = { bg = "#000000 solid_color"; };
-          # "*" = { bg = "/home/dmanik/dl/linux.jpg fill"; };
+          # "*" = { bg = "#000000 solid_color"; };
+          "*" = { bg = "${./wallpapers/1.jpg} fill"; };
         };
         bindkeysToCode = true;
         keybindings =
