@@ -20,6 +20,11 @@
 
         harpoon
 
+        # DB
+        vim-dadbod
+        vim-dadbod-ui
+        vim-dadbod-completion
+
         # Git
         vim-flog
         diffview-nvim

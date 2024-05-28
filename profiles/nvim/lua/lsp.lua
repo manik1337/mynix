@@ -75,42 +75,6 @@ for _, server in pairs(servers) do
   }
 end
 
--- local configs = require("lspconfig.configs")
---
--- local lexical_config = {
---   filetypes = { "elixir", "eelixir", },
---   cmd = { "/my/home/projects/_build/dev/package/lexical/bin/start_lexical.sh" },
---   settings = {},
--- }
---
--- if not configs.lexical then
---   configs.lexical = {
---     default_config = {
---       filetypes = lexical_config.filetypes,
---       -- cmd = lexical_config.cmd,
---       cmd = { "/home/dmanik/ws/elixir/lexical/_build/dev/package/lexical/bin/start_lexical.sh" },
---       root_dir = function(fname)
---         return lspconfig.util.root_pattern("mix.exs", ".git")(fname) or vim.loop.os_homedir()
---       end,
---       -- optional settings
---       settings = lexical_config.settings,
---     },
---   }
--- end
-
--- lspconfig.lexical.setup({
---   on_attach = on_attach,
---   -- cmd = { "elixir-ls" },
---   flags = { debounce_text_changes = 150 },
---   capabilities = capabilities,
---   settings = {
---     -- elixirLS = {
---     --   dialyzerEnabled = false,
---     --   fetchDeps = true
---     -- }
---   }
--- })
-
 lspconfig.elixirls.setup {
   on_attach = on_attach,
   cmd = { "elixir-ls" },
@@ -166,7 +130,7 @@ lspconfig.nil_ls.setup {
 
 configs.solidity = {
   default_config = {
-    cmd = {'npx', 'nomicfoundation-solidity-language-server', '--stdio'},
+    cmd = { 'npx', 'nomicfoundation-solidity-language-server', '--stdio' },
     filetypes = { 'solidity' },
     root_dir = lspconfig.util.find_git_ancestor,
     single_file_support = true,
@@ -174,3 +138,10 @@ configs.solidity = {
 }
 
 lspconfig.solidity.setup {}
+
+cmp.setup.filetype({ "sql" }, {
+  sources = {
+    { name = "vim-dadbod-completion" },
+    { name = "buffer" },
+  },
+})
