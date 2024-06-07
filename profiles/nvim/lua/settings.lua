@@ -14,7 +14,7 @@ vim.api.nvim_set_keymap('n', "<M-l>", "<C-w>5>", opts)
 opt.termguicolors = true
 
 -- Colorscheme
-vim.cmd.colorscheme "kanagawa-wave"
+vim.cmd.colorscheme "gruvbuddy"
 
 -- Transparency
 vim.cmd("highlight Normal guibg=NONE ctermbg=NONE")

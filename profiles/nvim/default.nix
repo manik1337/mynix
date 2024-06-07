@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }: {
+{ pkgs, ... }: {
   home-manager.users.dmanik = {
     home.sessionVariables.EDITOR = "vim";
     programs.neovim = {
@@ -39,17 +39,10 @@
         vim-erlang-runtime
         vim-nix
         rust-tools-nvim
-        nvim-metals
 
         # Eyecandy
-        catppuccin-nvim
-        base16-vim
-        material-nvim
-        tokyonight-nvim
         kanagawa-nvim
-        tender-vim
-        everforest
-        onedarkpro-nvim
+        colorbuddy-nvim
 
         (nvim-treesitter.withPlugins (plugins:
           with plugins; [
@@ -85,21 +78,19 @@
         copilot-lua
         undotree
       ];
-      extraConfig = ''
-        lua << EOF
-        ${lib.strings.fileContents ./lua/settings.lua}
-        ${lib.strings.fileContents ./lua/nvim-tree.lua}
-        ${lib.strings.fileContents ./lua/telescope.lua}
-        ${lib.strings.fileContents ./lua/lualine.lua}
-        ${lib.strings.fileContents ./lua/comment.lua}
-        ${lib.strings.fileContents ./lua/treesitter.lua}
-        ${lib.strings.fileContents ./lua/lsp.lua}
-        ${lib.strings.fileContents ./lua/gitsigns.lua}
-        ${lib.strings.fileContents ./lua/neogit.lua}
-        ${lib.strings.fileContents ./lua/copilot.lua}
-        ${lib.strings.fileContents ./lua/harpoon.lua}
-        ${lib.strings.fileContents ./lua/undotree.lua}
-        EOF
+      extraLuaConfig = ''
+        ${builtins.readFile ./lua/settings.lua}
+        ${builtins.readFile ./lua/nvim-tree.lua}
+        ${builtins.readFile ./lua/telescope.lua}
+        ${builtins.readFile ./lua/lualine.lua}
+        ${builtins.readFile ./lua/comment.lua}
+        ${builtins.readFile ./lua/treesitter.lua}
+        ${builtins.readFile ./lua/lsp.lua}
+        ${builtins.readFile ./lua/gitsigns.lua}
+        ${builtins.readFile ./lua/neogit.lua}
+        ${builtins.readFile ./lua/copilot.lua}
+        ${builtins.readFile ./lua/harpoon.lua}
+        ${builtins.readFile ./lua/undotree.lua}
       '';
     };
   };
