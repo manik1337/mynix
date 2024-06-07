@@ -26,7 +26,6 @@
         vim-dadbod-completion
 
         # Git
-        vim-flog
         diffview-nvim
         gitsigns-nvim
         neogit
@@ -69,11 +68,7 @@
         telescope-nvim
         telescope-fzf-native-nvim
 
-        # Indent lines
-        indent-blankline-nvim
-
         # Editing
-        align
         comment-nvim
         copilot-lua
         undotree
