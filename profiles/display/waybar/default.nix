@@ -9,6 +9,7 @@
       modules-center = [ "sway/window" ];
       modules-right = [
         "pulseaudio"
+        "temperature#cpu"
         "cpu"
         "memory"
         "battery"
@@ -54,6 +55,12 @@
           on-scroll-down = "shift_down";
         };
       };
+      "temperature#cpu" = { 
+        interval = 1;
+        format = "CPU {temperatureC}°";
+        tooltip = false;
+        thermal-zone = 5;
+      };
       "cpu" = { format = "{usage}%"; };
       "memory" = { format = "{}%"; };
       "battery" = {
@@ -63,7 +70,7 @@
           critical = 15;
         };
         format = "{capacity}% {icon}";
-        format-charging = "{capacity}% ";
+        format-charging = "{capacity}% ";
         format-plugged = "{capacity}% ";
         format-icons = [ "" "" "" "" "" ];
       };
