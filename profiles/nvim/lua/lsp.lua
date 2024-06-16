@@ -75,18 +75,24 @@ for _, server in pairs(servers) do
   }
 end
 
-lspconfig.elixirls.setup {
+lspconfig.lexical.setup {
   on_attach = on_attach,
-  cmd = { "elixir-ls" },
-  flags = { debounce_text_changes = 150 },
   capabilities = capabilities,
-  settings = {
-    elixirLS = {
-      dialyzerEnabled = false,
-      fetchDeps = true
-    }
-  }
+  cmd = { "lexical" },
 }
+
+-- lspconfig.elixirls.setup {
+--   on_attach = on_attach,
+--   cmd = { "elixir-ls" },
+--   flags = { debounce_text_changes = 150 },
+--   capabilities = capabilities,
+--   settings = {
+--     elixirLS = {
+--       dialyzerEnabled = false,
+--       fetchDeps = true
+--     }
+--   }
+-- }
 
 lspconfig.pylsp.setup({
   on_attach = on_attach,
