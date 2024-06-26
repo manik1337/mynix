@@ -43,10 +43,9 @@
     enableAllFirmware = true;
     cpu.intel.updateMicrocode = config.hardware.enableRedistributableFirmware;
     bluetooth.enable = true;
-    opengl = {
+    graphics = {
       enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
+      enable32Bit = true;
       extraPackages = with pkgs; [
         amdvlk
         intel-media-driver
