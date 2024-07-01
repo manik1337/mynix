@@ -39,6 +39,11 @@ opt.shiftround = true
 opt.expandtab = true
 opt.scrolloff = 3
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "go",
+  command = "setlocal noexpandtab",
+})
+
 -- Set clipboard to use system clipboard
 opt.clipboard = "unnamedplus"
 
