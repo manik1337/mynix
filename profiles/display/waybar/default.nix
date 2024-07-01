@@ -55,7 +55,7 @@
           on-scroll-down = "shift_down";
         };
       };
-      "temperature#cpu" = { 
+      "temperature#cpu" = {
         interval = 1;
         format = "CPU {temperatureC}°";
         tooltip = false;
