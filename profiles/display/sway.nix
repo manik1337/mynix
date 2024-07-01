@@ -65,6 +65,8 @@ in
           "type:keyboard" = {
             xkb_layout = "us,ru";
             xkb_options = "grp:alt_shift_toggle,ctrl:nocaps";
+            repeat_delay = "250";
+            repeat_rate = "50";
           };
           "type:touchpad" = {
             tap = "enabled";
