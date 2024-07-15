@@ -1,17 +1,19 @@
 { pkgs, ... }: {
   imports = [
+    ./browser
     ./rofi
     ./waybar
     ./alacritty.nix
-    ./browser.nix
     ./gaming.nix
     ./mako.nix
     ./sway.nix
     ./wlsunset.nix
+    ./wofi.nix
   ];
 
   home-manager.users.dmanik = {
     home.packages = with pkgs; [
+      zed-editor
       gimp
       calibre
       cups

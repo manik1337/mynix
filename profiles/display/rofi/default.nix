@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   home-manager.users.dmanik.programs.rofi = {
     enable = true;
+    theme = ./style.rasi;
     package = pkgs.rofi-wayland;
     terminal = "${pkgs.alacritty}/bin/alacritty";
     location = "center";

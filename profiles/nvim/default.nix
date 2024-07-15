@@ -42,6 +42,7 @@
         # Eyecandy
         kanagawa-nvim
         colorbuddy-nvim
+        indent-blankline-nvim
 
         (nvim-treesitter.withPlugins (plugins:
           with plugins; [
@@ -86,6 +87,7 @@
         ${builtins.readFile ./lua/copilot.lua}
         ${builtins.readFile ./lua/harpoon.lua}
         ${builtins.readFile ./lua/undotree.lua}
+        ${builtins.readFile ./lua/indent-blankline.lua}
       '';
     };
   };

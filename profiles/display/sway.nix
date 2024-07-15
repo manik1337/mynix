@@ -59,7 +59,7 @@ in
             before-sleep ${lockCmd}
           ''
           "${pkgs.tdesktop}/bin/telegram-desktop"
-          "${pkgs.firefox}/bin/firefox"
+          "${pkgs.firefox}/bin/chromium"
         ];
         input = {
           "type:keyboard" = {
@@ -171,7 +171,7 @@ in
             "XF86MonBrightnessDown" = "exec brightnessctl s 10%-";
           };
         assigns = {
-          "${ws_browser}" = [{ app_id = "firefox"; }];
+          "${ws_browser}" = [{ app_id = "chromium"; }];
           "${ws_msg}" = [
             { app_id = "Slack"; }
             { app_id = "discord"; }
