@@ -64,7 +64,7 @@ local configs = require('lspconfig.configs')
 local servers = {
   'rust_analyzer', 'hls',
   'kotlin_language_server', 'gopls', 'lua_ls',
-  'tsserver', 'terraformls', 'clangd'
+  'tsserver', 'terraformls', 'clangd', 'zls',
 }
 
 for _, server in pairs(servers) do
