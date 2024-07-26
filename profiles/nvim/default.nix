@@ -28,7 +28,6 @@
         # Git
         diffview-nvim
         gitsigns-nvim
-        neogit
 
         # File tree
         nvim-web-devicons
@@ -83,7 +82,6 @@
         ${builtins.readFile ./lua/treesitter.lua}
         ${builtins.readFile ./lua/lsp.lua}
         ${builtins.readFile ./lua/gitsigns.lua}
-        ${builtins.readFile ./lua/neogit.lua}
         ${builtins.readFile ./lua/copilot.lua}
         ${builtins.readFile ./lua/harpoon.lua}
         ${builtins.readFile ./lua/undotree.lua}

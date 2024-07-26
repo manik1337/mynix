@@ -80,8 +80,7 @@ in
           };
         };
         output = {
-          # "*" = { bg = "#000000 solid_color"; };
-          "*" = { bg = "${./wallpapers/1.jpg} fill"; };
+          "*" = { bg = "${./wallpapers/7.jpeg} fill"; };
         };
         bindkeysToCode = true;
         keybindings =
