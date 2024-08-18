@@ -1,7 +1,14 @@
-{
-  home-manager.users.dmanik.programs.neovim = {
+{ pkgs, ... }: {
+  home-manager.users.dmanik = {
     home.sessionVariables.EDITOR = "vim";
-    enable = true;
-    vimAlias = true;
+    home.packages = with pkgs; [
+      wireguard-tools
+    ];
+    programs = {
+      neovim = {
+        enable = true;
+        vimAlias = true;
+      };
+    };
   };
 }

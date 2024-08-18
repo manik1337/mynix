@@ -1,5 +1,8 @@
 { inputs, ... }: {
-  imports = [
-    ./base.nix
+  imports = with inputs.self.nixosProfiles; [
+    common
+    server
+    git
+    zsh
   ];
 }

@@ -15,6 +15,7 @@
         cmp-vsnip
         vim-vsnip
         lsp-status-nvim
+        fidget-nvim
 
         plenary-nvim
 
@@ -41,7 +42,9 @@
         # Eyecandy
         kanagawa-nvim
         colorbuddy-nvim
-        indent-blankline-nvim
+        zenbones-nvim
+        lush-nvim
+        # indent-blankline-nvim
 
         (nvim-treesitter.withPlugins (plugins:
           with plugins; [
@@ -58,6 +61,7 @@
             go
             gleam
             terraform
+            zig
           ]))
         nvim-treesitter-context
 
@@ -85,7 +89,8 @@
         ${builtins.readFile ./lua/copilot.lua}
         ${builtins.readFile ./lua/harpoon.lua}
         ${builtins.readFile ./lua/undotree.lua}
-        ${builtins.readFile ./lua/indent-blankline.lua}
+        ${builtins.readFile ./lua/fidget.lua}
+        ${builtins.readFile ./lua/utils.lua}
       '';
     };
   };
