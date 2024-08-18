@@ -5,17 +5,19 @@
     programs.alacritty = {
       enable = true;
       settings = {
+        env = {
+          TERM = "xterm-256color";
+        };
         scrolling = {
           history = 100000;
           multiplier = 5;
         };
         font = {
           normal.family = "JetBrainsMono Nerd Font";
-          size = 12;
+          size = 14;
         };
         window = {
           dynamic_title = true;
-          opacity = 0.95;
         };
         selection.save_to_clipboard = true;
         cursor = {

@@ -5,24 +5,21 @@
       iconTheme.name = "Yaru-blue-dark";
       theme.name = "Yaru-blue-dark";
       cursorTheme = {
-        package = pkgs.apple-cursor;
-        name = "macOS-BigSur";
-        size = 48;
+        package = pkgs.afterglow-cursors-recolored;
+        name = "Afterglow-Recolored-Original-Purple";
+        size = 24;
       };
     };
     home = {
-      file.".icons/default".source =
-
-        "${pkgs.yaru-theme}/share/icons/Yaru-blue-dark";
-
+      file.".icons/default".source = "${pkgs.yaru-theme}/share/icons/Yaru-blue-dark";
       pointerCursor = {
-        package = pkgs.apple-cursor;
-        name = "macOS-BigSur";
-        size = 48;
+        package = pkgs.afterglow-cursors-recolored;
+        name = "Afterglow-Recolored-Original-Purple";
+        size = 24;
         gtk.enable = true;
         x11.enable = true;
       };
-      sessionVariables.XCURSOR_SIZE = 48;
+      sessionVariables.XCURSOR_SIZE = 24;
     };
   };
 }

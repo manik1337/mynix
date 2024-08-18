@@ -7,9 +7,7 @@
     ../../hardware/ergodox.nix
     ../../hardware/dock.nix
   ];
-  environment.variables.XCURSOR_SIZE = "48";
-
-  sound.enable = true;
+  environment.variables.XCURSOR_SIZE = "24";
 
   xdg = {
     portal = {
@@ -42,20 +40,6 @@
   networking = {
     hostName = "zionpad";
     networkmanager.enable = true;
-    wg-quick.interfaces = {
-      # wg0 = {
-      #   address = [ "10.0.0.4/24" "fdc9:281f:04d7:9ee9::4/64" ];
-      #   dns = [ "10.0.0.1" "fdc9:281f:04d7:9ee9::1" ];
-      #   privateKeyFile = "/home/dmanik/.secret/wg1";
-      #
-      #   peers = [{
-      #     publicKey = "L5f/b9oZJ7ahl/lQjsOfXVR2MJ5EGrM26urDi5Ul/0U=";
-      #     allowedIPs = [ "0.0.0.0/0" "::/0" ];
-      #     endpoint = "135.181.145.101:51820";
-      #     persistentKeepalive = 25;
-      #   }];
-      # };
-    };
   };
 
   virtualisation.docker.enable = true;

@@ -14,7 +14,9 @@ vim.api.nvim_set_keymap('n', "<M-l>", "<C-w>5>", opts)
 opt.termguicolors = true
 
 -- Colorscheme
-vim.cmd.colorscheme "gruvbuddy"
+-- vim.cmd.background = "dark"
+-- vim.cmd.colorscheme "zenbones"
+-- vim.cmd.colorscheme "gruvbuddy"
 
 -- Transparency
 vim.cmd("highlight Normal guibg=NONE ctermbg=NONE")

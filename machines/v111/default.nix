@@ -1,6 +1,7 @@
 { ... }: {
   imports = [
     ./hardware-configuration.nix
+    inputs.self.nixosRoles.server
   ];
 
   boot.tmp.cleanOnBoot = true;

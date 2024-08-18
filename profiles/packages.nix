@@ -17,6 +17,9 @@
       elixir
       erlang
 
+      zig
+      zls
+
       nil
 
       lua-language-server
@@ -74,6 +77,7 @@
       unrar
       openssl
       ranger
+      yazi
       broot
       jq
       jless
@@ -85,7 +89,6 @@
       overskride
 
       libreoffice
-      zathura
       sioyek
       foliate
       flameshot
@@ -129,6 +132,7 @@
 
       yaru-theme
       apple-cursor
+      afterglow-cursors-recolored
 
       steam
       lutris

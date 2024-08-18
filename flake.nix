@@ -6,9 +6,10 @@
     home-manager.url = "github:rycee/home-manager";
     nur.url = "github:nix-community/NUR";
     deploy-rs.url = "github:serokell/deploy-rs";
+    catppuccin.url = "github:catppuccin/nix";
   };
 
-  outputs = inputs@{ self, home-manager, nixpkgs, deploy-rs, ... }:
+  outputs = inputs@{ self, home-manager, nixpkgs, nur, deploy-rs, catppuccin, ... }:
     let
       system = "x86_64-linux";
       lib = inputs.nixpkgs.lib;
@@ -37,7 +38,8 @@
             lib.nixosSystem {
               inherit system;
               modules = builtins.attrValues self.nixosModules ++ [
-                inputs.home-manager.nixosModules.home-manager
+                home-manager.nixosModules.home-manager
+                catppuccin.nixosModules.catppuccin
 
                 (import (./machines + "/${name}"))
                 {

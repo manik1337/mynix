@@ -1,6 +1,7 @@
 {
   home-manager.users.dmanik.programs.waybar = {
     enable = true;
+    catppuccin.mode = "createLink";
     settings = [{
       layer = "top";
       position = "top";

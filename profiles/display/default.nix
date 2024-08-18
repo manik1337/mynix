@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
   imports = [
     ./browser
     ./rofi
@@ -8,11 +8,20 @@
     ./mako.nix
     ./sway.nix
     ./wlsunset.nix
-    ./wofi.nix
+    ./theme.nix
+    ./zathura.nix
   ];
 
   home-manager.users.dmanik = {
+    imports = [
+      inputs.catppuccin.homeManagerModules.catppuccin
+    ];
+    catppuccin = {
+      enable = true;
+      flavor = "mocha";
+    };
     home.packages = with pkgs; [
+      wireguard-tools
       zed-editor
       gimp
       calibre
@@ -71,8 +80,10 @@
       qflipper
       sof-firmware
 
+      catppuccin
       yaru-theme
       apple-cursor
+      afterglow-cursors-recolored
     ];
   };
 }

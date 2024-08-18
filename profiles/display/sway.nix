@@ -21,28 +21,63 @@ in
     wayland.windowManager.sway = {
       enable = true;
       wrapperFeatures.gtk = true;
+      catppuccin.enable = true;
       extraConfig = ''
         exec swaykbdd
         set $laptop eDP-1
         bindswitch --reload --locked lid:on output $laptop disable
         bindswitch --reload --locked lid:off output $laptop enable
         # default_border none
-        set $XCURSOR_SIZE 48
-        seat seat0 xcursor_theme macOS-BigSur 48
+        set $XCURSOR_SIZE 24
+        # seat seat0 xcursor_theme macOS-BigSur 24
+        seat seat0 xcursor_theme Afterglow-Recolored-Original-Purple 24
       '';
       config = {
         terminal = "${pkgs.alacritty}/bin/alacritty";
         modifier = "Mod4";
         fonts = {
           names = [ "Hack Nerd Font" ];
-          size = 10.0;
+          size = 12.0;
         };
-        colors.focused = {
-          background = "#6e5f7c";
-          border = "#6e5f7c";
-          childBorder = "#5f676a";
-          indicator = "#484e50";
-          text = "#ffffff";
+        colors = {
+          focused = {
+            background = "$base";
+            # border = "$lavender";
+            border = "$pink";
+            text = "$text";
+            indicator = "$rosewater";
+            # childBorder = "$lavender";
+            childBorder = "$pink";
+          };
+          focusedInactive = {
+            background = "$base";
+            border = "$overlay0";
+            text = "$text";
+            indicator = "$rosewater";
+            childBorder = "$overlay0";
+          };
+          unfocused = {
+            background = "$base";
+            border = "$overlay0";
+            text = "$text";
+            indicator = "$rosewater";
+            childBorder = "$overlay0";
+          };
+          urgent = {
+            background = "$base";
+            border = "$peach";
+            text = "$peach";
+            indicator = "$overlay0";
+            childBorder = "$peach";
+          };
+          placeholder = {
+            background = "$base";
+            border = "$overlay0";
+            text = "$text";
+            indicator = "$overlay0";
+            childBorder = "$overlay0";
+          };
+          background = "$base";
         };
         focus = {
           followMouse = "no";
@@ -80,7 +115,7 @@ in
           };
         };
         output = {
-          "*" = { bg = "${./wallpapers/7.jpeg} fill"; };
+          "*" = { bg = "${./wallpapers/9.jpg} fill"; };
         };
         bindkeysToCode = true;
         keybindings =

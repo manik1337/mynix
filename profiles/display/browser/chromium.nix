@@ -8,6 +8,7 @@
         "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
         "eimadpbcbfnmbkopoojfekhnkhdbieeh" # dark reader
         "nngceckbapebfimnlniiiahkandclblb" # bitwarden
+        "bkkmolkhemgaeaeggcmfbghljjjoofoh" # catppuccin
       ];
     };
   };

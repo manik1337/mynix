@@ -1,14 +1,16 @@
+@import "catppuccin.css";
+
 * {
   border: none;
   border-radius: 0;
-  font-family: JetBrains Mono Nerd Font;
-  font-size: 12px;
+  font-family: JetBrainsMono Nerd Font;
+  font-size: 14px;
   min-height: 0;
 }
 
 window#waybar {
-  background: transparent;
-  color: white;
+  background: #1e1e2e;
+  /* color: #1e1e2e; */
 }
 
 #window {
