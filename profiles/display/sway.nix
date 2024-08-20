@@ -217,8 +217,14 @@ in
             criteria = { app_id = "floating_terminal"; };
             command = "floating enable, sticky enable";
           }
+          # firefox picture-in-picture
           {
             criteria = { title = "Picture-in-Picture"; };
+            command = "floating enable, sticky enable";
+          }
+          # chromium picture-in-picture
+          {
+            criteria = { title = "Picture in picture"; };
             command = "floating enable, sticky enable";
           }
           {
