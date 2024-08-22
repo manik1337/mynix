@@ -9,7 +9,7 @@
     terminal = "${pkgs.kitty}/bin/kitty";
     location = "center";
     extraConfig = {
-      font = "Hack Nerd Font 12";
+      font = "JetBrainsMono Nerd Font 14";
       show-icons = true;
       modi = "run,drun,ssh,filebrowser,window";
     };
