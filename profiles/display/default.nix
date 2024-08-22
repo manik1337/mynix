@@ -4,6 +4,7 @@
     ./rofi
     ./waybar
     ./alacritty.nix
+    ./kitty.nix
     ./gaming.nix
     ./mako.nix
     ./sway.nix

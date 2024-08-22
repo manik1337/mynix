@@ -1,7 +1,5 @@
 {
   home-manager.users.dmanik = {
-    home.sessionVariables.TERMINAL = "alacritty";
-
     programs.alacritty = {
       enable = true;
       settings = {

@@ -6,7 +6,7 @@
       flavor = "mocha";
     };
     package = pkgs.rofi-wayland;
-    terminal = "${pkgs.alacritty}/bin/alacritty";
+    terminal = "${pkgs.kitty}/bin/kitty";
     location = "center";
     extraConfig = {
       font = "Hack Nerd Font 12";

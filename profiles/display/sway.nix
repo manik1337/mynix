@@ -33,7 +33,7 @@ in
         seat seat0 xcursor_theme Afterglow-Recolored-Original-Purple 24
       '';
       config = {
-        terminal = "${pkgs.alacritty}/bin/alacritty";
+        terminal = "${pkgs.kitty}/bin/kitty";
         modifier = "Mod4";
         fonts = {
           names = [ "Hack Nerd Font" ];
@@ -121,7 +121,7 @@ in
         keybindings =
           let
             mod = "Mod4";
-            terminal = "alacritty";
+            terminal = "kitty";
           in
           {
             "${mod}+s" = "exec ${pkgs.rofi}/bin/rofi -show run";
