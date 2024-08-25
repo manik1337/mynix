@@ -130,8 +130,9 @@ lspconfig.ocamllsp.setup({
   capabilities = capabilities
 })
 
-lspconfig.nil_ls.setup {
-  on_attach = on_attach
+lspconfig.nixd.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
 }
 
 configs.solidity = {

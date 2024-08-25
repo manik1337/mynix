@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   home-manager.users.dmanik = {
     home.sessionVariables.EDITOR = "vim";
     programs.neovim = {
@@ -16,10 +17,6 @@
         vim-vsnip
         lsp-status-nvim
         fidget-nvim
-
-        plenary-nvim
-
-        harpoon
 
         # DB
         vim-dadbod
@@ -39,30 +36,7 @@
         vim-nix
         rust-tools-nvim
 
-        # Eyecandy
-        kanagawa-nvim
-        colorbuddy-nvim
-        zenbones-nvim
-        lush-nvim
-        # indent-blankline-nvim
-
-        (nvim-treesitter.withPlugins (plugins:
-          with plugins; [
-            nix
-            lua
-            javascript
-            yaml
-            python
-            rust
-            c
-            erlang
-            elixir
-            heex
-            go
-            gleam
-            terraform
-            zig
-          ]))
+        nvim-treesitter.withAllGrammars
         nvim-treesitter-context
 
         lualine-nvim
@@ -75,7 +49,13 @@
         # Editing
         comment-nvim
         copilot-lua
+        avante-nvim
         undotree
+
+        # deps
+        plenary-nvim
+        dressing-nvim
+        nui-nvim
       ];
       extraLuaConfig = ''
         ${builtins.readFile ./lua/settings.lua}
@@ -87,10 +67,10 @@
         ${builtins.readFile ./lua/lsp.lua}
         ${builtins.readFile ./lua/gitsigns.lua}
         ${builtins.readFile ./lua/copilot.lua}
-        ${builtins.readFile ./lua/harpoon.lua}
         ${builtins.readFile ./lua/undotree.lua}
         ${builtins.readFile ./lua/fidget.lua}
         ${builtins.readFile ./lua/utils.lua}
+        ${builtins.readFile ./lua/avante.lua}
       '';
     };
   };

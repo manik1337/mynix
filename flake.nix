@@ -7,6 +7,10 @@
     nur.url = "github:nix-community/NUR";
     deploy-rs.url = "github:serokell/deploy-rs";
     catppuccin.url = "github:catppuccin/nix";
+    avante-nvim = {
+      url = "github:yetone/avante.nvim";
+      flake = false;
+    };
   };
 
   outputs = inputs@{ self, home-manager, nixpkgs, nur, deploy-rs, catppuccin, ... }:
@@ -46,7 +50,7 @@
                   nixpkgs = {
                     pkgs = import inputs.nixpkgs
                       {
-                        overlays = [ self.orly inputs.nur.overlay ];
+                        overlays = self.orly ++ [ inputs.nur.overlay ];
                         localSystem = { inherit system; };
                         config.allowUnfree = true;
                       };
@@ -58,7 +62,7 @@
             };
         in
         lib.genAttrs hosts mkHost;
-      orly = import ./overlays inputs;
+      orly = import ./overlays { inherit inputs; };
 
       deploy = {
         sshUser = "root";

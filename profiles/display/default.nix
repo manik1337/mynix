@@ -11,6 +11,8 @@
     ./wlsunset.nix
     ./theme.nix
     ./zathura.nix
+    ./tmux.nix
+    ./code.nix
   ];
 
   home-manager.users.dmanik = {

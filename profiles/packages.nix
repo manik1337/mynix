@@ -20,7 +20,8 @@
       zig
       zls
 
-      nil
+      nixd
+      nixfmt-rfc-style
 
       lua-language-server
       python3
