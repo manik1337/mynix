@@ -7,10 +7,10 @@
     nur.url = "github:nix-community/NUR";
     deploy-rs.url = "github:serokell/deploy-rs";
     catppuccin.url = "github:catppuccin/nix";
-    avante-nvim = {
-      url = "github:yetone/avante.nvim";
-      flake = false;
-    };
+    # avante-nvim = {
+    #   url = "github:yetone/avante.nvim";
+    #   flake = false;
+    # };
   };
 
   outputs = inputs@{ self, home-manager, nixpkgs, nur, deploy-rs, catppuccin, ... }:
@@ -69,7 +69,7 @@
         nodes = (builtins.mapAttrs
           (name: machine:
             {
-              hostname = if name == "t14s" then "localhost" else "127.0.0.1";
+              hostname = if name == "t14s" then "localhost" else "107.191.44.103";
               profiles.system = {
                 user = "root";
                 path = deploy-rs.lib.${machine.pkgs.system}.activate.nixos machine;
