@@ -9,6 +9,7 @@
         "eimadpbcbfnmbkopoojfekhnkhdbieeh" # dark reader
         "nngceckbapebfimnlniiiahkandclblb" # bitwarden
         "bkkmolkhemgaeaeggcmfbghljjjoofoh" # catppuccin
+        "ammjkodgmmoknidbanneddgankgfejfh" # 7tv
       ];
     };
   };
