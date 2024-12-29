@@ -10,6 +10,7 @@
         "nngceckbapebfimnlniiiahkandclblb" # bitwarden
         "bkkmolkhemgaeaeggcmfbghljjjoofoh" # catppuccin
         "ammjkodgmmoknidbanneddgankgfejfh" # 7tv
+        "cnjifjpddelmedmihgijeibhnjfabmlf" # obsidian web clipper
       ];
     };
   };
