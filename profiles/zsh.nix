@@ -14,6 +14,8 @@
       fzf =
         "fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'";
       tree = "eza --tree --icons";
+      lg = "lazygit";
+      k = "kubectl";
     };
     oh-my-zsh = {
       enable = true;
