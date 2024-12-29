@@ -4,8 +4,11 @@
     home.sessionVariables.EDITOR = "vim";
     programs.neovim = {
       enable = true;
+      catppuccin.enable = false;
       vimAlias = true;
       plugins = with pkgs.vimPlugins; [
+        vscode-nvim
+
         # LSP
         nvim-lspconfig
         cmp-nvim-lsp
@@ -30,6 +33,7 @@
         # File tree
         nvim-web-devicons
         nvim-tree-lua
+        oil-nvim
 
         # Languages
         vim-erlang-runtime
@@ -37,7 +41,7 @@
         rust-tools-nvim
 
         nvim-treesitter.withAllGrammars
-        nvim-treesitter-context
+        # nvim-treesitter-context
 
         lualine-nvim
         lualine-lsp-progress
@@ -71,6 +75,7 @@
         ${builtins.readFile ./lua/fidget.lua}
         ${builtins.readFile ./lua/utils.lua}
         ${builtins.readFile ./lua/avante.lua}
+        ${builtins.readFile ./lua/oil.lua}
       '';
     };
   };

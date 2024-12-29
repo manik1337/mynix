@@ -1,6 +1,15 @@
 local telescope = require('telescope')
 
 telescope.setup {
+  pickers = {
+    buffers = {
+      mappings = {
+        i = {
+          ["<c-d>"] = "delete_buffer",
+        },
+      }
+    }
+  },
   defaults = {
     prompt_prefix = "λ "
   },

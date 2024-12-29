@@ -1,20 +1,18 @@
+require('avante_lib').load()
 require("avante").setup {
-  -- provider = "claude",
-  -- claude = {
-  --   endpoint = "https://api.anthropic.com",
-  --   model = "claude-3-5-sonnet-20240620",
-  --   temperature = 0,
-  --   max_tokens = 4096,
-  -- },
-  provider = "openai",
-  openai = {
-    endpoint = "https://api.openai.com/v1",
-    model = "gpt-4o",
-    timeout = 30000, -- Timeout in milliseconds
+  provider = "copilot",
+  auto_suggestions_provider = "copilot",
+  copilot = {
+    endpoint = "https://api.githubcopilot.com",
+    -- model = "gpt-4o-2024-05-13",
+    model = "claude-3.5-sonnet",
+    proxy = nil,
+    allow_insecure = false,
+    timeout = 30000,
     temperature = 0,
     max_tokens = 4096,
-    ["local"] = false,
   },
+  build = "make",
   mappings = {
     ask = "<leader>aa",
     edit = "<leader>ae",
@@ -34,10 +32,10 @@ require("avante").setup {
   },
   hints = { enabled = true },
   windows = {
-    wrap = true, -- similar to vim.o.wrap
-    width = 30, -- default % based on available width
+    wrap = true,
+    width = 30,
     sidebar_header = {
-      align = "center", -- left, center, right for title
+      align = "center",
       rounded = true,
     },
   },
