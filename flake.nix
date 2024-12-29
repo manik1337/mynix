@@ -3,33 +3,61 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager.url = "github:rycee/home-manager";
+    home-manager = {
+      url = "github:rycee/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nur.url = "github:nix-community/NUR";
     deploy-rs.url = "github:serokell/deploy-rs";
     catppuccin.url = "github:catppuccin/nix";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+    };
     # avante-nvim = {
     #   url = "github:yetone/avante.nvim";
     #   flake = false;
     # };
   };
 
-  outputs = inputs@{ self, home-manager, nixpkgs, nur, deploy-rs, catppuccin, ... }:
+  outputs =
+    {
+      self,
+      home-manager,
+      deploy-rs,
+      catppuccin,
+      ghostty,
+      ...
+    }@inputs:
     let
       system = "x86_64-linux";
       lib = inputs.nixpkgs.lib;
 
-      findModules = dir:
-        builtins.concatLists (builtins.attrValues (builtins.mapAttrs
-          (name: type:
-            if type == "regular" then [{
-              name = builtins.elemAt (builtins.match "(.*)\\.nix" name) 0;
-              value = dir + "/${name}";
-            }] else if (builtins.readDir (dir + "/${name}")) ? "default.nix" then [{
-              inherit name;
-              value = dir + "/${name}";
-            }] else findModules (dir + "/${name}"))
-          (builtins.readDir dir)
-        ));
+      findModules =
+        dir:
+        builtins.concatLists (
+          builtins.attrValues (
+            builtins.mapAttrs (
+              name: type:
+              if type == "regular" then
+                [
+                  {
+                    name = builtins.elemAt (builtins.match "(.*)\\.nix" name) 0;
+                    value = dir + "/${name}";
+                  }
+                ]
+              else if (builtins.readDir (dir + "/${name}")) ? "default.nix" then
+                [
+                  {
+                    inherit name;
+                    value = dir + "/${name}";
+                  }
+                ]
+              else
+                findModules (dir + "/${name}")
+            ) (builtins.readDir dir)
+          )
+        );
     in
     {
       nixosModules = builtins.listToAttrs (findModules ./modules);
@@ -38,7 +66,8 @@
       nixosConfigurations =
         let
           hosts = builtins.attrNames (builtins.readDir ./machines);
-          mkHost = name:
+          mkHost =
+            name:
             lib.nixosSystem {
               inherit system;
               modules = builtins.attrValues self.nixosModules ++ [
@@ -48,35 +77,40 @@
                 (import (./machines + "/${name}"))
                 {
                   nixpkgs = {
-                    pkgs = import inputs.nixpkgs
-                      {
-                        overlays = self.orly ++ [ inputs.nur.overlay ];
-                        localSystem = { inherit system; };
-                        config.allowUnfree = true;
+                    pkgs = import inputs.nixpkgs {
+                      overlays = [
+                        (import ./overlays inputs system)
+                        inputs.nur.overlays.default
+                      ];
+                      localSystem = {
+                        inherit system;
                       };
+                      config.allowUnfree = true;
+                      config.allowAliases = false;
+                    };
                   };
                 }
                 { device = name; }
               ];
-              specialArgs = { inherit inputs; };
+              specialArgs = {
+                inherit inputs;
+                inherit ghostty;
+              };
             };
         in
         lib.genAttrs hosts mkHost;
-      orly = import ./overlays { inherit inputs; };
 
       deploy = {
         sshUser = "root";
-        nodes = (builtins.mapAttrs
-          (name: machine:
-            {
-              hostname = if name == "t14s" then "localhost" else "107.191.44.103";
-              profiles.system = {
-                user = "root";
-                path = deploy-rs.lib.${machine.pkgs.system}.activate.nixos machine;
-              };
-            })
-          self.nixosConfigurations);
+        nodes = (
+          builtins.mapAttrs (name: machine: {
+            hostname = if name == "t14s" then "localhost" else "107.191.44.103";
+            profiles.system = {
+              user = "root";
+              path = deploy-rs.lib.x86_64-linux.activate.nixos machine;
+            };
+          }) self.nixosConfigurations
+        );
       };
     };
 }
-
