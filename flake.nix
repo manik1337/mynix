@@ -9,7 +9,6 @@
     };
     nur.url = "github:nix-community/NUR";
     deploy-rs.url = "github:serokell/deploy-rs";
-    catppuccin.url = "github:catppuccin/nix";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     ghostty = {
       url = "github:ghostty-org/ghostty";
@@ -25,7 +24,6 @@
       self,
       home-manager,
       deploy-rs,
-      catppuccin,
       ghostty,
       ...
     }@inputs:
@@ -72,7 +70,6 @@
               inherit system;
               modules = builtins.attrValues self.nixosModules ++ [
                 home-manager.nixosModules.home-manager
-                catppuccin.nixosModules.catppuccin
 
                 (import (./machines + "/${name}"))
                 {

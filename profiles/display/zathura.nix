@@ -8,6 +8,5 @@
       render-loading = false;
       scroll-step = 120;
     };
-    # extraConfig = "include catppuccin-mocha";
   };
 }

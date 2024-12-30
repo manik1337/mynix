@@ -29,9 +29,11 @@ configuration {
     urgent:         #E06B74FF;
 }
 
-* {
-    font: "Hack Nerd Font 16";
-}
+/**
+** {
+*    font: "Hack Nerd Font 16";
+*}
+**/
 
 * {
     border-colour:               var(selected);

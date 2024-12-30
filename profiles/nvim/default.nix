@@ -4,7 +4,6 @@
     home.sessionVariables.EDITOR = "vim";
     programs.neovim = {
       enable = true;
-      catppuccin.enable = false;
       vimAlias = true;
       plugins = with pkgs.vimPlugins; [
         vscode-nvim

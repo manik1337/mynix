@@ -8,7 +8,7 @@
         "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
         "eimadpbcbfnmbkopoojfekhnkhdbieeh" # dark reader
         "nngceckbapebfimnlniiiahkandclblb" # bitwarden
-        "bkkmolkhemgaeaeggcmfbghljjjoofoh" # catppuccin
+        # "bkkmolkhemgaeaeggcmfbghljjjoofoh" # catppuccin
         "ammjkodgmmoknidbanneddgankgfejfh" # 7tv
         "cnjifjpddelmedmihgijeibhnjfabmlf" # obsidian web clipper
       ];

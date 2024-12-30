@@ -21,64 +21,63 @@ in
     wayland.windowManager.sway = {
       enable = true;
       wrapperFeatures.gtk = true;
-      catppuccin.enable = true;
       extraConfig = ''
         exec swaykbdd
         set $laptop eDP-1
         bindswitch --reload --locked lid:on output $laptop disable
         bindswitch --reload --locked lid:off output $laptop enable
         # default_border none
-        set $XCURSOR_SIZE 24
+        # set $XCURSOR_SIZE 18
         # seat seat0 xcursor_theme macOS-BigSur 24
-        seat seat0 xcursor_theme Afterglow-Recolored-Original-Purple 24
+        # seat seat0 xcursor_theme Afterglow-Recolored-Catppuccin-Rosewater 18
       '';
       config = {
-        terminal = "${pkgs.kitty}/bin/kitty";
+        terminal = "${pkgs.alacritty}/bin/alacritty";
         modifier = "Mod4";
         fonts = {
-          names = [ "Hack Nerd Font" ];
+          names = [ "Hack" ];
           size = 12.0;
         };
-        colors = {
-          focused = {
-            background = "$base";
-            # border = "$lavender";
-            border = "$pink";
-            text = "$text";
-            indicator = "$rosewater";
-            # childBorder = "$lavender";
-            childBorder = "$pink";
-          };
-          focusedInactive = {
-            background = "$base";
-            border = "$overlay0";
-            text = "$text";
-            indicator = "$rosewater";
-            childBorder = "$overlay0";
-          };
-          unfocused = {
-            background = "$base";
-            border = "$overlay0";
-            text = "$text";
-            indicator = "$rosewater";
-            childBorder = "$overlay0";
-          };
-          urgent = {
-            background = "$base";
-            border = "$peach";
-            text = "$peach";
-            indicator = "$overlay0";
-            childBorder = "$peach";
-          };
-          placeholder = {
-            background = "$base";
-            border = "$overlay0";
-            text = "$text";
-            indicator = "$overlay0";
-            childBorder = "$overlay0";
-          };
-          background = "$base";
-        };
+        # colors = {
+        #   focused = {
+        #     background = "$base";
+        #     # border = "$lavender";
+        #     border = "$pink";
+        #     text = "$text";
+        #     indicator = "$rosewater";
+        #     # childBorder = "$lavender";
+        #     childBorder = "$pink";
+        #   };
+        #   focusedInactive = {
+        #     background = "$base";
+        #     border = "$overlay0";
+        #     text = "$text";
+        #     indicator = "$rosewater";
+        #     childBorder = "$overlay0";
+        #   };
+        #   unfocused = {
+        #     background = "$base";
+        #     border = "$overlay0";
+        #     text = "$text";
+        #     indicator = "$rosewater";
+        #     childBorder = "$overlay0";
+        #   };
+        #   urgent = {
+        #     background = "$base";
+        #     border = "$peach";
+        #     text = "$peach";
+        #     indicator = "$overlay0";
+        #     childBorder = "$peach";
+        #   };
+        #   placeholder = {
+        #     background = "$base";
+        #     border = "$overlay0";
+        #     text = "$text";
+        #     indicator = "$overlay0";
+        #     childBorder = "$overlay0";
+        #   };
+        #   background = "$base";
+        # };
         focus = {
           followMouse = "no";
           mouseWarping = false;
@@ -93,8 +92,8 @@ in
             resume 'swaymsg "output * dpms on"' \
             before-sleep ${lockCmd}
           ''
-          "${pkgs.tdesktop}/bin/telegram-desktop"
-          "${pkgs.firefox}/bin/chromium"
+          "${pkgs.telegram-desktop}/bin/telegram-desktop"
+          # "${pkgs.firefox}/bin/chromium"
         ];
         input = {
           "type:keyboard" = {
@@ -121,7 +120,7 @@ in
         keybindings =
           let
             mod = "Mod4";
-            terminal = "kitty";
+            terminal = "alacritty";
           in
           {
             "${mod}+s" = "exec ${pkgs.rofi}/bin/rofi -show run";
@@ -253,7 +252,7 @@ in
         bemenu
         wf-recorder
         xdg-desktop-portal-wlr
-        wlroots
+        wlroots_0_18
         swaykbdd
         wdisplays
       ];

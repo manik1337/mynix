@@ -2,7 +2,6 @@
 {
   home-manager.users.dmanik.programs.waybar = {
     enable = true;
-    catppuccin.mode = "createLink";
     settings = [
       {
         layer = "top";
@@ -120,6 +119,6 @@
       }
     ];
 
-    style = ./style.css;
+    # style = ./style.css;
   };
 }
