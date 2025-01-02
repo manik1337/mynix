@@ -10,13 +10,6 @@
     nur.url = "github:nix-community/NUR";
     deploy-rs.url = "github:serokell/deploy-rs";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    ghostty = {
-      url = "github:ghostty-org/ghostty";
-    };
-    # avante-nvim = {
-    #   url = "github:yetone/avante.nvim";
-    #   flake = false;
-    # };
   };
 
   outputs =
@@ -24,7 +17,6 @@
       self,
       home-manager,
       deploy-rs,
-      ghostty,
       ...
     }@inputs:
     let
@@ -91,7 +83,6 @@
               ];
               specialArgs = {
                 inherit inputs;
-                inherit ghostty;
               };
             };
         in
