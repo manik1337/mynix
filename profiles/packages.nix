@@ -1,18 +1,12 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   home-manager.users.dmanik = {
     home.packages = with pkgs; [
+      tlp
       nixpkgs-fmt
+      cachix
       devenv
       ripgrep
-
-      wine
-      winetricks
-
-      awscli2
-      calibre
-      cups
-      dconf
-      glib
 
       elixir
       erlang
@@ -27,41 +21,21 @@
       python3
       nodejs-slim
 
-      postgresql
-
       # etc
       binutils
       pkg-config
       gcc
       gnumake
-      ghc
       oh-my-zsh
       zsh-completions
       git
       git-crypt
       lazygit
       gnupg
-      xclip
-      ledger-live-desktop
-      insomnia
-      beekeeper-studio
 
       # fonts
-      nerdfonts
-      fantasque-sans-mono
-
-      # messengers
-      tdesktop
-      (pkgs.discord.override { withOpenASAR = true; })
-      slack
-
-      spotify
-      ncspot
-
-      _1password-gui
-      bitwarden
-
-      obsidian
+      nerd-fonts.symbols-only
+      nerd-fonts.hack
 
       # utils
       cachix
@@ -83,61 +57,9 @@
       jq
       jless
       nethogs
-      gh
-      dua
       noti
       nix-index
       overskride
-
-      libreoffice
-      sioyek
-      foliate
-      flameshot
-      thunderbird
-      vlc
-      spotify
-
-      # keyboard
-      wally-cli
-
-      # sound
-      pavucontrol
-      # pulseaudio
-      pipewire
-      wireplumber
-
-      # wayland
-      brightnessctl
-      slurp
-      grim
-      swappy
-      swaylock-effects
-      swayidle
-      wl-clipboard
-      kanshi
-      bemenu
-      wf-recorder
-      xdg-desktop-portal-wlr
-      wlroots
-      swaykbdd
-      wdisplays
-
-      # media
-      obs-studio
-      mpd
-      ncmpcpp
-      mpv
-
-      qflipper
-      sof-firmware
-
-      yaru-theme
-      apple-cursor
-      afterglow-cursors-recolored
-
-      steam
-      lutris
-      vulkan-tools
     ];
   };
 }

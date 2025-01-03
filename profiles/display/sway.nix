@@ -26,10 +26,6 @@ in
         set $laptop eDP-1
         bindswitch --reload --locked lid:on output $laptop disable
         bindswitch --reload --locked lid:off output $laptop enable
-        # default_border none
-        # set $XCURSOR_SIZE 18
-        # seat seat0 xcursor_theme macOS-BigSur 24
-        # seat seat0 xcursor_theme Afterglow-Recolored-Catppuccin-Rosewater 18
       '';
       config = {
         terminal = "${pkgs.alacritty}/bin/alacritty";

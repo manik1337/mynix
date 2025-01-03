@@ -4,12 +4,11 @@
       enable = true;
       createDirectories = true;
       desktop = "$HOME/ws";
-      documents = "$HOME/media/doc";
+      documents = "$HOME/doc";
       download = "$HOME/dl";
-      music = "$HOME/media/music";
-      pictures = "$HOME/media/pic";
-      templates = "$HOME/ws";
-      videos = "$HOME/media/videos";
+      music = "$HOME/music";
+      pictures = "$HOME/pic";
+      videos = "$HOME/videos";
     };
     systemDirs = {
       data = [ "$HOME/.local/share" ];
@@ -25,7 +24,10 @@
         "text/*" = [ "nvim.desktop" ];
         "text/plain" = [ "nvim.desktop" ];
         "text/x-*" = [ "nvim.desktop" ];
-        "text/html" = [ "chromium.desktop" "nvim.desktop" ];
+        "text/html" = [
+          "chromium.desktop"
+          "nvim.desktop"
+        ];
 
         "x-scheme-handler/http" = "chromium.desktop";
         "x-scheme-handler/https" = "chromium.desktop";

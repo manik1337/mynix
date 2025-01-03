@@ -1,18 +1,23 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, inputs, ... }:
+{
   imports = [
     ./hardware-configuration.nix
     inputs.self.nixosRoles.desktop
+    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t14s
     ../../hardware/ledger.nix
     ../../hardware/flipper.nix
     ../../hardware/ergodox.nix
     ../../hardware/dock.nix
   ];
-  environment.variables.XCURSOR_SIZE = "24";
 
   xdg = {
     portal = {
       enable = true;
       wlr.enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-wlr
+      ];
       config.common.default = "*";
     };
   };
@@ -25,6 +30,23 @@
   services.openssh = {
     enable = true;
     settings.PasswordAuthentication = false;
+  };
+
+  services = {
+    xserver = {
+      enable = true;
+      displayManager.gdm.enable = true;
+      desktopManager = {
+        gnome.enable = true;
+        gnome.extraGSettingsOverridePackages = [ pkgs.mutter ];
+      };
+      xkb = {
+        layout = "us,ru";
+        variant = "";
+        options = "ctrl:nocaps";
+      };
+    };
+    displayManager.defaultSession = "gnome";
   };
 
   services.pipewire = {
@@ -80,8 +102,6 @@
 
   programs = {
     zsh.enable = true;
-    dconf.enable = true;
-    nm-applet.enable = true;
     wireshark = {
       enable = true;
       package = pkgs.wireshark;
@@ -94,6 +114,7 @@
   };
 
   time.timeZone = "Europe/Berlin";
+  i18n.supportedLocales = [ "all" ];
 
   system.stateVersion = "24.05";
 }

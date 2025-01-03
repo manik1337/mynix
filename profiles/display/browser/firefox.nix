@@ -2,7 +2,7 @@
   home-manager.users.dmanik = {
     programs.firefox = {
       enable = true;
-      package = pkgs.firefox-wayland;
+      # package = pkgs.firefox-wayland;
       profiles =
         let
           extensions = with pkgs.nur.repos.rycee.firefox-addons; [

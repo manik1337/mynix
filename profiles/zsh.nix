@@ -11,8 +11,7 @@
       rm = "rm -rifv";
       mv = "mv -iv";
       cp = "cp -riv";
-      fzf =
-        "fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'";
+      fzf = "fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'";
       tree = "eza --tree --icons";
       lg = "lazygit";
       k = "kubectl";

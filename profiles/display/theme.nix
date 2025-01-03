@@ -1,27 +1,44 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }:
+{
   home-manager.users.dmanik = {
+    home.packages = with pkgs.gnomeExtensions; [
+      blur-my-shell
+      appindicator
+    ];
+
     gtk = {
       enable = true;
-      iconTheme.name = "Yaru-blue-dark";
-      theme.name = "Yaru-blue-dark";
-      # cursorTheme = {
-      #   package = pkgs.afterglow-cursors-recolored;
-      #   name = "Afterglow-Recolored-Catppuccin-Rosewater";
-      #   size = 18;
-      # };
+      theme = {
+        package = pkgs.gnome-themes-extra;
+        name = "Adwaita-dark";
+      };
     };
-    home = {
-      file.".icons/default".source = "${pkgs.yaru-theme}/share/icons/Yaru-blue-dark";
-      # pointerCursor = {
-      #   package = pkgs.afterglow-cursors-recolored;
-      #   name = "Afterglow-Recolored-Catppuccin-Rosewater";
-      #   size = 18;
-      #   gtk.enable = true;
-      #   x11.enable = true;
-      # };
-      # sessionVariables.XCURSOR_SIZE = 18;
+
+    qt = {
+      enable = true;
+      platformTheme.name = "adwaita";
+      style.name = "adwaita";
+    };
+
+    dconf = {
+      enable = true;
+      settings = {
+        "org/gnome/shell" = {
+          disable-user-extensions = false;
+          enabled-extensions = with pkgs.gnomeExtensions; [
+            blur-my-shell.extensionUuid
+            appindicator.extensionUuid
+          ];
+        };
+        "org/gnome/desktop/interface".color-scheme = "prefer-dark";
+        "org/gnome/desktop/interface".cursor-size = 32;
+        # "org/gnome/desktop/interface".monospace-font-name = "DejaVuSansM Nerd Font Mono 12";
+        "org/gnome/desktop/wm/preferences".resize-with-right-button = true;
+        "org/gnome/desktop/peripherals/keyboard" = {
+          repeat-interval = lib.gvariant.mkUint32 15;
+          delay = lib.gvariant.mkUint32 250;
+        };
+      };
     };
   };
 }
-
-

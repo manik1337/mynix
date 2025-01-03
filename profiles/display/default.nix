@@ -1,33 +1,22 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, ... }:
+{
   imports = [
     ./browser
     ./rofi
     ./waybar
     ./alacritty.nix
-    ./kitty.nix
     ./gaming.nix
     ./mako.nix
     ./sway.nix
-    ./wlsunset.nix
     ./theme.nix
     ./zathura.nix
-    ./tmux.nix
-    ./code.nix
   ];
 
   home-manager.users.dmanik = {
-    imports = [
-      inputs.catppuccin.homeManagerModules.catppuccin
-    ];
-    catppuccin = {
-      enable = true;
-      flavor = "mocha";
-    };
     home.packages = with pkgs; [
+      ghostty
       wireguard-tools
-      zed-editor
       gimp
-      calibre
       cups
       dconf
       glib
@@ -40,16 +29,14 @@
       beekeeper-studio
 
       # messengers
-      tdesktop
+      telegram-desktop
       (pkgs.discord.override { withOpenASAR = true; })
       slack
 
-      spotify
-      bitwarden
+      bitwarden-desktop
       obsidian
 
       # utils
-      cachix
       pamixer
       ncpamixer
       noti
@@ -80,13 +67,25 @@
       ncmpcpp
       mpv
 
-      qflipper
+      qFlipper
       sof-firmware
 
-      catppuccin
-      yaru-theme
-      apple-cursor
-      afterglow-cursors-recolored
+      teamspeak5_client
+
+      # wayland
+      brightnessctl
+      slurp
+      grim
+      swappy
+      swaylock-effects
+      swayidle
+      wl-clipboard
+      kanshi
+      bemenu
+      wf-recorder
+      xdg-desktop-portal-wlr
+      swaykbdd
+      wdisplays
     ];
   };
 }

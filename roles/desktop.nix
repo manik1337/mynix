@@ -1,6 +1,5 @@
 { inputs, ... }: {
   imports = with inputs.self.nixosProfiles; [
-    ./base.nix
     display
     nvim
     common
