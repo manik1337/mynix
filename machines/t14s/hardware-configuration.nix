@@ -48,10 +48,7 @@
       enable = true;
       enable32Bit = true;
       extraPackages = with pkgs; [
-        amdvlk
         intel-media-driver
-        rocmPackages.clr
-        rocmPackages.clr.icd
       ];
     };
   };
