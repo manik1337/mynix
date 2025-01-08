@@ -11,6 +11,7 @@
         # "bkkmolkhemgaeaeggcmfbghljjjoofoh" # catppuccin
         "ammjkodgmmoknidbanneddgankgfejfh" # 7tv
         "cnjifjpddelmedmihgijeibhnjfabmlf" # obsidian web clipper
+        "aapbdbdomjkkjkaonfhkkikfgjllcleb" # google translate
       ];
     };
   };
