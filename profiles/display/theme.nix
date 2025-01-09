@@ -38,6 +38,25 @@
           repeat-interval = lib.gvariant.mkUint32 15;
           delay = lib.gvariant.mkUint32 250;
         };
+        "org/gnome/settings-daemon/plugins/media-keys".screensaver = [ "<Shift><Super>l" ];
+        "org/gnome/desktop/wm/keybindings" = {
+          switch-to-workspace-1 = [ "<Super>1" ];
+          switch-to-workspace-2 = [ "<Super>2" ];
+          switch-to-workspace-3 = [ "<Super>3" ];
+          switch-to-workspace-4 = [ "<Super>4" ];
+          switch-to-workspace-5 = [ "<Super>5" ];
+          switch-to-workspace-6 = [ "<Super>6" ];
+          move-to-workspace-1 = [ "<Super><Shift>1" ];
+          move-to-workspace-2 = [ "<Super><Shift>2" ];
+          move-to-workspace-3 = [ "<Super><Shift>3" ];
+          move-to-workspace-4 = [ "<Super><Shift>4" ];
+          move-to-workspace-5 = [ "<Super><Shift>5" ];
+          move-to-workspace-6 = [ "<Super><Shift>6" ];
+          show-screenshot-ui = [ "<Super>p" ];
+          show-screen-recording-ui = [ "<Super><Shift>p" ];
+          toggle-maximized = [ "<Super>f" ];
+          close = [ "<Super>q" ];
+        };
       };
     };
   };
