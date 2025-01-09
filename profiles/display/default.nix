@@ -10,11 +10,11 @@
     # ./sway.nix
     ./theme.nix
     ./zathura.nix
+    ./ghostty.nix
   ];
 
   home-manager.users.dmanik = {
     home.packages = with pkgs; [
-      ghostty
       wireguard-tools
       gimp
       cups
