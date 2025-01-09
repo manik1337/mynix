@@ -2,7 +2,7 @@
 {
   home-manager.users.dmanik = {
     home.packages = with pkgs; [
-      tlp
+      # tlp
       nixpkgs-fmt
       cachix
       devenv
