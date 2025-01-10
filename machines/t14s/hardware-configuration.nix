@@ -24,6 +24,7 @@
         };
       };
     };
+    kernelParams = [ "usbcore.autosuspend=-1" ];
     kernelPackages = pkgs.linuxPackages_latest;
     supportedFilesystems = [ "btrfs" ];
     kernelModules = [ "kvm-intel" "wl" ];
@@ -39,7 +40,7 @@
     };
   };
   nixpkgs.hostPlatform = "x86_64-linux";
-  powerManagement.cpuFreqGovernor = "powersave";
+  # powerManagement.cpuFreqGovernor = "powersave";
   hardware = {
     enableAllFirmware = true;
     cpu.intel.updateMicrocode = config.hardware.enableRedistributableFirmware;

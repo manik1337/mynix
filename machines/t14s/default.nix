@@ -36,9 +36,9 @@
     xserver = {
       enable = true;
       displayManager.gdm.enable = true;
-      desktopManager = {
-        gnome.enable = true;
-        gnome.extraGSettingsOverridePackages = [ pkgs.mutter ];
+      desktopManager.gnome = {
+        enable = true;
+        extraGSettingsOverridePackages = [ pkgs.mutter ];
       };
       xkb = {
         layout = "us,ru";
