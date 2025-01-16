@@ -4,9 +4,10 @@
     programs.ghostty = {
       enable = true;
       settings = {
-        # font-family = "DejaVuSansM Nerd Font Mono";
         font-size = 12;
-        theme = "Adwaita Dark";
+        theme = "light:Adwaita,dark:Adwaita Dark";
+        window-theme = "ghostty";
+        window-decoration = false;
       };
     };
   };
