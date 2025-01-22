@@ -15,6 +15,7 @@
 
   home-manager.users.dmanik = {
     home.packages = with pkgs; [
+      todoist-electron
       wireguard-tools
       gimp
       cups
