@@ -4,7 +4,7 @@
     programs.ghostty = {
       enable = true;
       settings = {
-        font-size = 12;
+        font-size = 10;
         theme = "light:Adwaita,dark:Adwaita Dark";
         window-theme = "ghostty";
         window-decoration = false;
