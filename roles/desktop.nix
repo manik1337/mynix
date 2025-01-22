@@ -9,5 +9,6 @@
     security
     xdg
     zsh
+    tmux
   ];
 }
