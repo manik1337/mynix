@@ -28,11 +28,11 @@ in
         bindswitch --reload --locked lid:off output $laptop enable
       '';
       config = {
-        terminal = "${pkgs.alacritty}/bin/alacritty";
+        terminal = "${pkgs.ghostty}/bin/ghostty";
         modifier = "Mod4";
         fonts = {
           names = [ "Hack" ];
-          size = 12.0;
+          # size = 12.0;
         };
         # colors = {
         #   focused = {
@@ -78,7 +78,7 @@ in
           followMouse = "no";
           mouseWarping = false;
         };
-        bars = [{ command = "${pkgs.waybar}/bin/waybar"; }];
+        bars = [ { command = "${pkgs.waybar}/bin/waybar"; } ];
         startup = map (cmd: { command = cmd; }) [
           "${pkgs.mako}/bin/mako"
           ''
@@ -109,14 +109,16 @@ in
             scroll_button = "274";
           };
         };
-        output = {
-          "*" = { bg = "${./wallpapers/9.jpg} fill"; };
-        };
+        # output = {
+        #   "*" = {
+        #     bg = "${./wallpapers/9.jpg} fill";
+        #   };
+        # };
         bindkeysToCode = true;
         keybindings =
           let
             mod = "Mod4";
-            terminal = "alacritty";
+            terminal = "ghostty";
           in
           {
             "${mod}+s" = "exec ${pkgs.rofi}/bin/rofi -show run";
@@ -124,10 +126,8 @@ in
             "${mod}+Shift+d" = "exec ${pkgs.rofi}/bin/rofi -show ssh";
             "${mod}+Return" = "exec ${terminal}";
             "${mod}+Shift+Return" = "exec ${terminal} --class floating_terminal";
-            "${mod}+t" =
-              "exec ${terminal} --class floating_terminal -e vim $HOME/ws/todo.norg";
-            "${mod}+Shift+t" =
-              "exec ${terminal} --class floating_terminal --working-directory $HOME/ws/mynix/";
+            "${mod}+t" = "exec ${terminal} --class floating_terminal -e vim $HOME/ws/todo.norg";
+            "${mod}+Shift+t" = "exec ${terminal} --class floating_terminal --working-directory $HOME/ws/mynix/";
             "${mod}+q" = "kill";
 
             "${mod}+h" = "focus left";
@@ -181,8 +181,7 @@ in
 
             "${mod}+r" = "mode resize";
 
-            "${mod}+p" =
-              "exec ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - - | wl-copy -t image/png";
+            "${mod}+p" = "exec ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - - | wl-copy -t image/png";
             "${mod}+Shift+p" =
               "exec ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g- ~/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png";
 
@@ -200,7 +199,7 @@ in
             "XF86MonBrightnessDown" = "exec brightnessctl s 10%-";
           };
         assigns = {
-          "${ws_browser}" = [{ app_id = "chromium"; }];
+          "${ws_browser}" = [ { app_id = "chromium"; } ];
           "${ws_msg}" = [
             { app_id = "Slack"; }
             { app_id = "discord"; }
@@ -209,26 +208,35 @@ in
         };
         window.commands = [
           {
-            criteria = { app_id = "floating_terminal"; };
+            criteria = {
+              app_id = "floating_terminal";
+            };
             command = "floating enable, sticky enable";
           }
           # firefox picture-in-picture
           {
-            criteria = { title = "Picture-in-Picture"; };
+            criteria = {
+              title = "Picture-in-Picture";
+            };
             command = "floating enable, sticky enable";
           }
           # chromium picture-in-picture
           {
-            criteria = { title = "Picture in picture"; };
+            criteria = {
+              title = "Picture in picture";
+            };
             command = "floating enable, sticky enable";
           }
           {
-            criteria = { title = "Firefox — Sharing Indicator"; };
-            command =
-              "floating enable, no_focus, resize set 0 0, move absolute position 10 10";
+            criteria = {
+              title = "Firefox — Sharing Indicator";
+            };
+            command = "floating enable, no_focus, resize set 0 0, move absolute position 10 10";
           }
           {
-            criteria = { app_id = "chrome-nngceckbapebfimnlniiiahkandclblb-Default"; };
+            criteria = {
+              app_id = "chrome-nngceckbapebfimnlniiiahkandclblb-Default";
+            };
             command = "floating enable, sticky enable";
           }
         ];

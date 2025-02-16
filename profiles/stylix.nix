@@ -4,8 +4,8 @@
     enable = true;
     image = builtins.fetchurl {
       name = "wallpaper";
-      url = "https://unsplash.com/photos/Y3PD_9c2xms/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzM5MzAxNDE2fA&force=true";
-      sha256 = "1knl379zjs06zb22xwxh7ax1rfq4wf9pn4yis5jdrililn7hks73";
+      url = "https://unsplash.com/photos/IRXYNAMlUtw/download\?ixid\=M3wxMjA3fDB8MXxzZWFyY2h8MTB8fG5ldyUyMHlvcmslMjBuaWdodHxlbnwwfDB8fHwxNzM5NzMwODUyfDI\&force\=true\&w\=2400";
+      sha256 = "1lbpwmmrvc1391mngr12mnjm23g8g7pxqyp16dm0sijan2b9mr86";
     };
     base16Scheme = inputs.tt-schemes + "/base16/darcula.yaml";
     cursor = {

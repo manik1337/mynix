@@ -10,10 +10,6 @@
           history = 100000;
           multiplier = 5;
         };
-        font = {
-          normal.family = "Hack Nerd Font";
-          size = 10;
-        };
         window = {
           dynamic_title = true;
         };

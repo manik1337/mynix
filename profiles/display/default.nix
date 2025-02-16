@@ -2,15 +2,15 @@
 {
   imports = [
     ./browser
-    # ./rofi
-    # ./waybar
+    ./rofi
+    ./waybar
     ./alacritty.nix
     ./gaming.nix
-    # ./mako.nix
-    # ./sway.nix
-    ./theme.nix
+    ./mako.nix
+    ./sway.nix
     ./zathura.nix
     ./ghostty.nix
+    ./wlsunset.nix
   ];
 
   home-manager.users.dmanik = {
@@ -74,18 +74,18 @@
 
       # wayland
       brightnessctl
-      # slurp
-      # grim
-      # swappy
-      # swaylock-effects
-      # swayidle
+      slurp
+      grim
+      swappy
+      swaylock-effects
+      swayidle
       wl-clipboard
-      # kanshi
-      # bemenu
-      # wf-recorder
+      kanshi
+      bemenu
+      wf-recorder
       xdg-desktop-portal-wlr
-      # swaykbdd
-      # wdisplays
+      swaykbdd
+      wdisplays
     ];
   };
 }
