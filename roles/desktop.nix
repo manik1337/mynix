@@ -1,4 +1,5 @@
-{ inputs, ... }: {
+{ inputs, ... }:
+{
   imports = with inputs.self.nixosProfiles; [
     display
     nvim
@@ -10,5 +11,6 @@
     xdg
     zsh
     tmux
+    stylix
   ];
 }

@@ -10,44 +10,51 @@
     nur.url = "github:nix-community/NUR";
     deploy-rs.url = "github:serokell/deploy-rs";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    tt-schemes = {
+      url = "github:tinted-theming/schemes";
+      flake = false;
+    };
   };
 
   outputs =
     {
       self,
-      home-manager,
+      nixpkgs,
       deploy-rs,
       ...
     }@inputs:
     let
       system = "x86_64-linux";
-      lib = inputs.nixpkgs.lib;
-
       findModules =
         dir:
-        builtins.concatLists (
-          builtins.attrValues (
-            builtins.mapAttrs (
-              name: type:
-              if type == "regular" then
-                [
-                  {
-                    name = builtins.elemAt (builtins.match "(.*)\\.nix" name) 0;
-                    value = dir + "/${name}";
-                  }
-                ]
-              else if (builtins.readDir (dir + "/${name}")) ? "default.nix" then
-                [
-                  {
-                    inherit name;
-                    value = dir + "/${name}";
-                  }
-                ]
-              else
-                findModules (dir + "/${name}")
-            ) (builtins.readDir dir)
-          )
-        );
+        let
+          contents = builtins.readDir dir;
+          processFile =
+            name: type:
+            if type == "regular" && nixpkgs.lib.hasSuffix ".nix" name then
+              [
+                {
+                  name = nixpkgs.lib.removeSuffix ".nix" name;
+                  value = dir + "/${name}";
+                }
+              ]
+            else if type == "directory" && (builtins.readDir (dir + "/${name}")) ? "default.nix" then
+              [
+                {
+                  inherit name;
+                  value = dir + "/${name}";
+                }
+              ]
+            else if type == "directory" then
+              findModules (dir + "/${name}")
+            else
+              [ ];
+        in
+        builtins.concatLists (nixpkgs.lib.mapAttrsToList processFile contents);
     in
     {
       nixosModules = builtins.listToAttrs (findModules ./modules);
@@ -58,47 +65,46 @@
           hosts = builtins.attrNames (builtins.readDir ./machines);
           mkHost =
             name:
-            lib.nixosSystem {
+            nixpkgs.lib.nixosSystem {
               inherit system;
-              modules = builtins.attrValues self.nixosModules ++ [
-                home-manager.nixosModules.home-manager
-
-                (import (./machines + "/${name}"))
+              modules = [
+                # Base configuration
                 {
-                  nixpkgs = {
-                    pkgs = import inputs.nixpkgs {
-                      overlays = [
-                        (import ./overlays inputs system)
-                        inputs.nur.overlays.default
-                      ];
-                      localSystem = {
-                        inherit system;
-                      };
-                      config.allowUnfree = true;
-                      config.allowAliases = false;
-                    };
+                  nixpkgs.pkgs = import nixpkgs {
+                    inherit system;
+                    overlays = [
+                      (import ./overlays inputs system)
+                      inputs.nur.overlays.default
+                    ];
+                    config.allowUnfree = true;
+                    config.allowAliases = true;
                   };
                 }
                 { device = name; }
-              ];
+
+                # External modules
+                inputs.home-manager.nixosModules.home-manager
+                inputs.stylix.nixosModules.stylix
+
+                # Machine-specific configuration
+                (import (./machines + "/${name}"))
+              ] ++ (builtins.attrValues self.nixosModules);
               specialArgs = {
-                inherit inputs;
+                inherit inputs system;
               };
             };
         in
-        lib.genAttrs hosts mkHost;
+        nixpkgs.lib.genAttrs hosts mkHost;
 
       deploy = {
         sshUser = "root";
-        nodes = (
-          builtins.mapAttrs (name: machine: {
-            hostname = if name == "t14s" then "localhost" else "107.191.44.103";
-            profiles.system = {
-              user = "root";
-              path = deploy-rs.lib.x86_64-linux.activate.nixos machine;
-            };
-          }) self.nixosConfigurations
-        );
+        nodes = nixpkgs.lib.mapAttrs (name: machine: {
+          hostname = if name == "t14s" then "localhost" else "107.191.44.103";
+          profiles.system = {
+            user = "root";
+            path = deploy-rs.lib.x86_64-linux.activate.nixos machine;
+          };
+        }) self.nixosConfigurations;
       };
     };
 }
